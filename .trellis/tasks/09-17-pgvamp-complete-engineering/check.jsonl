@@ -1,0 +1,3 @@
+{"file":".trellis/tasks/09-17-wp0-foundation-references/research/source-reading-contract.md","reason":"先读：自动注入会截断执行书，必须分段完整读取原文件并验证 SHA-256；不可凭注入前缀实现或检查。"}
+{"file":"docs/CODEX_ENGINEERING_SPEC.md","reason":"仅作父任务总目标与跨阶段验收的权威来源；不是实现授权。"}
+{"file":".trellis/spec/guides/workflow-and-authority.md","reason":"父任务协调边界及 WP0–WP8 依赖顺序。"}

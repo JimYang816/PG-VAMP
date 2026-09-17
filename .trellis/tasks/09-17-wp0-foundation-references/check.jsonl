@@ -1,0 +1,11 @@
+{"file":".trellis/tasks/09-17-wp0-foundation-references/research/source-reading-contract.md","reason":"先读：自动注入会截断执行书，必须分段完整读取原文件并验证 SHA-256；不可凭注入前缀实现或检查。"}
+{"file":"docs/CODEX_ENGINEERING_SPEC.md","reason":"验收核对：唯一自包含工程规格；完整读取，范围 §22 WP0；§§19–21、23 工程验收，§§13–15 reference 合同。"}
+{"file":".trellis/spec/backend/index.md","reason":"验收核对：已审核规范导航及最高优先级来源。"}
+{"file":".trellis/spec/backend/directory-structure.md","reason":"验收核对：src layout、独立 reference、依赖与公开接口要求。"}
+{"file":".trellis/spec/backend/runtime-config.md","reason":"验收核对：CPU/精度默认、严格配置、smoke profile 边界。"}
+{"file":".trellis/spec/backend/reproducibility.md","reason":"验收核对：源哈希、环境和解析配置证据；checkpoint 等后续义务不提前实现。"}
+{"file":".trellis/spec/backend/numerical-contracts.md","reason":"验收核对：不可改变的数学合同与禁止 API。"}
+{"file":".trellis/spec/backend/quality-guidelines.md","reason":"验收核对：pytest、oracle 独立性、原容差和真实结果。"}
+{"file":".trellis/spec/guides/workflow-and-authority.md","reason":"验收核对：WP 顺序、前置与不得将父任务作为实现目标。"}
+{"file":".trellis/spec/guides/code-reuse-thinking-guide.md","reason":"验收核对：reference 不得通过复用生产算子自证。"}
+{"file":".trellis/spec/guides/cross-layer-thinking-guide.md","reason":"验收核对：配置/维度/device/持久化边界审阅。"}

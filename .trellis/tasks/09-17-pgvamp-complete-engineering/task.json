@@ -1,0 +1,35 @@
+{
+  "id": "pgvamp-complete-engineering",
+  "name": "pgvamp-complete-engineering",
+  "title": "PG-VAMP CP-OFDM Complete Engineering Project",
+  "description": "Parent coordination only: authoritative specification, WP0-WP8 map and cross-stage acceptance; no direct code implementation.",
+  "status": "planning",
+  "dev_type": "docs",
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "jimyang",
+  "assignee": "jimyang",
+  "createdAt": "2026-09-17",
+  "completedAt": null,
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [
+    "09-17-wp0-foundation-references"
+  ],
+  "parent": null,
+  "relatedFiles": [
+    "docs/CODEX_ENGINEERING_SPEC.md",
+    ".trellis/tasks/09-17-wp0-foundation-references"
+  ],
+  "notes": "Coordination only; never start as a direct implementation task. Only WP0 created.",
+  "meta": {
+    "role": "coordination_parent",
+    "review_state": "awaiting_user_review",
+    "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
+  }
+}

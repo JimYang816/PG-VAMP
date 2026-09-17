@@ -1,0 +1,35 @@
+{
+  "id": "wp0-foundation-references",
+  "name": "wp0-foundation-references",
+  "title": "WP0 - Project Foundation and References",
+  "description": "Plan section 22 WP0: Python foundation, strict configuration, explicit device selection, independent dense references and minimal CLI.",
+  "status": "planning",
+  "dev_type": "backend",
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "jimyang",
+  "assignee": "jimyang",
+  "createdAt": "2026-09-17",
+  "completedAt": null,
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": "09-17-pgvamp-complete-engineering",
+  "relatedFiles": [
+    "docs/CODEX_ENGINEERING_SPEC.md",
+    ".trellis/tasks/09-17-wp0-foundation-references/prd.md",
+    ".trellis/tasks/09-17-wp0-foundation-references/design.md",
+    ".trellis/tasks/09-17-wp0-foundation-references/implement.md"
+  ],
+  "notes": "Planning artifacts ready for user review; task start and product code are not authorized in this turn.",
+  "meta": {
+    "complexity": "complex",
+    "review_state": "awaiting_user_review",
+    "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
+  }
+}

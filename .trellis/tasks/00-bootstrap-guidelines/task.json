@@ -1,0 +1,33 @@
+{
+  "id": "00-bootstrap-guidelines",
+  "name": "00-bootstrap-guidelines",
+  "title": "Bootstrap Guidelines",
+  "description": "Fill in project development guidelines for AI agents",
+  "status": "in_progress",
+  "dev_type": "docs",
+  "scope": null,
+  "package": null,
+  "priority": "P1",
+  "creator": "jimyang",
+  "assignee": "jimyang",
+  "createdAt": "2026-09-17",
+  "completedAt": null,
+  "branch": "main",
+  "base_branch": null,
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": null,
+  "relatedFiles": [
+    ".trellis/spec/backend/",
+    ".trellis/spec/guides/",
+    "docs/CODEX_ENGINEERING_SPEC.md"
+  ],
+  "notes": "Documentation bootstrap drafted and checked against CODEX_ENGINEERING_SPEC.md; awaiting user review. Do not begin WP0 or archive this task before review.",
+  "meta": {
+    "review_state": "awaiting_user_review",
+    "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
+  }
+}
