@@ -75,3 +75,25 @@ Completed WP0 implementation, independent review, CPU validation and task archiv
 ### Next Steps
 
 - 等待用户明确安排 WP2；本轮未创建或启动 WP2。
+
+
+## Session 3: WP2 physical channel completed
+<!-- trellis-session: v=2 fp=ad808ed66b475c0e -->
+
+**Date**: 2026-09-18
+**Task**: WP2 physical channel completed
+**Branch**: `codex/wp2-physical-channel-effective-model`
+
+### Summary
+
+Implemented and independently verified WP2 physical paths, full effective matrix, waveform reference, CP support, FFT, pilot cancellation and AWGN. Final regression: 194 passed, 3 CUDA skipped; product Ruff/format/mypy passed. Two-frame 20-window audit maximum relative error 8.152338913635682e-12; independent saved-tensor reconstruction passed. User confirmed commit; WP2 archived. WP3 not started.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `65c0aa5` | feat: 完成 WP2 物理信道与有效模型 |
+
+### Status
+
+[OK] **Completed**

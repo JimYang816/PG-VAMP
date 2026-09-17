@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 2
+- **Total Sessions**: 3
 - **Last Active**: 2026-09-18
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~77 | Active |
+| `journal-1.md` | ~99 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 3 | 2026-09-18 | WP2 physical channel completed | `65c0aa5` | `codex/wp2-physical-channel-effective-model` |
 | 2 | 2026-09-18 | WP1 - Modulation Frame and LFM | `414de3f` | `codex/wp1-modulation-frame-lfm` |
 | 1 | 2026-09-18 | WP0 foundation and references completed | `ecbda13` | `main` |
 <!-- @@@/auto:session-history -->
