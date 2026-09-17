@@ -1,0 +1,12 @@
+[
+  {
+    "reference": "PG",
+    "identity_max_error": 0.0,
+    "zero_uniform": true
+  },
+  {
+    "reference": "VAMP",
+    "identity_max_error": 0.0,
+    "zero_uniform": true
+  }
+]

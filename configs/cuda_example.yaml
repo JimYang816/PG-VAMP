@@ -1,0 +1,4 @@
+# Explicit selection; inspect-config errors if CUDA is unavailable.
+runtime:
+  device: cuda:0
+  dtype: complex64

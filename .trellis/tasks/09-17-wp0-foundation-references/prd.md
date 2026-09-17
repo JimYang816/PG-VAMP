@@ -62,4 +62,7 @@ oracle，不视为 WP1 调制链路完成。
 
 ## Planning gate
 阻塞产品决策：无；以上范围由执行书和用户本轮限定。
-规划文档待审核，status=planning。未经后续明确批准，不执行 task start 或写代码。
+用户于 2026-09-18 明确批准 WP0 规划与实现；本 child 已通过 task start
+进入 in_progress。执行仅限 WP0；完成后先汇报 diff、实际测试和未完成项，
+不得开始 WP1。初次规划时的仓库状态仅为历史背景；本次实际起始 HEAD
+为 2611522，工作区干净，详见根目录 VALIDATION.md。

@@ -1,0 +1,10 @@
+data:
+  train_frames: 2
+  val_frames: 1
+training:
+  max_steps: 2
+  validation_every_steps: 1
+  validation_max_blocks: 8
+evaluation:
+  frames_per_cell: 1
+  label: smoke_system

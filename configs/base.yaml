@@ -1,0 +1,146 @@
+schema_version: 1
+seed: 20260917
+
+runtime:
+  device: cpu
+  dtype: complex128
+  num_workers: 0
+  cpu_threads: 4                   # 实际取 min(4, available_cpu_count)
+  deterministic: true
+  amp: false
+
+waveform:
+  sample_rate_hz: 96000
+  band_hz: [21000, 27000]
+  carrier_hz: 24000
+  n_grid: 512
+  n_fft_wave: 8192
+  cp_samples: 2048
+  n_data: 400
+  n_pilots: 64
+  n_guard_left: 24
+  n_guard_right: 23
+  dc_null: true
+  allocation: default_400_64_47_1
+  fft_norm: ortho
+  modulation: qpsk_fixed_sign_bits
+  symbol_energy: 1.0
+  pilot_energy: 1.0
+  coding: none
+  ofdm_window: none
+
+frame:
+  n_ofdm_symbols: 8
+  leading_silence_samples: 1920
+  lfm_samples: 3840
+  lfm_start_hz: 21000
+  lfm_stop_hz: 27000
+  lfm_window: tukey
+  lfm_tukey_alpha: 0.1
+  sync_guard_samples: 2048
+  trailing_silence_samples: 2048
+  arrival_offset_max_samples: 1920
+
+channel:
+  model: affine_time_scaling
+  min_paths: 3
+  max_paths: 6
+  first_delay_s: 0.002
+  max_delay_s: 0.014
+  power_delay_tau_s: 0.003
+  path_energy_normalization: per_frame_sum_abs2_one
+  epsilon_max:
+    affine_doppler_mild: 0.00002
+    affine_doppler_moderate: 0.00010
+    affine_doppler_strong: 0.00020
+  forbid_interblock_interference: true
+  validate_cp_support: true
+
+receiver:
+  front_end: ideal_complex_iq
+  sync_mode: oracle_timing
+  lfm_threshold: 0.1
+  csi_mode: perfect
+  noise_variance: known
+  receive_rows: data_q
+  pilot_cancellation: exact_known_channel
+
+noise:
+  axis: esn0_db_unit_symbol
+  definition: E_abs_w_squared_equals_sigma2
+  use_measured_per_frame_signal_power: false
+
+data:
+  backend: effective_fast
+  storage: compact_frame_records
+  train_frames: 128
+  val_frames: 32
+  train_esn0_range_db: [-5, 25]
+  train_scenario_weights:
+    static_multipath: 0.1
+    affine_doppler_mild: 0.2
+    affine_doppler_moderate: 0.5
+    affine_doppler_strong: 0.2
+  split_unit: physical_frame
+  audit_waveform_frames: 2
+  matrix_cache_entries: 4
+
+pg_vamp:
+  depth: 8
+  rho_hi_db: 0.0
+  rho_lo_db: -60.0
+  min_gap_db: 0.5
+  temperature_db: 3.0
+  init_gap: inverse_depth
+  init_mu: 0.8
+  mask_mode: soft
+  precision_min: 1.0e-10
+  precision_max: 1.0e8
+  alpha_margin: 1.0e-6
+  trace_method: exact
+  solve_method: cholesky
+  nonlinear_invalid_policy: keep_previous
+  jitter: 0.0
+
+vamp:
+  iterations: 8
+  linear_method: svd_exact
+  nonlinear_invalid_policy: keep_previous
+  precision_min: 1.0e-10
+  precision_max: 1.0e8
+  alpha_margin: 1.0e-6
+  learned_parameters: false
+  adaptive_stopping: false
+
+mmse:
+  method: cholesky
+  output: raw_linear_estimate
+  qpsk_post_denoiser: false
+
+training:
+  batch_size: 1
+  max_steps: 300
+  optimizer: adam
+  learning_rate: 0.001
+  weight_decay: 0.0
+  grad_clip_norm: 5.0
+  loss: layer_weighted_complex_mse
+  validation_every_steps: 50
+  validation_max_blocks: 64
+  checkpoint_metric: final_layer_nmse
+  checkpoint_mode: min
+  early_stopping: false
+
+evaluation:
+  algorithms: [mmse, vamp, pg_vamp]
+  scenarios: [identity_awgn, static_multipath, affine_doppler_moderate]
+  esn0_db: [0, 10, 20]
+  frames_per_cell: 16
+  batch_size: 1
+  shared_samples: true
+  frame_cluster_bootstrap_repeats: 2000
+  label: development_only
+  timing_mode: per_observation_cold_H
+  timing_warmup: 5
+  timing_repeats: 20
+  save_per_frame_counts: true

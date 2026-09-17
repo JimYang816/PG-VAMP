@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-09-17T16:33:04.134835+00:00",
+  "environment": {
+    "MKL_THREADING_LAYER": "TBB",
+    "python_executable": "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe"
+  },
+  "commands": [
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_config.py",
+        "tests/test_devices.py",
+        "tests/test_cli.py",
+        "tests/test_reference.py",
+        "--basetemp=runs/wp0-acceptance-targeted",
+        "-ra"
+      ],
+      "exit_code": 0,
+      "stdout": ".....................................s.................................. [ 94%]\n....                                                                     [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_devices.py:61: CUDA hardware unavailable\n75 passed, 1 skipped in 12.22s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/wp0-acceptance-full",
+        "-ra"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................s............................... [ 94%]\n....                                                                     [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_devices.py:61: CUDA hardware unavailable\n75 passed, 1 skipped in 11.93s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "16 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 11 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml",
+        "--output",
+        "runs/wp0-inspect"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 1088000,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, pilot seed, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of '.trellis/spec/backend/index.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/spec/backend/numerical-contracts.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-pgvamp-complete-engineering/prd.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-wp0-foundation-references/design.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-wp0-foundation-references/implement.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-wp0-foundation-references/prd.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ]
+}

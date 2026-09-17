@@ -1,0 +1,95 @@
+"""WP0 inspect-config entry point; deliberately no simulation or training commands."""
+
+import argparse
+import hashlib
+import json
+import os
+import platform
+import subprocess
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import torch
+import yaml
+
+from .config import load_config, summarize
+from .utils.device import Runtime, resolve_runtime
+
+
+def _provenance(runtime: Runtime) -> dict[str, Any]:
+    root = Path(__file__).resolve().parents[2]
+    if root.name == "src":
+        root = root.parent
+    # Package source hashes remain available when installed outside a checkout.
+    package = Path(__file__).resolve().parent
+    hashes = {
+        str(p.relative_to(package)).replace("\\", "/"): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in sorted(package.rglob("*"))
+        if p.suffix in (".py", ".yaml")
+    }
+    spec = root / "docs" / "CODEX_ENGINEERING_SPEC.md"
+    commit, dirty = None, None
+    if (root / ".git").exists():
+        head = subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=root, text=True, capture_output=True, check=False
+        )
+        status = subprocess.run(
+            ["git", "status", "--porcelain"], cwd=root, text=True, capture_output=True, check=False
+        )
+        commit = head.stdout.strip() if head.returncode == 0 else None
+        dirty = bool(status.stdout) if status.returncode == 0 else None
+    return {
+        "python": platform.python_version(),
+        "platform": platform.platform(),
+        "torch": torch.__version__,
+        "numpy": np.__version__,
+        "pyyaml": yaml.__version__,
+        "device": str(runtime.device),
+        "cpu_threads": runtime.cpu_threads,
+        "complex_dtype": str(runtime.complex_dtype),
+        "real_dtype": str(runtime.real_dtype),
+        "deterministic": torch.are_deterministic_algorithms_enabled(),
+        "MKL_THREADING_LAYER": os.environ.get("MKL_THREADING_LAYER"),
+        "git_commit": commit,
+        "git_dirty": dirty,
+        "package_source_hashes": hashes,
+        "package_source_sha256": hashlib.sha256(
+            json.dumps(hashes, sort_keys=True).encode()
+        ).hexdigest(),
+        "engineering_spec_sha256": hashlib.sha256(spec.read_bytes()).hexdigest()
+        if spec.exists()
+        else None,
+        "engineering_spec_status": "present"
+        if spec.exists()
+        else "not bundled; no runtime dependency",
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    """Inspect validated config; optional --output saves config and provenance, never samples."""
+    parser = argparse.ArgumentParser(prog="pgvamp-ofdm")
+    sub = parser.add_subparsers(dest="command", required=True)
+    inspect = sub.add_parser("inspect-config", help="validate and print static configuration")
+    inspect.add_argument("--config", type=Path)
+    inspect.add_argument("--device")
+    inspect.add_argument("--dtype")
+    inspect.add_argument("--output", type=Path)
+    args = parser.parse_args(argv)
+    try:
+        config = load_config(args.config, device=args.device, dtype=args.dtype)
+        rt = config.values["runtime"]
+        runtime = resolve_runtime(rt["device"], rt["dtype"], rt["cpu_threads"], rt["deterministic"])
+        rt["cpu_threads"] = runtime.cpu_threads
+        rt["device"] = str(runtime.device)
+        summary = summarize(config)
+        if args.output is not None:
+            args.output.mkdir(parents=True, exist_ok=True)
+            config.save(args.output / "resolved_config.yaml")
+            (args.output / "environment.json").write_text(
+                json.dumps(_provenance(runtime), indent=2) + "\n", encoding="utf-8"
+            )
+        print(json.dumps(summary, indent=2, allow_nan=False))
+    except (ValueError, OSError, RuntimeError) as exc:
+        parser.exit(2, f"configuration error: {exc}\n")
+    return 0

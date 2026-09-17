@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-09-17T16:34:31.552685+00:00",
+  "git_head": "2611522cff34772631b2281dde79ea6d0a30ade4",
+  "working_tree": "uncommitted WP0 changes",
+  "spec_sha256": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+  "files": {
+    "configs/base.yaml": {
+      "sha256": "5952a540ce16a69a8bcd8e12feea67c2fe88aeada7a61b2c63fa3d36bafce9d2",
+      "lines": 146
+    },
+    "configs/cpu_dev.yaml": {
+      "sha256": "9b77dc25484ad1dc2ab6cc5a97b6bf09493391f17e851736418366764cdf81f9",
+      "lines": 2
+    },
+    "configs/cuda_example.yaml": {
+      "sha256": "4b38c5816c7d9901e85688ba68ac8e905746719fcbe6d2245e1c03142df9ddaf",
+      "lines": 4
+    },
+    "configs/main.yaml": {
+      "sha256": "b1c86d918b08653c7aa2445245a1048a3759cec844b4f3b1ccf8fb4e4c5abb9f",
+      "lines": 11
+    },
+    "configs/smoke_math.yaml": {
+      "sha256": "171d3fa61aa6dee6fbfa9585f99d31e539442831d1ba733e80e8694418af332e",
+      "lines": 5
+    },
+    "configs/smoke_system.yaml": {
+      "sha256": "c409e9f811b0fbf9679cdc2f9e269ae656c8f47f229c92f042d172264e7dc1ae",
+      "lines": 10
+    },
+    "pyproject.toml": {
+      "sha256": "d5496e310817e47260ff5a020f0bff837b1b4c0745fa6dd6a13ec3f50dd67cb3",
+      "lines": 42
+    },
+    "src/pgvamp_ofdm/__init__.py": {
+      "sha256": "43e8a15947685966b4e83e5a08b993d6edbd3688038de216bfc89aaa942abf07",
+      "lines": 3
+    },
+    "src/pgvamp_ofdm/__main__.py": {
+      "sha256": "5fa2e6d44dd2e264a1049d222c3824fc021127bcaa0ceae5185c929319b3ab7d",
+      "lines": 5
+    },
+    "src/pgvamp_ofdm/base.yaml": {
+      "sha256": "5952a540ce16a69a8bcd8e12feea67c2fe88aeada7a61b2c63fa3d36bafce9d2",
+      "lines": 146
+    },
+    "src/pgvamp_ofdm/cli.py": {
+      "sha256": "1c18d6c08b56360674850b3e5f528e0eb5d39f78c049bbfd3cf39c786f9af2da",
+      "lines": 95
+    },
+    "src/pgvamp_ofdm/config.py": {
+      "sha256": "37ba3304aaeafbe366748079f03a5aad2dee79d35ef70551466348e63fdc6178",
+      "lines": 340
+    },
+    "src/pgvamp_ofdm/reference/__init__.py": {
+      "sha256": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+      "lines": 1
+    },
+    "src/pgvamp_ofdm/reference/dense_pg_vamp.py": {
+      "sha256": "d4123b3b9830ed8b2ddfe2adb1512f8456406652b30e1c2f598d96afd199e1be",
+      "lines": 275
+    },
+    "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py": {
+      "sha256": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+      "lines": 143
+    },
+    "src/pgvamp_ofdm/reference/result.py": {
+      "sha256": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+      "lines": 26
+    },
+    "src/pgvamp_ofdm/utils/__init__.py": {
+      "sha256": "48defe375bbb439c867b30cf83cd2686b846cbead15dbbc1f66dfd10402ba9a4",
+      "lines": 1
+    },
+    "src/pgvamp_ofdm/utils/device.py": {
+      "sha256": "45a2293f6684f735af83ba07065f18228a5f970f2f73dc636bedb952b0fc7549",
+      "lines": 51
+    },
+    "src/pgvamp_ofdm/utils/validation.py": {
+      "sha256": "666f7dfbe0231e06d20971bca4a801f871b299029267e505761bb08fb0fbb15f",
+      "lines": 24
+    },
+    "tests/conftest.py": {
+      "sha256": "9fa202365c5c2817fa2b8cb9b8856578cd63ab3059db4a9fc0cf302156c64bae",
+      "lines": 7
+    },
+    "tests/test_cli.py": {
+      "sha256": "fa15a32aa5604f6e06f0ccb95a4c5b8eb0ea912ffa1c95bbec6cb983485263b5",
+      "lines": 49
+    },
+    "tests/test_config.py": {
+      "sha256": "68905f0de11d12ab04df454f051f0e5897961df98049bd9b065b3a04e3f604d5",
+      "lines": 131
+    },
+    "tests/test_devices.py": {
+      "sha256": "0071077d3fb6e03dafa4d04e6812abbde0cb318acd18f231a48735061761a47a",
+      "lines": 71
+    },
+    "tests/test_reference.py": {
+      "sha256": "a662f3434930674c5a05309570416d266debb9d6cf6fc761c2864a75cad7dc70",
+      "lines": 294
+    }
+  },
+  "aggregate_sha256": "1c06a3386740a8396f7463a6305d773ad40e65763cec67e917c69f4cbf3f0847"
+}

@@ -1,0 +1,5 @@
+profile: smoke_math
+algebra:
+  dimension: 32
+  depth: 2
+  updates: 2

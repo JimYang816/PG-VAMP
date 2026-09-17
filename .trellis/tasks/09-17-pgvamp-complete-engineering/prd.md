@@ -19,7 +19,7 @@ A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B。
 ## WP map — dependency order is mandatory
 | WP | 责任与验收摘要（不得替代执行书 §22） | 前置 | 任务状态 |
 | --- | --- | --- | --- |
-| WP0 | 配置、设备、目录、独立 references、最小 CLI；派生参数与最小 reference 测试 | bootstrap 已审核 | [WP0 planning](../09-17-wp0-foundation-references/prd.md) |
+| WP0 | 配置、设备、目录、独立 references、最小 CLI；派生参数与最小 reference 测试 | bootstrap 已审核 | [WP0 implemented / verified, awaiting review](../09-17-wp0-foundation-references/prd.md) |
 | WP1 | 固定 QPSK/分配、OFDM/CP/帧、LFM；映射/能量/索引/定位/帧长 | WP0 验收 | 未创建 |
 | WP2 | 仿射物理信道、CP 支撑、完整 H、独立波形、导频消除；非零时缩一致性/噪声 | WP1 验收 | 未创建 |
 | WP3 | 紧凑数据、manifest、split、随机流、重放；无泄漏、同样本、容量估计 | WP2 验收 | 未创建 |
@@ -54,5 +54,9 @@ WP0 reference 是执行书要求，不代表提前实施 WP4/WP5 正式检测器
   未执行主训练/sweep 标注“未执行”；执行书 §24 不算本工程测试（§§18、22–24）。
 
 ## Review state
-当前规划只授权任务和文档创建。父任务和 WP0 保持 planning；
-未执行 task start，尚无任何 WP 验收通过声明。
+用户于 2026-09-18 批准 WP0 规划与实现。WP0 child 已启动，父任务仍为
+总规划容器。WP0 CPU 验证和独立 trellis-check 已通过：最终目标与全量各
+75 passed、1 skipped（CUDA 不可用），Ruff/mypy 通过。实际回执与源码哈希
+保存在 WP0 research/final-validation.json、research/final-source-manifest.json，
+详见根目录 VALIDATION.md。等待用户先审阅 diff/结果，尚未提交/归档。
+WP1–WP8 未获本轮启动授权，未创建或启动。

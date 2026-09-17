@@ -3,7 +3,8 @@
 ## Authority and boundaries
 以 [执行书](../../../docs/CODEX_ENGINEERING_SPEC.md) §22 WP0 为范围，
 §§19–21、23 为工程验收依据，§§13–15 为 references 的算法依据。
-本设计不复写或替换公式。下列路径均为未来实现路径；当前只创建规划文档。
+本设计不复写或替换公式。下列路径是获批的 WP0 实现责任边界；
+2026-09-18 已获实现授权，实际完成与验证状态见根目录 VALIDATION.md。
 实现与检查都先按 research/source-reading-contract.md 完整读取原文件；
 Trellis 单文件注入会截断执行书，不能视为已完成必读要求。
 
@@ -102,8 +103,9 @@ WP0 测试是初步 oracle 正确性证据，并非 WP5 完整验收：
 
 ## Provenance, compatibility and rollback
 实现开始及验证时记录源文档 SHA-256、Git HEAD/dirty 状态、软件环境。
-当前无 commit，应记录 commit=null/uncommitted 和排序代码文件内容哈希，
-不能编造版本。后续有提交后记录实际 commit，同时保留 dirty/source hash。
+规划时无 commit 的描述属于历史状态；本次执行起始已有初始提交 2611522。
+按实际 Git 状态记录 commit、dirty 和排序代码文件内容哈希，不能编造版本。
+未来若在无提交工作区执行，记录 commit=null/uncommitted，同时保留源码哈希。
 用户执行书保持不变。仅新增本任务拥有的工程文件；回滚仅针对本任务补丁，
 不清理未跟踪目录或整个工作区，不删除用户文件。
 主要风险：reference 与生产代码过度复用、配置默认漂移、smoke 范围膨胀；

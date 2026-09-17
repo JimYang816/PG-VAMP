@@ -1,0 +1,5 @@
+{
+  "command": "Parse original source section 20 YAML and compare every resolved base value excluding explicit profile discriminator",
+  "exit_code": 0,
+  "all_fields_match": true
+}

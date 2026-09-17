@@ -1,0 +1,11 @@
+data:
+  train_frames: 1024
+  val_frames: 128
+training:
+  max_steps: 5000
+  validation_max_blocks: 1024
+evaluation:
+  scenarios: [identity_awgn, static_multipath, affine_doppler_mild, affine_doppler_moderate, affine_doppler_strong]
+  esn0_db: [-5, 0, 5, 10, 15, 20, 25]
+  frames_per_cell: 256
+  label: main_simulation

@@ -56,3 +56,20 @@ index, not a replacement derivation.
 - Do not turn PG-VAMP into standard VAMP, unfolded gradient descent or a GNN.
   Dense work can remain cubic; soft-edge counts and 16 parameters do not prove
   sparse acceleration, low memory, monotone BER or guaranteed superiority.
+
+## Executable protection lesson from WP0
+
+- In both independent reference message paths, branch **before** a reciprocal
+  that cannot be represented, and before a precision-cap reciprocal whose
+  derivative would overflow. Computing `1/vbar` and then indexing/clamping its
+  result can leave `0 * Inf = NaN` in backward despite finite forward outputs.
+- Preserve §14.6: zero/nonfinite/unrepresentable candidates are rejected;
+  valid candidates above `1e8` retain their mean and use constant precision
+  `1e8`. This is an evaluation-order repair, not a new epsilon or threshold.
+- Required regressions: float64/float32 nonrepresentable reciprocal boundary,
+  rejected-message backward, finite capped-message backward, unchanged candidate
+  means, and complete multilayer PG parameter gradients. Keep the mathematical
+  forward/gradcheck tolerances from §23 unchanged.
+- Independent implementations deliberately duplicate numerical protection logic;
+  apply the same source contract to each and test each, rather than sharing an
+  operator that makes one oracle certify the other.

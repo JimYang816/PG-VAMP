@@ -8,8 +8,9 @@ In any conflict, the execution specification wins. Read the relevant source
 sections before implementation; resolve ambiguities explicitly rather than
 inventing a contract in Trellis.
 
-Current state: a new project without product source/tests. Paths below describe
-the prescribed implementation, not existing or validated code. The backend
+Current state: WP0 configuration/runtime/CLI and independent references are
+implemented and tested; see the root VALIDATION.md for actual results. Later
+work-package paths remain prescribed future work. The backend
 directory is Trellis's discovery location for the Python library/CLI; it does
 not imply a web server, database or frontend.
 
@@ -20,6 +21,7 @@ not imply a web server, database or frontend.
 | [Reproducibility](reproducibility.md) | random streams, manifests, checkpoint, logs | 10, 15, 18, 21 |
 | [Numerical contracts](numerical-contracts.md) | physical model, algorithm invariants, prohibitions | 2–14, 23 |
 | [Verification](quality-guidelines.md) | independent oracles, pytest, truthful results | 0.3–0.4, 16–18, 22–24 |
+| [WP0 inspection interface](wp0-inspect-contract.md) | strict config, explicit runtime, static CLI and provenance | 15.2, 19–22 |
 
 Always also read [workflow and authority](../guides/workflow-and-authority.md).
 The complete test list and acceptance gates remain in source §§22–23;
