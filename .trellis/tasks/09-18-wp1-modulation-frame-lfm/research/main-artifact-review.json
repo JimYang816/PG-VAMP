@@ -1,0 +1,23 @@
+{
+  "wp1-check-audit": {
+    "files_checked": 8,
+    "all_hashes_match": true,
+    "status": "passed",
+    "maximum_rf_recovery_error": 9.524068763971754e-12,
+    "bit_errors": 0,
+    "timing_error_samples": 0
+  },
+  "wp1-check-audit-complex64": {
+    "files_checked": 8,
+    "all_hashes_match": true,
+    "status": "passed",
+    "maximum_rf_recovery_error": 2.6656007889869215e-07,
+    "bit_errors": 0,
+    "timing_error_samples": 0
+  },
+  "wp0_preservation": {
+    "files_checked": 24,
+    "all_hashes_match": true
+  },
+  "visual_review": "Primary session opened final complex128 PSD and correlation PNGs; checked readable labels/units/ranges, OFDM-window versus LFM-Tukey distinction, template-start peak and threshold."
+}

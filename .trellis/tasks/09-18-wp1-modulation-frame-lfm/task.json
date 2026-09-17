@@ -1,0 +1,48 @@
+{
+  "id": "wp1-modulation-frame-lfm",
+  "name": "wp1-modulation-frame-lfm",
+  "title": "WP1 - Modulation Frame and LFM",
+  "description": "Implement reviewed section 22 WP1: QPSK, allocation, OFDM/CP/frame, real passband, LFM and basic matched correlation. No WP2.",
+  "status": "in_progress",
+  "dev_type": "backend",
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "jimyang",
+  "assignee": "jimyang",
+  "createdAt": "2026-09-18",
+  "completedAt": null,
+  "branch": "codex/wp1-modulation-frame-lfm",
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": "09-17-pgvamp-complete-engineering",
+  "relatedFiles": [
+    "docs/CODEX_ENGINEERING_SPEC.md",
+    ".trellis/tasks/09-18-wp1-modulation-frame-lfm/prd.md",
+    ".trellis/tasks/09-18-wp1-modulation-frame-lfm/design.md",
+    ".trellis/tasks/09-18-wp1-modulation-frame-lfm/implement.md",
+    ".trellis/tasks/09-18-wp1-modulation-frame-lfm/research/source-and-wp0.md"
+  ],
+  "notes": "WP1 implementation and independent verification complete; user confirmed work commit and completion workflow on 2026-09-18. WP2 not started.",
+  "meta": {
+    "complexity": "complex",
+    "review_state": "work_commit_approved",
+    "engineering_spec_sha256": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+    "dependency": ".trellis/tasks/archive/2026-09/09-17-wp0-foundation-references",
+    "implementation_authorized": true,
+    "validation": {
+      "targeted_passed": 91,
+      "targeted_skipped": 1,
+      "full_passed": 166,
+      "full_skipped": 2,
+      "skip_reason": "CUDA hardware unavailable",
+      "receipt": "research/check-validation.json",
+      "review": "research/check-review.md",
+      "artifact_review": "research/check-artifacts.json"
+    }
+  }
+}

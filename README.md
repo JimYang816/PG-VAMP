@@ -1,7 +1,7 @@
 # PG-VAMP CP-OFDM
 
 Implementation follows [CODEX_ENGINEERING_SPEC.md](docs/CODEX_ENGINEERING_SPEC.md).
-The current work package is **WP0: project foundation and independent mathematical references**.
+The current work package is **WP1: modulation, transmit frame and LFM synchronization**.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for scope and
 [VALIDATION.md](VALIDATION.md) for actual validation evidence.
 
@@ -47,7 +47,7 @@ not mean that a `smoke` command or a physical simulation has been implemented.
 
 The dense PG-VAMP and Cholesky VAMP references are correctness oracles for
 small algebra fixtures. They are independent of future production algorithms.
-WP1–WP8, physical validation, training and performance comparisons remain
+WP2–WP8, physical-channel validation, training and performance comparisons remain
 separate work packages. No BER or acceleration claim is made here.
 
 ```python
@@ -64,3 +64,26 @@ Results contain final `x_soft`, four-class `probabilities`, `class_hat`,
 `bits_hat`, diagnostic counters and optional layer states. PG learns exactly
 `raw_gaps[T]` and `raw_mu[T]`; VAMP has no learned parameters. These APIs take
 no target labels. Random matrices used by tests are algebra fixtures only.
+
+## WP1 transmit-frame audit
+
+WP1 adds fixed QPSK mapping, the 400/64/47/1 resource allocation, 8192-point
+unitary IFFT, exact CP copies, the 91776-sample transmit frame, real passband
+export and normalized LFM matching. The default frame carries 6400 uncoded bits.
+
+```powershell
+$env:MKL_THREADING_LAYER = 'TBB'
+.\.venv\Scripts\python.exe scripts/run_wp1_audit.py --config configs/cpu_dev.yaml --output runs/wp1-audit
+```
+
+The audit saves the resolved configuration, environment and seed provenance,
+real/analytic waveforms, frame layout and carrier indices, PSD/correlation arrays,
+plots and numerical checks. The PSD reports finite-waveform sidelobes and uses
+both positive and negative passbands for its out-of-band energy calculation.
+It does not add a transmit window or normalize each frame by measured data power.
+
+Matched-correlation positions denote the **template start**. Recording arrival
+padding is separate from transmit-frame duration; a selected peak is not a claim
+about the earliest physical path. The audit checks no-channel recovery only.
+Physical multipath, affine time scaling, effective H, pilot cancellation and
+the full three-detector system smoke belong to later work packages.

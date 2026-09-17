@@ -1,0 +1,105 @@
+{
+  "kind": "planning_only_historical_source_fingerprint_check",
+  "historical_manifest": ".trellis/tasks/archive/2026-09/09-17-wp0-foundation-references/research/final-source-manifest.json",
+  "checked": 24,
+  "all_match": true,
+  "files": [
+    {
+      "path": "configs/base.yaml",
+      "matches": true
+    },
+    {
+      "path": "configs/cpu_dev.yaml",
+      "matches": true
+    },
+    {
+      "path": "configs/cuda_example.yaml",
+      "matches": true
+    },
+    {
+      "path": "configs/main.yaml",
+      "matches": true
+    },
+    {
+      "path": "configs/smoke_math.yaml",
+      "matches": true
+    },
+    {
+      "path": "configs/smoke_system.yaml",
+      "matches": true
+    },
+    {
+      "path": "pyproject.toml",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/__init__.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/__main__.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/base.yaml",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/cli.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/config.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/__init__.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/dense_pg_vamp.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/result.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/utils/__init__.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/utils/device.py",
+      "matches": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/utils/validation.py",
+      "matches": true
+    },
+    {
+      "path": "tests/conftest.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_cli.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_config.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_devices.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_reference.py",
+      "matches": true
+    }
+  ],
+  "product_tests_rerun": false
+}

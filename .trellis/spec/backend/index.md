@@ -8,8 +8,9 @@ In any conflict, the execution specification wins. Read the relevant source
 sections before implementation; resolve ambiguities explicitly rather than
 inventing a contract in Trellis.
 
-Current state: WP0 configuration/runtime/CLI and independent references are
-implemented and tested; see the root VALIDATION.md for actual results. Later
+Current state: WP0 configuration/runtime/CLI and independent references, plus
+WP1 modulation/transmit-frame/LFM correlation are implemented and tested;
+see the root VALIDATION.md for actual results. WP2 and later
 work-package paths remain prescribed future work. The backend
 directory is Trellis's discovery location for the Python library/CLI; it does
 not imply a web server, database or frontend.
@@ -22,6 +23,7 @@ not imply a web server, database or frontend.
 | [Numerical contracts](numerical-contracts.md) | physical model, algorithm invariants, prohibitions | 2–14, 23 |
 | [Verification](quality-guidelines.md) | independent oracles, pytest, truthful results | 0.3–0.4, 16–18, 22–24 |
 | [WP0 inspection interface](wp0-inspect-contract.md) | strict config, explicit runtime, static CLI and provenance | 15.2, 19–22 |
+| [WP1 waveform interface](wp1-waveform-contract.md) | modulation, transmit layout, real waveform, LFM and template-start correlation | 3–5, 7, 19–23 |
 
 Always also read [workflow and authority](../guides/workflow-and-authority.md).
 The complete test list and acceptance gates remain in source §§22–23;

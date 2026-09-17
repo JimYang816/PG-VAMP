@@ -1,0 +1,58 @@
+{
+  "wp1-check-audit": {
+    "artifact_hashes_checked": 8,
+    "package_source_hashes_checked": 21,
+    "replay_exact": true,
+    "bit_errors": 0,
+    "numpy_recovery_max_abs": 9.524226793575906e-12,
+    "psd": {
+      "frame": {
+        "integration_absolute_error": 2.7755575615628914e-17,
+        "outside_band_fraction": 0.0006655853254901891
+      },
+      "ofdm_useful_block0": {
+        "integration_absolute_error": 2.0816681711721685e-17,
+        "outside_band_fraction": 0.000724408067454694
+      },
+      "lfm": {
+        "integration_absolute_error": 6.938893903907228e-18,
+        "outside_band_fraction": 0.002510755286102268
+      }
+    },
+    "direct_correlation_max_abs": {
+      "real": 1.7763568394002505e-15,
+      "analytic": 6.772360450213455e-14
+    },
+    "noise_real_max": 0.0040599504722726165,
+    "noise_complex_max": 0.0018793610932709456
+  },
+  "wp1-check-audit-complex64": {
+    "artifact_hashes_checked": 8,
+    "package_source_hashes_checked": 21,
+    "replay_exact": true,
+    "bit_errors": 0,
+    "numpy_recovery_max_abs": 2.0432709204151548e-07,
+    "psd": {
+      "frame": {
+        "integration_absolute_error": 1.3877787807814457e-17,
+        "outside_band_fraction": 0.0006655853118169401
+      },
+      "ofdm_useful_block0": {
+        "integration_absolute_error": 6.938893903907228e-18,
+        "outside_band_fraction": 0.0007244080365133038
+      },
+      "lfm": {
+        "integration_absolute_error": 6.938893903907228e-18,
+        "outside_band_fraction": 0.0025107552280648044
+      }
+    },
+    "direct_correlation_max_abs": {
+      "real": 2.384185791015625e-07,
+      "analytic": 3.377621502487216e-07
+    },
+    "noise_real_max": 0.0035205879248678684,
+    "noise_complex_max": 0.002136833732947707
+  },
+  "wp0_unchanged_files": 24,
+  "status": "passed"
+}

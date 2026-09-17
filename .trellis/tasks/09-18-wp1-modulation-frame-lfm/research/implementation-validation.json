@@ -1,0 +1,488 @@
+{
+  "timestamp": "2026-09-17T17:24:39.579311+00:00",
+  "scope": "WP1 implementation verification; not check-agent approval or WP2",
+  "environment": {
+    "MKL_THREADING_LAYER": "TBB",
+    "python_executable": "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+    "ruff_python": "C:/Software/Anaconda3/python.exe",
+    "runner_python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]"
+  },
+  "git_head": "0ca6e48447808cfa80c7468a05a69bdc82a9f0cb",
+  "git_branch": "codex/wp1-modulation-frame-lfm",
+  "commands": [
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_qpsk.py",
+        "tests/test_allocation.py",
+        "tests/test_waveform.py",
+        "tests/test_lfm.py",
+        "--basetemp=runs/wp1-targeted-02",
+        "-ra"
+      ],
+      "exit_code": 0,
+      "stdout": "..............................................s......................... [ 86%]\n...........                                                              [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_waveform.py:167: CUDA hardware unavailable; no GPU computation performed\n82 passed, 1 skipped in 1.53s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/wp1-full-01",
+        "-ra"
+      ],
+      "exit_code": 0,
+      "stdout": ".....................................................s.................. [ 45%]\n........................................................................ [ 90%]\n.........s.....                                                          [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_devices.py:61: CUDA hardware unavailable\nSKIPPED [1] tests\\test_waveform.py:167: CUDA hardware unavailable; no GPU computation performed\n157 passed, 2 skipped in 13.71s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "scripts/run_wp1_audit.py",
+        "--config",
+        "configs/cpu_dev.yaml",
+        "--output",
+        "runs/wp1-audit-final"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"scope\": \"WP1 transmit audit; not WP2 channel validation or full-system smoke\",\n  \"device\": \"cpu\",\n  \"dtype\": \"torch.complex128\",\n  \"frame_samples\": 91776,\n  \"recording_samples\": 92740,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"arrival_offset_samples\": 964,\n  \"recovery_max_abs_error_per_block\": [\n    2.3250705705555665e-12,\n    4.464185938712163e-12,\n    8.900708455855306e-12,\n    5.541607693385613e-12,\n    2.5479327119018482e-12,\n    6.593601129520203e-12,\n    9.524068763971754e-12,\n    6.93449288444928e-12\n  ],\n  \"bit_errors\": 0,\n  \"recovery_tolerance\": {\n    \"atol\": 1e-09,\n    \"rtol\": 1e-08\n  },\n  \"ofdm_useful_analytic_power\": [\n    [\n      0.056640624999999965,\n      0.05664062499999996,\n      0.05664062499999997,\n      0.05664062499999997,\n      0.05664062499999997,\n      0.05664062499999997,\n      0.05664062499999997,\n      0.05664062499999997\n    ]\n  ],\n  \"target_analytic_power\": 0.056640625,\n  \"lfm_analytic_power\": 0.05664062499999999,\n  \"lfm_real_power\": 0.05664062496147843,\n  \"lfm_metadata\": {\n    \"window\": \"tukey\",\n    \"symmetric\": true,\n    \"length\": 3840,\n    \"alpha\": 0.1,\n    \"definition\": \"u=n/(N-1);v1\",\n    \"time_phase_dtype\": \"float64\",\n    \"output_dtype\": \"torch.complex128\",\n    \"beta_hz_per_s\": 150000.0,\n    \"target_analytic_power\": 0.056640625\n  },\n  \"psd\": {\n    \"frame\": {\n      \"samples\": 91776,\n      \"nfft\": 524288,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.05283013488200926,\n      \"psd_integral\": 0.052830134882009286,\n      \"outside_design_band_energy_ratio\": 0.0006655853254901891,\n      \"integration_absolute_error\": 2.7755575615628914e-17\n    },\n    \"ofdm_useful_block0\": {\n      \"samples\": 8192,\n      \"nfft\": 32768,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.056640624999997544,\n      \"psd_integral\": 0.056640624999997564,\n      \"outside_design_band_energy_ratio\": 0.000724408067454694,\n      \"integration_absolute_error\": 2.0816681711721685e-17\n    },\n    \"lfm\": {\n      \"samples\": 3840,\n      \"nfft\": 16384,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.05664062496147843,\n      \"psd_integral\": 0.05664062496147844,\n      \"outside_design_band_energy_ratio\": 0.002510755286102268,\n      \"integration_absolute_error\": 6.938893903907228e-18\n    }\n  },\n  \"sync\": {\n    \"threshold\": 0.1,\n    \"epsilon_sync\": 2.2250738585072014e-308,\n    \"truth_template_start\": 2884,\n    \"peak_start\": 2884,\n    \"peak_score\": 1.0000000000000018,\n    \"analytic_peak_start\": 2884,\n    \"analytic_peak_score\": 1.0000000000000677,\n    \"no_channel_frame_origin_error_samples\": 0\n  },\n  \"noise_fixture\": {\n    \"windows\": 12,\n    \"samples_per_window\": 6000,\n    \"real_peaks\": [\n      0.002478482402322591,\n      0.0024445523675193795,\n      0.0040599504722726165,\n      0.003291259057589323,\n      0.0023769329962512933,\n      0.002546162816982494,\n      0.0027787422553749923,\n      0.0024709292694607503,\n      0.002810347472323854,\n      0.0026387039046255013,\n      0.0024758161825476615,\n      0.0031167511931566943\n    ],\n    \"complex_peaks\": [\n      0.0012245441936931866,\n      0.001466410098264787,\n      0.0012664548919382008,\n      0.0014213354481425022,\n      0.001586857995134468,\n      0.0013749778598610078,\n      0.001482180615423615,\n      0.0018793610932709456,\n      0.0017621132696590965,\n      0.001354733354779196,\n      0.0015526223685988628,\n      0.0015000853312034112\n    ],\n    \"real_detections\": 0,\n    \"complex_detections\": 0,\n    \"complex_union_bound_at_0_1\": 5.634167452976426e-172,\n    \"interpretation\": \"fixed-seed fixtures, not a measured universal false-alarm guarantee\"\n  },\n  \"not_executed\": [\n    \"physical channel\",\n    \"CP path validity\",\n    \"effective H\",\n    \"detector comparison\",\n    \"training\",\n    \"full-system smoke\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "scripts/run_wp1_audit.py",
+        "--config",
+        "configs/cpu_dev.yaml",
+        "--dtype",
+        "complex64",
+        "--output",
+        "runs/wp1-audit-complex64"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"scope\": \"WP1 transmit audit; not WP2 channel validation or full-system smoke\",\n  \"device\": \"cpu\",\n  \"dtype\": \"torch.complex64\",\n  \"frame_samples\": 91776,\n  \"recording_samples\": 92740,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"arrival_offset_samples\": 964,\n  \"recovery_max_abs_error_per_block\": [\n    2.4575624024691933e-07,\n    2.4575624024691933e-07,\n    2.6656007889869215e-07,\n    2.6656007889869215e-07,\n    2.6656007889869215e-07,\n    2.528810796320613e-07,\n    2.6656007889869215e-07,\n    2.4575624024691933e-07\n  ],\n  \"bit_errors\": 0,\n  \"recovery_tolerance\": {\n    \"atol\": 2e-05,\n    \"rtol\": 0.0002\n  },\n  \"ofdm_useful_analytic_power\": [\n    [\n      0.056640625,\n      0.056640625,\n      0.056640625,\n      0.056640625,\n      0.056640625,\n      0.056640625,\n      0.056640625,\n      0.056640625\n    ]\n  ],\n  \"target_analytic_power\": 0.056640625,\n  \"lfm_analytic_power\": 0.056640636175870895,\n  \"lfm_real_power\": 0.0566406212747097,\n  \"lfm_metadata\": {\n    \"window\": \"tukey\",\n    \"symmetric\": true,\n    \"length\": 3840,\n    \"alpha\": 0.1,\n    \"definition\": \"u=n/(N-1);v1\",\n    \"time_phase_dtype\": \"float64\",\n    \"output_dtype\": \"torch.complex64\",\n    \"beta_hz_per_s\": 150000.0,\n    \"target_analytic_power\": 0.056640625\n  },\n  \"psd\": {\n    \"frame\": {\n      \"samples\": 91776,\n      \"nfft\": 524288,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.05283013340699829,\n      \"psd_integral\": 0.052830133406998304,\n      \"outside_design_band_energy_ratio\": 0.0006655853118169401,\n      \"integration_absolute_error\": 1.3877787807814457e-17\n    },\n    \"ofdm_useful_block0\": {\n      \"samples\": 8192,\n      \"nfft\": 32768,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.05664062305423079,\n      \"psd_integral\": 0.056640623054230795,\n      \"outside_design_band_energy_ratio\": 0.0007244080365133038,\n      \"integration_absolute_error\": 6.938893903907228e-18\n    },\n    \"lfm\": {\n      \"samples\": 3840,\n      \"nfft\": 16384,\n      \"estimator\": \"two-sided rectangular periodogram; >=4x zero padding\",\n      \"normalization\": \"abs(FFT_unscaled)**2/(Fs*original_segment_N)\",\n      \"mean_real_power\": 0.05664062323640768,\n      \"psd_integral\": 0.056640623236407686,\n      \"outside_design_band_energy_ratio\": 0.0025107552280648044,\n      \"integration_absolute_error\": 6.938893903907228e-18\n    }\n  },\n  \"sync\": {\n    \"threshold\": 0.1,\n    \"epsilon_sync\": 1.1754943508222875e-38,\n    \"truth_template_start\": 2884,\n    \"peak_start\": 2884,\n    \"peak_score\": 1.000000238418579,\n    \"analytic_peak_start\": 2884,\n    \"analytic_peak_score\": 0.9999997615814209,\n    \"no_channel_frame_origin_error_samples\": 0\n  },\n  \"noise_fixture\": {\n    \"windows\": 12,\n    \"samples_per_window\": 6000,\n    \"real_peaks\": [\n      0.0032614334486424923,\n      0.0030995034612715244,\n      0.002983789425343275,\n      0.0025971250142902136,\n      0.0035205879248678684,\n      0.0023695267736911774,\n      0.002949406858533621,\n      0.0026150092016905546,\n      0.0025757565163075924,\n      0.001980655128136277,\n      0.002925171982496977,\n      0.002134420443326235\n    ],\n    \"complex_peaks\": [\n      0.0015844929730519652,\n      0.0017413680907338858,\n      0.001899832976050675,\n      0.0016379418084397912,\n      0.0014621264999732375,\n      0.0016064686933532357,\n      0.00212822831235826,\n      0.002136833732947707,\n      0.0015408955514431,\n      0.0017536645755171776,\n      0.0017989680636674166,\n      0.0014633139362558722\n    ],\n    \"real_detections\": 0,\n    \"complex_detections\": 0,\n    \"complex_union_bound_at_0_1\": 5.634167452976426e-172,\n    \"interpretation\": \"fixed-seed fixtures, not a measured universal false-alarm guarantee\"\n  },\n  \"not_executed\": [\n    \"physical channel\",\n    \"CP path validity\",\n    \"effective H\",\n    \"detector comparison\",\n    \"training\",\n    \"full-system smoke\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:/Software/Anaconda3/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts/run_wp1_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:/Software/Anaconda3/python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts/run_wp1_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "30 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src",
+        "scripts/run_wp1_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 21 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 1088000,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, pilot seed, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\pgvamp-ofdm.exe",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 1088000,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, pilot seed, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of '.trellis/spec/backend/index.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-pgvamp-complete-engineering/prd.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "preliminary": [
+    {
+      "command": "$env:MKL_THREADING_LAYER='TBB'; .\\.venv\\Scripts\\python.exe -m pytest -q tests/test_qpsk.py tests/test_allocation.py tests/test_waveform.py tests/test_lfm.py --basetemp=runs/wp1-targeted-01 -ra",
+      "exit_code": 0,
+      "result": "80 passed, 1 skipped in 1.85s (CUDA hardware unavailable)"
+    },
+    {
+      "command": "python -m ruff check src tests scripts/run_wp1_audit.py",
+      "exit_code": 1,
+      "result": "52 line-length issues on first draft; formatting fixed 50, two string literals manually wrapped; no numerical failure"
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m mypy src scripts/run_wp1_audit.py",
+      "exit_code": 0,
+      "result": "Success: no issues found in 21 source files"
+    },
+    {
+      "command": "$env:MKL_THREADING_LAYER='TBB'; .\\.venv\\Scripts\\python.exe scripts/run_wp1_audit.py --config configs/cpu_dev.yaml --output runs/wp1-audit",
+      "exit_code": 0,
+      "result": "passed; original audit retained, subsequent figure text clarified LFM Tukey versus OFDM window"
+    }
+  ],
+  "source_sha256": {
+    "docs/CODEX_ENGINEERING_SPEC.md": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+    "scripts/run_wp1_audit.py": "b557754bca40b037166b3a9046578f6d45b5af363551a9194b5fef701464ef2a",
+    "src/pgvamp_ofdm/__init__.py": "43e8a15947685966b4e83e5a08b993d6edbd3688038de216bfc89aaa942abf07",
+    "src/pgvamp_ofdm/__main__.py": "5fa2e6d44dd2e264a1049d222c3824fc021127bcaa0ceae5185c929319b3ab7d",
+    "src/pgvamp_ofdm/cli.py": "1c18d6c08b56360674850b3e5f528e0eb5d39f78c049bbfd3cf39c786f9af2da",
+    "src/pgvamp_ofdm/config.py": "37ba3304aaeafbe366748079f03a5aad2dee79d35ef70551466348e63fdc6178",
+    "src/pgvamp_ofdm/modulation/__init__.py": "da7c145e5bb1cff6b7f7e76f33b29edb69d6298beb3cec8fa958400e1560dd49",
+    "src/pgvamp_ofdm/modulation/allocation.py": "302cde6721b3d230da02bdacf4a1e0469c6f27f9daf70c09c84947d78068ae86",
+    "src/pgvamp_ofdm/modulation/qpsk.py": "cabafdcf5a987fbc445acd03ed396b714ebe981a38b9823fc7d42787eaedf2a2",
+    "src/pgvamp_ofdm/receiver/__init__.py": "575e047f4bbcc268f39165a85fa543c6d9a429ffda4097bea940f736bc58ab47",
+    "src/pgvamp_ofdm/receiver/synchronization.py": "2f5f966fbfc50b78a70e93b9fd968695efcb9d26bdc4f5a89394cc71cf60d3e8",
+    "src/pgvamp_ofdm/reference/__init__.py": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+    "src/pgvamp_ofdm/reference/dense_pg_vamp.py": "d4123b3b9830ed8b2ddfe2adb1512f8456406652b30e1c2f598d96afd199e1be",
+    "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+    "src/pgvamp_ofdm/reference/result.py": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+    "src/pgvamp_ofdm/utils/__init__.py": "48defe375bbb439c867b30cf83cd2686b846cbead15dbbc1f66dfd10402ba9a4",
+    "src/pgvamp_ofdm/utils/device.py": "45a2293f6684f735af83ba07065f18228a5f970f2f73dc636bedb952b0fc7549",
+    "src/pgvamp_ofdm/utils/validation.py": "666f7dfbe0231e06d20971bca4a801f871b299029267e505761bb08fb0fbb15f",
+    "src/pgvamp_ofdm/waveform/__init__.py": "b0396755898113773f02f94527b30cd804251efddb715b6200402ff9bfe286e7",
+    "src/pgvamp_ofdm/waveform/frame.py": "1bd49a9c29d0f05fd66dcb81a0fcd26bff6a8570a899948615b162e4fc07ae58",
+    "src/pgvamp_ofdm/waveform/lfm.py": "99633e6464426dfaa9e357caca0040819a1eaf31aa17d66c2c9052c5fac49ab9",
+    "src/pgvamp_ofdm/waveform/ofdm.py": "2a236112afeb3ed2f03a8eb4d4fa30bf6b0cdc2d279dcddc2061723128b77919",
+    "tests/conftest.py": "9fa202365c5c2817fa2b8cb9b8856578cd63ab3059db4a9fc0cf302156c64bae",
+    "tests/test_allocation.py": "c18b650d047de6b84b07b78c5eed96828d72da9380dc88819c6f05485a4308ad",
+    "tests/test_cli.py": "fa15a32aa5604f6e06f0ccb95a4c5b8eb0ea912ffa1c95bbec6cb983485263b5",
+    "tests/test_config.py": "68905f0de11d12ab04df454f051f0e5897961df98049bd9b065b3a04e3f604d5",
+    "tests/test_devices.py": "0071077d3fb6e03dafa4d04e6812abbde0cb318acd18f231a48735061761a47a",
+    "tests/test_lfm.py": "b7458c46ee0effab8a9b17297e31563223301e113a649e45016994fca8ce2d88",
+    "tests/test_qpsk.py": "bc4d0014496b262662137baca164411f9b1cfa9276099a8ca4613e074f8f1188",
+    "tests/test_reference.py": "a662f3434930674c5a05309570416d266debb9d6cf6fc761c2864a75cad7dc70",
+    "tests/test_waveform.py": "49eb9915856aa00aa0554dfcdc7cc4e5dd7ea82f9a400b2f7cb281a7d551489d"
+  },
+  "audits": {
+    "wp1-audit-final": {
+      "status": "passed",
+      "scope": "WP1 transmit audit; not WP2 channel validation or full-system smoke",
+      "device": "cpu",
+      "dtype": "torch.complex128",
+      "frame_samples": 91776,
+      "recording_samples": 92740,
+      "frame_duration_s": 0.956,
+      "data_bits_per_frame": 6400,
+      "arrival_offset_samples": 964,
+      "recovery_max_abs_error_per_block": [
+        2.3250705705555665e-12,
+        4.464185938712163e-12,
+        8.900708455855306e-12,
+        5.541607693385613e-12,
+        2.5479327119018482e-12,
+        6.593601129520203e-12,
+        9.524068763971754e-12,
+        6.93449288444928e-12
+      ],
+      "bit_errors": 0,
+      "recovery_tolerance": {
+        "atol": 1e-09,
+        "rtol": 1e-08
+      },
+      "ofdm_useful_analytic_power": [
+        [
+          0.056640624999999965,
+          0.05664062499999996,
+          0.05664062499999997,
+          0.05664062499999997,
+          0.05664062499999997,
+          0.05664062499999997,
+          0.05664062499999997,
+          0.05664062499999997
+        ]
+      ],
+      "target_analytic_power": 0.056640625,
+      "lfm_analytic_power": 0.05664062499999999,
+      "lfm_real_power": 0.05664062496147843,
+      "lfm_metadata": {
+        "window": "tukey",
+        "symmetric": true,
+        "length": 3840,
+        "alpha": 0.1,
+        "definition": "u=n/(N-1);v1",
+        "time_phase_dtype": "float64",
+        "output_dtype": "torch.complex128",
+        "beta_hz_per_s": 150000.0,
+        "target_analytic_power": 0.056640625
+      },
+      "psd": {
+        "frame": {
+          "samples": 91776,
+          "nfft": 524288,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.05283013488200926,
+          "psd_integral": 0.052830134882009286,
+          "outside_design_band_energy_ratio": 0.0006655853254901891,
+          "integration_absolute_error": 2.7755575615628914e-17
+        },
+        "ofdm_useful_block0": {
+          "samples": 8192,
+          "nfft": 32768,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.056640624999997544,
+          "psd_integral": 0.056640624999997564,
+          "outside_design_band_energy_ratio": 0.000724408067454694,
+          "integration_absolute_error": 2.0816681711721685e-17
+        },
+        "lfm": {
+          "samples": 3840,
+          "nfft": 16384,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.05664062496147843,
+          "psd_integral": 0.05664062496147844,
+          "outside_design_band_energy_ratio": 0.002510755286102268,
+          "integration_absolute_error": 6.938893903907228e-18
+        }
+      },
+      "sync": {
+        "threshold": 0.1,
+        "epsilon_sync": 2.2250738585072014e-308,
+        "truth_template_start": 2884,
+        "peak_start": 2884,
+        "peak_score": 1.0000000000000018,
+        "analytic_peak_start": 2884,
+        "analytic_peak_score": 1.0000000000000677,
+        "no_channel_frame_origin_error_samples": 0
+      },
+      "noise_fixture": {
+        "windows": 12,
+        "samples_per_window": 6000,
+        "real_peaks": [
+          0.002478482402322591,
+          0.0024445523675193795,
+          0.0040599504722726165,
+          0.003291259057589323,
+          0.0023769329962512933,
+          0.002546162816982494,
+          0.0027787422553749923,
+          0.0024709292694607503,
+          0.002810347472323854,
+          0.0026387039046255013,
+          0.0024758161825476615,
+          0.0031167511931566943
+        ],
+        "complex_peaks": [
+          0.0012245441936931866,
+          0.001466410098264787,
+          0.0012664548919382008,
+          0.0014213354481425022,
+          0.001586857995134468,
+          0.0013749778598610078,
+          0.001482180615423615,
+          0.0018793610932709456,
+          0.0017621132696590965,
+          0.001354733354779196,
+          0.0015526223685988628,
+          0.0015000853312034112
+        ],
+        "real_detections": 0,
+        "complex_detections": 0,
+        "complex_union_bound_at_0_1": 5.634167452976426e-172,
+        "interpretation": "fixed-seed fixtures, not a measured universal false-alarm guarantee"
+      },
+      "not_executed": [
+        "physical channel",
+        "CP path validity",
+        "effective H",
+        "detector comparison",
+        "training",
+        "full-system smoke"
+      ]
+    },
+    "wp1-audit-complex64": {
+      "status": "passed",
+      "scope": "WP1 transmit audit; not WP2 channel validation or full-system smoke",
+      "device": "cpu",
+      "dtype": "torch.complex64",
+      "frame_samples": 91776,
+      "recording_samples": 92740,
+      "frame_duration_s": 0.956,
+      "data_bits_per_frame": 6400,
+      "arrival_offset_samples": 964,
+      "recovery_max_abs_error_per_block": [
+        2.4575624024691933e-07,
+        2.4575624024691933e-07,
+        2.6656007889869215e-07,
+        2.6656007889869215e-07,
+        2.6656007889869215e-07,
+        2.528810796320613e-07,
+        2.6656007889869215e-07,
+        2.4575624024691933e-07
+      ],
+      "bit_errors": 0,
+      "recovery_tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      },
+      "ofdm_useful_analytic_power": [
+        [
+          0.056640625,
+          0.056640625,
+          0.056640625,
+          0.056640625,
+          0.056640625,
+          0.056640625,
+          0.056640625,
+          0.056640625
+        ]
+      ],
+      "target_analytic_power": 0.056640625,
+      "lfm_analytic_power": 0.056640636175870895,
+      "lfm_real_power": 0.0566406212747097,
+      "lfm_metadata": {
+        "window": "tukey",
+        "symmetric": true,
+        "length": 3840,
+        "alpha": 0.1,
+        "definition": "u=n/(N-1);v1",
+        "time_phase_dtype": "float64",
+        "output_dtype": "torch.complex64",
+        "beta_hz_per_s": 150000.0,
+        "target_analytic_power": 0.056640625
+      },
+      "psd": {
+        "frame": {
+          "samples": 91776,
+          "nfft": 524288,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.05283013340699829,
+          "psd_integral": 0.052830133406998304,
+          "outside_design_band_energy_ratio": 0.0006655853118169401,
+          "integration_absolute_error": 1.3877787807814457e-17
+        },
+        "ofdm_useful_block0": {
+          "samples": 8192,
+          "nfft": 32768,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.05664062305423079,
+          "psd_integral": 0.056640623054230795,
+          "outside_design_band_energy_ratio": 0.0007244080365133038,
+          "integration_absolute_error": 6.938893903907228e-18
+        },
+        "lfm": {
+          "samples": 3840,
+          "nfft": 16384,
+          "estimator": "two-sided rectangular periodogram; >=4x zero padding",
+          "normalization": "abs(FFT_unscaled)**2/(Fs*original_segment_N)",
+          "mean_real_power": 0.05664062323640768,
+          "psd_integral": 0.056640623236407686,
+          "outside_design_band_energy_ratio": 0.0025107552280648044,
+          "integration_absolute_error": 6.938893903907228e-18
+        }
+      },
+      "sync": {
+        "threshold": 0.1,
+        "epsilon_sync": 1.1754943508222875e-38,
+        "truth_template_start": 2884,
+        "peak_start": 2884,
+        "peak_score": 1.000000238418579,
+        "analytic_peak_start": 2884,
+        "analytic_peak_score": 0.9999997615814209,
+        "no_channel_frame_origin_error_samples": 0
+      },
+      "noise_fixture": {
+        "windows": 12,
+        "samples_per_window": 6000,
+        "real_peaks": [
+          0.0032614334486424923,
+          0.0030995034612715244,
+          0.002983789425343275,
+          0.0025971250142902136,
+          0.0035205879248678684,
+          0.0023695267736911774,
+          0.002949406858533621,
+          0.0026150092016905546,
+          0.0025757565163075924,
+          0.001980655128136277,
+          0.002925171982496977,
+          0.002134420443326235
+        ],
+        "complex_peaks": [
+          0.0015844929730519652,
+          0.0017413680907338858,
+          0.001899832976050675,
+          0.0016379418084397912,
+          0.0014621264999732375,
+          0.0016064686933532357,
+          0.00212822831235826,
+          0.002136833732947707,
+          0.0015408955514431,
+          0.0017536645755171776,
+          0.0017989680636674166,
+          0.0014633139362558722
+        ],
+        "real_detections": 0,
+        "complex_detections": 0,
+        "complex_union_bound_at_0_1": 5.634167452976426e-172,
+        "interpretation": "fixed-seed fixtures, not a measured universal false-alarm guarantee"
+      },
+      "not_executed": [
+        "physical channel",
+        "CP path validity",
+        "effective H",
+        "detector comparison",
+        "training",
+        "full-system smoke"
+      ]
+    }
+  },
+  "status": "passed",
+  "figure_review": "Initial real PSD/correlation PNGs opened and visually inspected; final images need main/check independent review. Labels show spectral intervals, units, normalization, threshold and injected template start.",
+  "remaining_limits": [
+    "No CUDA hardware; conditional hardware tests skipped",
+    "WP2 channel/CP path validity/effective H and full-system smoke not executed",
+    "Synchronization maximum is not earliest physical path; exact computed-score ties choose first, numerically split mathematical ties can choose either",
+    "Extreme dynamic range losing positive prefix-window energy explicitly errors"
+  ]
+}

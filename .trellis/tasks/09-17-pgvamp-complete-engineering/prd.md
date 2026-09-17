@@ -14,13 +14,14 @@ A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B。
 父任务只保存总目标、执行书引用、WP 地图和跨阶段验收证据。
 不直接作为代码实现任务，不分派父任务实现，不以父任务启动绕过子任务审核。
 各 WP 的设计、实现计划、上下文和执行记录由对应子任务持有。
-当前仅创建 WP0；WP1–WP8 只记录地图，不创建任务或代码。
+WP0 已完成归档；用户于 2026-09-18 批准 WP1 规划并授权实施。
+WP2–WP8 只记录地图，不创建任务或代码。
 
 ## WP map — dependency order is mandatory
 | WP | 责任与验收摘要（不得替代执行书 §22） | 前置 | 任务状态 |
 | --- | --- | --- | --- |
-| WP0 | 配置、设备、目录、独立 references、最小 CLI；派生参数与最小 reference 测试 | bootstrap 已审核 | [WP0 implemented / verified, awaiting review](../09-17-wp0-foundation-references/prd.md) |
-| WP1 | 固定 QPSK/分配、OFDM/CP/帧、LFM；映射/能量/索引/定位/帧长 | WP0 验收 | 未创建 |
+| WP0 | 配置、设备、目录、独立 references、最小 CLI；派生参数与最小 reference 测试 | bootstrap 已审核 | [WP0 completed / archived](../archive/2026-09/09-17-wp0-foundation-references/prd.md) |
+| WP1 | 固定 QPSK/分配、OFDM/CP/帧、LFM；映射/能量/索引/定位/帧长、实通带恢复、PSD/相关曲线 | WP0 验收 | [WP1 implemented / verified](../archive/2026-09/09-18-wp1-modulation-frame-lfm/prd.md) |
 | WP2 | 仿射物理信道、CP 支撑、完整 H、独立波形、导频消除；非零时缩一致性/噪声 | WP1 验收 | 未创建 |
 | WP3 | 紧凑数据、manifest、split、随机流、重放；无泄漏、同样本、容量估计 | WP2 验收 | 未创建 |
 | WP4 | 完整 H 的 MMSE 与精确 VAMP；线性求解及 SVD/Cholesky 逐层等价 | WP3 验收 | 未创建 |
@@ -54,9 +55,15 @@ WP0 reference 是执行书要求，不代表提前实施 WP4/WP5 正式检测器
   未执行主训练/sweep 标注“未执行”；执行书 §24 不算本工程测试（§§18、22–24）。
 
 ## Review state
-用户于 2026-09-18 批准 WP0 规划与实现。WP0 child 已启动，父任务仍为
-总规划容器。WP0 CPU 验证和独立 trellis-check 已通过：最终目标与全量各
-75 passed、1 skipped（CUDA 不可用），Ruff/mypy 通过。实际回执与源码哈希
-保存在 WP0 research/final-validation.json、research/final-source-manifest.json，
-详见根目录 VALIDATION.md。等待用户先审阅 diff/结果，尚未提交/归档。
-WP1–WP8 未获本轮启动授权，未创建或启动。
+WP0 已提交为 ecbda13 并归档（4b90d5f），归档 task.json 为 completed。
+历史 CPU 目标/全量各 75 passed、1 skipped（无 CUDA），Ruff/format/mypy 通过；
+实际回执与源码指纹见归档 WP0 research/final-validation.json 和 final-source-manifest.json。
+这些为已读取的历史证据，本次未重跑，不构成 WP1 验收。
+WP1 最新规划已获用户明确批准并实施；独立完整检查通过，目标 91 passed/1 skipped，
+全量 166 passed/2 skipped（CUDA 无硬件），Ruff/format/mypy 与双 CLI 通过。
+完整尺寸 complex128/complex64 发送审计均为 6400 bits 零错误、模板起点零偏差。
+保存波形的种子重放、NumPy FFT/相关、PSD 积分与哈希核对均通过。
+实际证据位于 WP1 research/check-review.md、check-validation.json、check-artifacts.json；
+用户已确认工作提交方案，按完成流程将证据保留在 archive/2026-09/ 下；
+不把无信道恢复当作完整物理信道或系统验收。
+父任务保持总规划容器；WP2–WP8 未创建或启动。

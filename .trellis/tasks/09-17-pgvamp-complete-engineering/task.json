@@ -19,17 +19,19 @@
   "pr_url": null,
   "subtasks": [],
   "children": [
-    "09-17-wp0-foundation-references"
+    "09-17-wp0-foundation-references",
+    "09-18-wp1-modulation-frame-lfm"
   ],
   "parent": null,
   "relatedFiles": [
     "docs/CODEX_ENGINEERING_SPEC.md",
-    ".trellis/tasks/09-17-wp0-foundation-references"
+    ".trellis/tasks/archive/2026-09/09-17-wp0-foundation-references",
+    ".trellis/tasks/archive/2026-09/09-18-wp1-modulation-frame-lfm"
   ],
-  "notes": "Coordination only; never start as a direct implementation task. Only WP0 created.",
+  "notes": "WP1 implementation and independent verification complete; user confirmed work commit and completion workflow on 2026-09-18. WP2 not started.",
   "meta": {
     "role": "coordination_parent",
-    "review_state": "awaiting_user_review",
+    "review_state": "work_commit_approved",
     "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
   }
 }

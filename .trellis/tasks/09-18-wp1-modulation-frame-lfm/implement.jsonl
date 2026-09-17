@@ -1,0 +1,12 @@
+{"file":"docs/CODEX_ENGINEERING_SPEC.md","reason":"唯一实施规格；按 source-and-wp0.md 阅读范围补全原文，严格 §22 WP1，不进入 WP2"}
+{"file":".trellis/spec/backend/index.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/directory-structure.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/runtime-config.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/reproducibility.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/numerical-contracts.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/quality-guidelines.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/backend/wp0-inspect-contract.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/guides/workflow-and-authority.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/guides/cross-layer-thinking-guide.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/spec/guides/code-reuse-thinking-guide.md","reason":"WP1 适用工程合同与 WP0 兼容/独立性要求"}
+{"file":".trellis/tasks/09-18-wp1-modulation-frame-lfm/research/source-and-wp0.md","reason":"原文阅读合同、WP0 实际代码和历史验收、阶段边界"}
