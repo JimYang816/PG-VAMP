@@ -1,0 +1,8 @@
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "Source authority and mandatory WP order"}
+{"file": ".trellis/spec/backend/index.md", "reason": "Discover applicable engineering contracts"}
+{"file": ".trellis/spec/backend/numerical-contracts.md", "reason": "Physical and numerical invariants"}
+{"file": ".trellis/spec/backend/runtime-config.md", "reason": "Explicit device dtype and strict configuration"}
+{"file": ".trellis/spec/backend/reproducibility.md", "reason": "Explicit random streams and truthful evidence"}
+{"file": ".trellis/spec/backend/wp1-waveform-contract.md", "reason": "Existing transmit layout and timing compatibility"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Independent oracle and acceptance rules"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp2-physical-channel-effective-model/research/source-and-wp1.md", "reason": "Inspected authority and existing WP1 interfaces"}

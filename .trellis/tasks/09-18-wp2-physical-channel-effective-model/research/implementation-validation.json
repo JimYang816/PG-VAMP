@@ -1,0 +1,148 @@
+{
+  "environment_override": {
+    "MKL_THREADING_LAYER": "TBB"
+  },
+  "results": [
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/wp2-final-tests-01",
+        "-ra"
+      ],
+      "exit_code": 0,
+      "stdout": ".........................................................s.............. [ 37%]\n........................................................................ [ 74%]\n..................s..............................s                       [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_devices.py:61: CUDA hardware unavailable\nSKIPPED [1] tests\\test_waveform.py:167: CUDA hardware unavailable; no GPU computation performed\nSKIPPED [1] tests\\test_wp2.py:305: CUDA unavailable; CPU is default\n191 passed, 3 skipped in 14.04s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "check",
+        "src",
+        "tests",
+        "scripts/run_wp1_audit.py",
+        "scripts/run_wp2_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts/run_wp1_audit.py",
+        "scripts/run_wp2_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "41 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 29 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "scripts/run_wp2_audit.py",
+        "--config",
+        "configs/cpu_dev.yaml",
+        "--output",
+        "runs/wp2-audit-final-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"output\": \"runs\\\\wp2-audit-final-01\", \"status\": \"passed\", \"frames\": 2, \"windows\": 20, \"max_relative_error\": 8.152338913635682e-12, \"noise\": {\"esn0_db\": 4.0, \"sigma2\": 0.3981071705534972, \"time_samples\": 33554432, \"fft_windows\": 4096, \"real_mean\": -9.240266515340626e-05, \"imag_mean\": 3.256085602369834e-05, \"real_variance\": 0.199050485933305, \"imag_variance\": 0.19903188724523224, \"real_imag_covariance\": -5.659214844397942e-05, \"fft_complex_variance\": 0.397955223070266, \"selected_bin_covariance_real\": [[0.39454730551744954, 0.003980117174714754, 0.003693752802728489, -0.0024535851781351597, 0.0007267789528245332, -0.0013310274412930735, -0.000796604376268179, 0.0017282890809884684], [0.003980117174714754, 0.3956525725593042, 0.008679595013377393, 0.009256530477144347, 0.0067902490591633625, -0.002041800096491546, -0.007496762725386249, -0.007234722552551036], [0.003693752802728489, 0.008679595013377393, 0.3999338837616586, -0.006635674646116049, 0.007730538130756589, 0.005831608470837, -0.004671793069514052, -0.0029291197952819132], [-0.0024535851781351597, 0.009256530477144347, -0.006635674646116049, 0.38446450479336813, 0.0007974390494016337, -0.0025862853655517683, 0.0017575233057920332, -0.0045044151237963155], [0.0007267789528245332, 0.0067902490591633625, 0.007730538130756589, 0.0007974390494016337, 0.3990071188248161, -0.001254300307565038, 0.0008894009382225345, -0.003431588722872264], [-0.0013310274412930735, -0.002041800096491546, 0.005831608470837, -0.0025862853655517683, -0.001254300307565038, 0.4028274915886121, 0.0063406236946435286, 0.004669119938865628], [-0.000796604376268179, -0.007496762725386249, -0.004671793069514052, 0.0017575233057920332, 0.0008894009382225345, 0.0063406236946435286, 0.3921865843622574, 0.004647645244003153], [0.0017282890809884684, -0.007234722552551036, -0.0029291197952819132, -0.0045044151237963155, -0.003431588722872264, 0.004669119938865628, 0.004647645244003153, 0.40212870198774636]], \"selected_bin_covariance_imag\": [[1.1858461261560205e-19, 0.0011441134007257948, 0.0007518610910791786, -0.0032574097315565165, 0.005918070810747923, 0.005408488769839973, -0.006081165313677842, -0.002722304530080677], [-0.0011441134007257978, -4.658681209898652e-20, -0.007420957716739118, -0.0019966917886561826, 0.005219160715783565, 0.00033553896050015594, 0.004533271596679409, 0.0023027108912818646], [-0.0007518610910791825, 0.0074209577167391174, 2.168404344971009e-19, 0.00013261796742434776, -0.00549616414991726, -0.002703958506501377, -0.0019866848538817572, -0.0002089845478861583], [0.003257409731556516, 0.0019966917886561834, -0.000132617967424347, -1.3552527156068805e-19, 0.001806334800220233, 0.0008278301026233518, -0.004428377311226783, -0.0014134891186486107], [-0.005918070810747923, -0.0052191607157835345, 0.005496164149917251, -0.001806334800220239, -1.1011428314305904e-20, 0.005291150732903666, -0.0006055612239968597, 0.004359829932491147], [-0.00540848876983998, -0.0003355389605001519, 0.002703958506501375, -0.0008278301026233506, -0.005291150732903651, 3.049318610115481e-20, 0.004800358018310098, -0.0020280537915889746], [0.006081165313677856, -0.004533271596679408, 0.001986684853881755, 0.004428377311226788, 0.0006055612239968646, -0.004800358018310096, 8.131516293641283e-20, -0.007838080040017504], [0.002722304530080686, -0.0023027108912818716, 0.00020898454788616287, 0.0014134891186486113, -0.004359829932491136, 0.0020280537915889686, 0.007838080040017495, -2.981555974335137e-19]], \"covariance_max_error\": 0.013642665760129069, \"covariance_limit\": 0.04354297177928876, \"ber_errors\": 11604, \"ber_bits\": 204800, \"ber_measured\": 0.05666015625, \"ber_theory\": 0.05649530174936167, \"ber_count_tolerance_6sigma\": 626.8944520504152}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of '.trellis/tasks/09-17-pgvamp-complete-engineering/prd.md', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ],
+  "source_hashes": {
+    "configs/cpu_dev.yaml": "9b77dc25484ad1dc2ab6cc5a97b6bf09493391f17e851736418366764cdf81f9",
+    "docs/CODEX_ENGINEERING_SPEC.md": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+    "pyproject.toml": "d5496e310817e47260ff5a020f0bff837b1b4c0745fa6dd6a13ec3f50dd67cb3",
+    "scripts/run_wp2_audit.py": "ea9b99b08030384d2a4a23d8a72453977449ab19d7ea91fcfbf4116cd4a310f8",
+    "src/pgvamp_ofdm/__init__.py": "43e8a15947685966b4e83e5a08b993d6edbd3688038de216bfc89aaa942abf07",
+    "src/pgvamp_ofdm/__main__.py": "5fa2e6d44dd2e264a1049d222c3824fc021127bcaa0ceae5185c929319b3ab7d",
+    "src/pgvamp_ofdm/channel/__init__.py": "dec0cac4773d9eb7acd65068e6a8e2864fb42686fcbf372f99acd0d8a9b7b2a3",
+    "src/pgvamp_ofdm/channel/affine.py": "33feffa4701e1f76ba49e3c5dde9601477a1fdf702ded23d79487609e95aef95",
+    "src/pgvamp_ofdm/channel/effective_matrix.py": "72fcf61c37bdb240f11046f3f7408f402572bfcc359db317482b47b7f16e4b35",
+    "src/pgvamp_ofdm/channel/noise.py": "a8ca6097adab6c5dcd510543e8af108055821310e1929923aec840bfa6491d4f",
+    "src/pgvamp_ofdm/channel/parameters.py": "84b696ac22994dd5dfb8bacab84c3616b684622313d1a8b4341873487c81e227",
+    "src/pgvamp_ofdm/channel/validity.py": "e2fcc8173d6972db5a3290bf4d413971462776dbdedbd91b6474c2ddc4cae3ff",
+    "src/pgvamp_ofdm/cli.py": "1c18d6c08b56360674850b3e5f528e0eb5d39f78c049bbfd3cf39c786f9af2da",
+    "src/pgvamp_ofdm/config.py": "37ba3304aaeafbe366748079f03a5aad2dee79d35ef70551466348e63fdc6178",
+    "src/pgvamp_ofdm/modulation/__init__.py": "d37b3cc7570b946d0e36feb7595a6f10f08f54eb861e9995542b9d2f016b310e",
+    "src/pgvamp_ofdm/modulation/allocation.py": "fbffcc17085b0bdb08dbd8f8970da92ee531c8cd30d291efc60a643e07bb20ea",
+    "src/pgvamp_ofdm/modulation/qpsk.py": "13b1d45685212845f15fa431203b1f462d58bff629eb105ab1b7657c217c000f",
+    "src/pgvamp_ofdm/receiver/__init__.py": "997d26aa869960fbe29030049206d567e8cafe0d98d5950ca86a99cb0a1266cd",
+    "src/pgvamp_ofdm/receiver/fft_receiver.py": "d42306deb383702c5b7f895cb1cf0899c8f49b3003838062aef0b8b3625e4e34",
+    "src/pgvamp_ofdm/receiver/preprocessing.py": "46b02b19bc4e70a41e2a84d5a182c2757429c63dc0e5794769ad8e73f45fb3eb",
+    "src/pgvamp_ofdm/receiver/synchronization.py": "9798d76ec466edab8960d304d25139632deb9cb06425311fd870bec40096567f",
+    "src/pgvamp_ofdm/reference/__init__.py": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+    "src/pgvamp_ofdm/reference/dense_pg_vamp.py": "d4123b3b9830ed8b2ddfe2adb1512f8456406652b30e1c2f598d96afd199e1be",
+    "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+    "src/pgvamp_ofdm/reference/result.py": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+    "src/pgvamp_ofdm/utils/__init__.py": "48defe375bbb439c867b30cf83cd2686b846cbead15dbbc1f66dfd10402ba9a4",
+    "src/pgvamp_ofdm/utils/device.py": "45a2293f6684f735af83ba07065f18228a5f970f2f73dc636bedb952b0fc7549",
+    "src/pgvamp_ofdm/utils/validation.py": "666f7dfbe0231e06d20971bca4a801f871b299029267e505761bb08fb0fbb15f",
+    "src/pgvamp_ofdm/waveform/__init__.py": "b05110bb0903d0159054b3326a8be5198a3d6067a2003e7fc0d068487d5ab697",
+    "src/pgvamp_ofdm/waveform/continuous.py": "5d994dab1c76de3791dca123bf98d60c71e996142fd504f25a34f3d28938d3df",
+    "src/pgvamp_ofdm/waveform/frame.py": "2fbf9b223f579ad77454be48faf58baf68f5cb4106dd0f7dfa7d75b11207d3fb",
+    "src/pgvamp_ofdm/waveform/lfm.py": "544fa5452b7407a256641b963a3fe518f9d823f8ae1fc69682f4f63e34eeef65",
+    "src/pgvamp_ofdm/waveform/ofdm.py": "d69449f7a11edecafde8d2fca74da16b025bf1317a0b0fa19a6e1010377478d1",
+    "tests/conftest.py": "9fa202365c5c2817fa2b8cb9b8856578cd63ab3059db4a9fc0cf302156c64bae",
+    "tests/test_allocation.py": "833552ce4c63da7082c4c20d2ab16e521b3c46ff969206bd3709cba83243d76c",
+    "tests/test_cli.py": "fa15a32aa5604f6e06f0ccb95a4c5b8eb0ea912ffa1c95bbec6cb983485263b5",
+    "tests/test_config.py": "68905f0de11d12ab04df454f051f0e5897961df98049bd9b065b3a04e3f604d5",
+    "tests/test_devices.py": "0071077d3fb6e03dafa4d04e6812abbde0cb318acd18f231a48735061761a47a",
+    "tests/test_lfm.py": "0146c85a142a00d0431ad422b86779f1f97f81ea712addbb86238ca7b63e8478",
+    "tests/test_qpsk.py": "853b6f016a9768293275a516ff265fbdaa5d84e9065926459debc9aa345720ce",
+    "tests/test_reference.py": "a662f3434930674c5a05309570416d266debb9d6cf6fc761c2864a75cad7dc70",
+    "tests/test_waveform.py": "7ca14526d8e6f023e819f151173997b9c31ced70003f093c4280a93c535d322e",
+    "tests/test_wp2.py": "fbd0129ed68d81effe221a9d07c453801b21de50988b9d0243a9d122531146de"
+  },
+  "passed": true,
+  "earlier_attempts": [
+    {
+      "command": ".venv/Scripts/python.exe -m ruff check ...",
+      "outcome": "launcher unavailable",
+      "error": "FileNotFoundError: D:/SCI/code/PG-VAMP/.venv/Scripts/ruff.exe"
+    },
+    {
+      "command": "ruff check .",
+      "outcome": "192 existing errors under .codex/.trellis; product scope clean"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q",
+      "outcome": "158 passed, 3 skipped, 31 setup errors",
+      "error": "PermissionError [WinError 5]: C:/Users/jimya/AppData/Local/Temp/pytest-of-jimya",
+      "resolution": "fresh workspace --basetemp; no test changed to hide setup errors"
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/run_wp2_audit.py --config configs/cpu_dev.yaml --output runs/wp2-audit",
+      "outcome": "passed; earlier audit retained"
+    }
+  ]
+}

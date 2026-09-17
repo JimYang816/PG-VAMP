@@ -1,5 +1,67 @@
 # Validation record
 
+## WP2 independent final validation — 2026-09-18
+
+The checker reviewed the full physical scope and fixed malformed frame interval
+acceptance (missing/overlapping spans), adding three regression cases. The audit
+now records source §9 receive SNR and hashed tensor artifacts for every window.
+No physical equation or numerical tolerance was changed.
+
+Final targeted tests: **28 passed, 1 skipped**. Full regression: **194 passed,
+3 skipped**. Product Ruff/format and mypy (29 source files) pass. CUDA skips
+remain hardware limitations. Commands, stdout/stderr and exit codes are in
+`research/check-final-validation.json` under the WP2 task; earlier checker and
+implementation runs remain preserved.
+
+Fresh audit: `runs/wp2-check-audit-final-01/`; tracked JSON copy:
+`research/check-physical-audit.json`. Two frames / 20 windows retain the maximum
+complex128 error **8.152338913635682e-12**. The checker safely loaded both tensor
+artifacts on CPU with `weights_only=True`, verified artifact/config/source hashes,
+and independently recomputed all 20 FFTs, data/pilot row selection, clean/noisy
+cancellation, receive SNR and complex64 conversion checks. NumPy direct Fourier
+evaluation also agrees at four samples in each actual window. Detailed numerical
+cross-checks and final source fingerprints are in `research/check-artifact-verification.json`.
+The independent review found no remaining WP2 blocker. Later work packages and
+the full-system smoke remain unexecuted.
+
+## WP2 implementation validation — 2026-09-18
+
+The implementer added the five physical path scenarios, per-block CP validation,
+independent continuous waveform/affine propagation, full analytical grid H,
+actual ideal-I/Q FFT, true pilot cancellation and time AWGN. The following is
+the preserved implementation-stage record; final independent evidence is above.
+
+Complete regression: **191 passed, 3 skipped** (CUDA unavailable). Product-scope
+Ruff, format and mypy pass. Exact commands, stdout/stderr, exit codes and source
+fingerprints are saved in the WP2 task's `research/implementation-validation.json`.
+The implementation physical audit is retained in `runs/wp2-audit-final-01/`, with a tracked
+copy at `research/physical-audit.json`. Earlier `runs/wp2-audit/` is preserved.
+
+Two independently seeded physical frames cover all eight blocks, plus shifted
+first/last-block windows: 20 windows, 8192 time samples, 512×512 full H and 400
+data rows. Distinct nonzero path time scales yield maximum complex128 relative
+error **8.152338913635682e-12**, below 1e-9. Explicit complex64 conversion is
+checked separately against 2e-6. Pilot leakage is measured before cancellation;
+both noiseless and noisy residuals are checked against the physical waveform.
+
+At Es/N0=4 dB, sigma2=0.3981071705534972. The 33,554,432-sample noise audit gives
+real/imaginary variances 0.19905049/0.19903189 and FFT complex variance 0.39795522.
+Means, component covariance and every entry of an eight-bin covariance matrix
+pass predeclared sample-count tolerances. Identity IFFT/time-AWGN/FFT hard QPSK
+gives **11604/204800 bit errors** (0.05666016), versus theory 0.05649530; the count
+is within the predeclared six-standard-deviation tolerance (626.89 errors).
+
+The first full pytest command hit 31 setup errors because the system pytest temp
+directory was inaccessible. A fresh workspace `--basetemp` resolves this without
+changing tests. The virtualenv Ruff launcher is absent, so the installed
+`C:/Software/Anaconda3/Scripts/ruff.exe` was used. Literal `ruff check .` reports
+192 existing hook/Trellis/archive issues; the final lint scope covers all product
+source/tests and WP1/WP2 audit scripts. No unrelated tooling was modified.
+
+This is ideal-I/Q/perfect-CSI/oracle-timing/uncoded physical validation. Full
+system smoke, datasets, production detectors, training and performance sweeps
+remain **未执行** and are separate later-package gates.
+
 ## WP1 independent final validation — 2026-09-18
 
 The independent Trellis checker reviewed the full WP1 scope and repaired two
@@ -251,6 +313,6 @@ next work package was created or activated.
 
 ## Outside this validation
 
-Full physical waveform/channel tests, production equivalence, complete system
+WP2 physical waveform/channel tests are recorded above. Production equivalence, complete system
 smoke, training, checkpoint recovery, BER sweeps and performance benchmarks
 have not been executed. They belong to later work packages.

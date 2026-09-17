@@ -1,0 +1,26 @@
+{
+  "nonempty_output": {
+    "command": [
+      ".venv/Scripts/python.exe",
+      "scripts/run_wp2_audit.py",
+      "--config",
+      "configs/cpu_dev.yaml",
+      "--output",
+      "runs/wp2-check-audit-final-01"
+    ],
+    "status": 1,
+    "expected": "reject preserved nonempty output",
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"D:\\SCI\\code\\PG-VAMP\\scripts\\run_wp2_audit.py\", line 272, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\SCI\\code\\PG-VAMP\\scripts\\run_wp2_audit.py\", line 38, in main\n    raise ValueError(\"audit output must be empty; preserve earlier evidence in a separate path\")\nValueError: audit output must be empty; preserve earlier evidence in a separate path\n"
+  },
+  "diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "status": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of '.trellis/spec/backend/index.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.trellis/tasks/09-17-pgvamp-complete-engineering/prd.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'IMPLEMENTATION_STATUS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'VALIDATION.md', LF will be replaced by CRLF the next time Git touches it\n"
+  }
+}

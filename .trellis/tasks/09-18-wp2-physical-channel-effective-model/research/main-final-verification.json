@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checked_final_commands": 6,
+  "checked_final_source_file_hashes": 41,
+  "verified_frame_artifacts": 2,
+  "audit_sha256": "dfc7dcbffae490344f6c7dafbb08549cda708b29f752cdc5308d28a28211182f",
+  "verified_resolved_config": true,
+  "independent_review_windows": 20,
+  "existing_WP0_WP1_product_files_changed": [],
+  "note": "Main checked receipts and exact final file hashes after independent review; did not claim to rerun unchanged tests."
+}

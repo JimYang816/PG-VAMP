@@ -1,7 +1,7 @@
 # PG-VAMP CP-OFDM
 
 Implementation follows [CODEX_ENGINEERING_SPEC.md](docs/CODEX_ENGINEERING_SPEC.md).
-The current work package is **WP1: modulation, transmit frame and LFM synchronization**.
+The current work package is **WP2: physical channel and effective model**.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for scope and
 [VALIDATION.md](VALIDATION.md) for actual validation evidence.
 
@@ -47,8 +47,9 @@ not mean that a `smoke` command or a physical simulation has been implemented.
 
 The dense PG-VAMP and Cholesky VAMP references are correctness oracles for
 small algebra fixtures. They are independent of future production algorithms.
-WP2–WP8, physical-channel validation, training and performance comparisons remain
-separate work packages. No BER or acceleration claim is made here.
+WP2 physical-channel validation is described below. WP3–WP8 datasets, production
+detectors, training and performance comparisons remain separate work packages.
+The algebra references make no physical BER or acceleration claim.
 
 ```python
 from pgvamp_ofdm.reference.dense_pg_vamp import DensePGVAMP
@@ -85,5 +86,24 @@ It does not add a transmit window or normalize each frame by measured data power
 Matched-correlation positions denote the **template start**. Recording arrival
 padding is separate from transmit-frame duration; a selected peak is not a claim
 about the earliest physical path. The audit checks no-channel recovery only.
-Physical multipath, affine time scaling, effective H, pilot cancellation and
-the full three-detector system smoke belong to later work packages.
+WP2 validates physical multipath, affine time scaling, effective H and pilot
+cancellation separately below. Full three-detector system smoke remains future work.
+
+## WP2 physical-channel audit
+
+WP2 adds five physical channel scenarios, per-path/per-block CP support checks,
+complete 512×512 effective H, an independent continuous Fourier/chirp waveform,
+ideal-I/Q receive FFT, exact pilot elimination and time-domain complex AWGN.
+The resulting detection system has 400 unknown QPSK symbols and uses perfect CSI.
+See [WP2_PHYSICAL_MODEL.md](docs/WP2_PHYSICAL_MODEL.md) for API and timing contracts.
+
+```powershell
+$env:MKL_THREADING_LAYER = 'TBB'
+.venv/Scripts/python.exe scripts/run_wp2_audit.py --config configs/cpu_dev.yaml --output runs/wp2-audit-new
+```
+
+Use a fresh output directory. The audit checks two full-size frames, all eight
+blocks plus shifted edge windows, noise covariance and identity-AWGN hard-QPSK
+BER. It saves actual parameters, seeds, numeric errors, counts and provenance.
+Current results and review status are in VALIDATION.md. This is physical-model
+acceptance; it does not run datasets, production detectors or training.

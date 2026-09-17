@@ -3,13 +3,14 @@
 WP0 is committed and archived. WP1 implementation and CPU validation are complete;
 independent review fixed numerical/input boundary cases and reran the full suite.
 The user approved the WP1 work commit and normal completion workflow. See VALIDATION.md and
-the task's machine-readable execution receipts. WP2 has not been started.
+the task's machine-readable execution receipts. WP2 implementation and its CPU
+audit now pass independent review and final verification.
 
 | Work package | Status |
 | --- | --- |
 | WP0 foundation, strict configuration, runtime, references, inspect-config | Completed, committed ecbda13, archived |
 | WP1 modulation, frame and LFM | Complete; CPU verification and independent review passed |
-| WP2 physical channel and effective model | Not started |
+| WP2 physical channel and effective model | Implemented; CPU tests/audit and independent review passed |
 | WP3 datasets and splits | Not started |
 | WP4 production MMSE and VAMP | Not started |
 | WP5 production PG-VAMP and complete mathematical equivalence | Not started |
@@ -19,6 +20,18 @@ the task's machine-readable execution receipts. WP2 has not been started.
 
 The WP0 references do not constitute production algorithm or physical-chain
 acceptance. Resolving profiles does not constitute execution of their workloads.
+
+WP2 final independent evidence: **194 passed, 3 skipped** in the complete suite;
+product-scope Ruff/format and mypy pass. Two physical frames and 20 full-size
+windows have maximum waveform-versus-H relative error **8.15e-12** in complex128.
+The noise audit checks 33,554,432 time samples, 4096 FFT windows and a 204800-bit
+identity-AWGN experiment. The three CUDA skips are explicit. Root-wide Ruff
+includes pre-existing errors in tooling/archive files; those remain outside this
+product change. Dataset generation, detectors, training and system smoke remain
+unimplemented. See docs/WP2_PHYSICAL_MODEL.md for the physical interfaces.
+The checker fixed malformed frame-span validation and added three regressions.
+The final audit saves hashed tensor artifacts and receive SNR; safe CPU loading
+and independent NumPy Fourier/FFT/cancellation reconstruction passed all 20 windows.
 
 WP1 final evidence: **91 passed, 1 skipped** targeted and **166 passed, 2 skipped**
 full regression; Ruff/format/mypy and both inspection CLI entries pass. CUDA
