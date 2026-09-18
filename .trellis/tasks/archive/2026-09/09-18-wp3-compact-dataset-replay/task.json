@@ -3,7 +3,7 @@
   "name": "wp3-compact-dataset-replay",
   "title": "WP3 Compact Dataset, Splits and Replay",
   "description": "Implement approved WP3 compact records, manifests, independent streams, leakage-free splits, replay, materialization and validation.",
-  "status": "in_progress",
+  "status": "completed",
   "dev_type": "backend",
   "scope": null,
   "package": null,
@@ -11,22 +11,22 @@
   "creator": "jimyang",
   "assignee": "jimyang",
   "createdAt": "2026-09-18",
-  "completedAt": null,
+  "completedAt": "2026-09-18",
   "branch": "codex/wp3-compact-dataset-replay",
   "base_branch": "main",
   "worktree_path": null,
-  "commit": null,
+  "commit": "1aebee2ba6cb2046909d5d57901c5e233b4da2ca",
   "pr_url": null,
   "subtasks": [],
   "children": [],
   "parent": "09-17-pgvamp-complete-engineering",
   "relatedFiles": [
     "docs/CODEX_ENGINEERING_SPEC.md",
-    ".trellis/tasks/09-18-wp3-compact-dataset-replay/prd.md",
-    ".trellis/tasks/09-18-wp3-compact-dataset-replay/design.md",
-    ".trellis/tasks/09-18-wp3-compact-dataset-replay/implement.md"
+    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/prd.md",
+    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/design.md",
+    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/implement.md"
   ],
-  "notes": "WP3 verified: 248 passed, 3 CUDA skipped; user confirmed work commit and archive/journal completion. WP4 not started.",
+  "notes": "User-approved WP3 work committed; independent verification passed (248 passed, 3 CUDA skipped). Archive/journal approved. WP4 not started.",
   "meta": {
     "review_state": "work_commit_approved",
     "implementation_authorized": true

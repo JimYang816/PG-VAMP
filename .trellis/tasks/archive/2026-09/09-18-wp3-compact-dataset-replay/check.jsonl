@@ -1,10 +1,10 @@
 {"file": ".trellis/spec/backend/index.md", "reason": "Backend contracts and authority"}
 {"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "Mandatory WP order and source authority"}
-{"file": ".trellis/tasks/09-18-wp3-compact-dataset-replay/research/source-excerpts.md", "reason": "Verbatim WP3 source clauses; full source remains authority and must be read at implementation/check"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/research/source-excerpts.md", "reason": "Verbatim WP3 source clauses; full source remains authority and must be read at implementation/check"}
 {"file": ".trellis/spec/backend/reproducibility.md", "reason": "Streams, compact records, replay and safe persistence"}
 {"file": ".trellis/spec/backend/runtime-config.md", "reason": "Strict config, CPU default and dtype contracts"}
 {"file": ".trellis/spec/backend/wp2-channel-contract.md", "reason": "Physical reconstruction and independent waveform interfaces"}
-{"file": ".trellis/tasks/09-18-wp3-compact-dataset-replay/research/planning-evidence.md", "reason": "Inspected prerequisites and scope boundaries"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/research/planning-evidence.md", "reason": "Inspected prerequisites and scope boundaries"}
 {"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Independent verification and truthful evidence"}
-{"file": ".trellis/tasks/09-18-wp3-compact-dataset-replay/research/review-focus.md", "reason": "Independent boundary and persisted-artifact checks"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay/research/review-focus.md", "reason": "Independent boundary and persisted-artifact checks"}
 {"file": ".trellis/spec/backend/wp3-data-contract.md", "reason": "New data API contract; verify signatures and implementation consistency"}
