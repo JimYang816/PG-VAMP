@@ -249,3 +249,40 @@ Completed WP7 implementation, independent verification and user-approved work co
 ### Next Steps
 
 - Await explicit WP8 planning request; do not start WP8 automatically.
+
+
+## Session 9: WP8 complete delivery and CPU acceptance
+<!-- trellis-session: v=2 fp=4f920045c77dc56e -->
+
+**Date**: 2026-09-18
+**Task**: WP8 complete delivery and CPU acceptance
+**Branch**: `codex/wp8-complete-delivery`
+
+### Summary
+
+Completed WP8 demo-frame and delivery documentation; independent validation 486 passed / 7 CUDA skipped, fresh CPU full-size smoke, 28 training/evaluation/report CLI calls and both demo precisions. User-approved work commit and WP8 archive completed; unrelated report/PDF preserved.
+
+### Main Changes
+
+- Added complete-frame demo CLI with independent waveform/FFT checks, persisted arrays, synchronization boundaries and figures.
+- Consolidated configuration, algorithm, reproduction and delivery matrix docs; archived WP8, retained parent coordination task.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `7102c97` | feat: 完成 WP8 完整交付与 CPU 验收 |
+
+### Testing
+
+- [OK] 486 passed / 7 CUDA skipped; Ruff/format src tests scripts and mypy passed.
+- [OK] 11 training CLI + 17 evaluation/report CLI + 2 demo precision runs passed; independent saved-array/hash/count and visual checks passed.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- Parent remains as coordination record with all nine WP children archived; any parent cleanup is separate.
+- Main training, powered SNR sweep and CUDA experiments remain unexecuted; unrelated docs/WP7_EXAMPLE_REPORT.md and output/pdf/WP7_EXAMPLE_REPORT.pdf untouched.
