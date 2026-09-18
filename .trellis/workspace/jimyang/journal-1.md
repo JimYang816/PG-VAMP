@@ -177,3 +177,39 @@ Completed production PG-VAMP with exactly 2T real parameters, independent mathem
 ### Next Steps
 
 - Await explicit user request for WP6 planning; training, checkpoint and full system smoke remain unexecuted.
+
+
+## Session 7: WP6 training resume inference completion
+<!-- trellis-session: v=2 fp=f3a7e9ff58d962ba -->
+
+**Date**: 2026-09-18
+**Task**: WP6 training resume inference completion
+**Branch**: `codex/wp6-training-checkpoint-smoke`
+
+### Summary
+
+Completed WP6 implementation and independent acceptance; user-approved work commit and archive. WP7 remains unstarted.
+
+### Main Changes
+
+- Added deterministic PG-VAMP training, safe complete checkpoint/resume, label-free inference, CPU-safe Adam and full-size smoke CLI.
+- Independent review repaired historical WP3 config compatibility, optimizer flags, contextual failures and smoke dimension guards.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `e73a983` | feat: 完成 WP6 训练恢复推理与完整尺寸 smoke |
+
+### Testing
+
+- [OK] 430 passed / 7 CUDA skipped; Ruff, format and mypy passed; 11 independent CLI commands succeeded.
+- [OK] Independent NumPy waveform error 1.1311e-11; shared inputs and actual full-frame counts verified; 56 source hashes and 54 artifacts rechecked.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- Await explicit WP7 planning request; main training, SNR sweeps and CUDA numerical execution remain unexecuted.
