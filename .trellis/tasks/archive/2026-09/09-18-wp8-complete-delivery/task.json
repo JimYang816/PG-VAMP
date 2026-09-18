@@ -3,7 +3,7 @@
   "name": "wp8-complete-delivery",
   "title": "WP8 Complete Delivery and CPU Acceptance",
   "description": "Complete delivery documentation, required demo-frame CLI, and fresh CPU full-size acceptance with explicit unexecuted experiments.",
-  "status": "in_progress",
+  "status": "completed",
   "dev_type": "backend",
   "scope": null,
   "package": null,
@@ -11,18 +11,18 @@
   "creator": "jimyang",
   "assignee": "jimyang",
   "createdAt": "2026-09-18",
-  "completedAt": null,
+  "completedAt": "2026-09-18",
   "branch": "codex/wp8-complete-delivery",
   "base_branch": "main",
   "worktree_path": null,
-  "commit": null,
+  "commit": "7102c97fc0c5931d49ad4f1da2c8cd15462b3907",
   "pr_url": null,
   "subtasks": [],
   "children": [],
   "parent": "09-17-pgvamp-complete-engineering",
   "relatedFiles": [],
-  "notes": "User approved work commit and normal WP8 archive/journal on 2026-09-18. Independent verification: 486 passed / 7 CUDA skipped; 28 training/evaluation/report commands and both demo precisions pass. No main training/full sweep/CUDA execution.",
+  "notes": "User-approved work commit 7102c97 completed; independent verification 486 passed / 7 CUDA skipped. Normal WP8 archive/journal authorized. Main training/full sweep/CUDA remain unexecuted.",
   "meta": {
-    "review_state": "verified_completion_approved"
+    "review_state": "verified_committed"
   }
 }

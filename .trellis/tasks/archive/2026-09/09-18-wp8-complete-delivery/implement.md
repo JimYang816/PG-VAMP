@@ -41,3 +41,5 @@ demo 编排/CLI 可独立回退；任何物理一致性或计数失败阻止完�
 486 passed / 7 CUDA skipped；Ruff/format(src tests scripts)/mypy 通过。新训练/smoke 11 条 CLI、评测/计时/报告 17 条 CLI、两种精度 demo CLI 均通过；独立保存数组/计数/哈希/图像复核通过。源码及完整证据见 check-report.md 和根 VALIDATION.md。工作提交、归档、journal 待具体 commit plan 一次确认；task 保持 in_progress。
 
 用户已于 2026-09-18 确认具体 commit plan，授权工作提交及正常 WP8 归档/journal。
+
+工作提交 7102c97 已完成；按用户确认进行归档与 journal。
