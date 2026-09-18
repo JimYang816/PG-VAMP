@@ -22,7 +22,8 @@
     "09-17-wp0-foundation-references",
     "09-18-wp1-modulation-frame-lfm",
     "09-18-wp2-physical-channel-effective-model",
-    "09-18-wp3-compact-dataset-replay"
+    "09-18-wp3-compact-dataset-replay",
+    "09-18-wp4-mmse-exact-vamp"
   ],
   "parent": null,
   "relatedFiles": [
@@ -30,9 +31,10 @@
     ".trellis/tasks/archive/2026-09/09-17-wp0-foundation-references",
     ".trellis/tasks/archive/2026-09/09-18-wp1-modulation-frame-lfm",
     ".trellis/tasks/archive/2026-09/09-18-wp2-physical-channel-effective-model",
-    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay"
+    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay",
+    ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp"
   ],
-  "notes": "WP3 independently verified (248 passed, 3 CUDA skipped); user approved work commit and normal archive/journal completion. WP4-WP8 not created.",
+  "notes": "WP4 independently verified: 313 passed, 5 CUDA skipped. User approved work commit followed by archive and journal. WP5 not started.",
   "meta": {
     "role": "coordination_parent",
     "review_state": "work_commit_approved",

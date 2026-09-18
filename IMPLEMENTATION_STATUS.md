@@ -12,11 +12,16 @@ audit now pass independent review and final verification.
 | WP1 modulation, frame and LFM | Complete; CPU verification and independent review passed |
 | WP2 physical channel and effective model | Implemented; CPU tests/audit and independent review passed |
 | WP3 datasets and splits | Implemented; CPU validation and independent review passed |
-| WP4 production MMSE and VAMP | Not started |
+| WP4 production MMSE and VAMP | Implemented; CPU validation and independent review passed |
 | WP5 production PG-VAMP and complete mathematical equivalence | Not started |
 | WP6 training, checkpoint, inference and system smoke | Not started |
 | WP7 evaluation and reports | Not started |
 | WP8 complete delivery | Not started |
+
+WP4 final evidence: **313 passed, 5 CUDA skipped**, product Ruff/format/mypy
+and both baseline configuration inspections pass. Independent NumPy layer audit
+maximum discrepancy is **2.78e-15**; actual 400-dimensional shared physical inputs
+and complete-output label isolation pass. The user approved the work commit and normal archive/journal completion. No baseline performance or full-system smoke claim is made.
 
 The WP0 references do not constitute production algorithm or physical-chain
 acceptance. Resolving profiles does not constitute execution of their workloads.
@@ -27,8 +32,8 @@ windows have maximum waveform-versus-H relative error **8.15e-12** in complex128
 The noise audit checks 33,554,432 time samples, 4096 FFT windows and a 204800-bit
 identity-AWGN experiment. The three CUDA skips are explicit. Root-wide Ruff
 includes pre-existing errors in tooling/archive files; those remain outside this
-product change. Production detectors, training and system smoke remain
-unimplemented. WP3 now supplies dataset generation and replay; independent review passed
+product change. Production PG-VAMP, training and system smoke remain
+unimplemented. WP3 supplies dataset generation and replay; independent review passed
 with 248 passed / 3 CUDA skipped, product Ruff/format/mypy and fresh artifact verification. See docs/WP2_PHYSICAL_MODEL.md for the physical interfaces.
 The checker fixed malformed frame-span validation and added three regressions.
 The final audit saves hashed tensor artifacts and receive SNR; safe CPU loading

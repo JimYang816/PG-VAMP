@@ -1,7 +1,7 @@
 # PG-VAMP CP-OFDM
 
 Implementation follows [CODEX_ENGINEERING_SPEC.md](docs/CODEX_ENGINEERING_SPEC.md).
-The current work package is **WP3: compact datasets, splits and replay**.
+The current work package is **WP4: full-H linear MMSE and exact SVD VAMP**.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for scope and
 [VALIDATION.md](VALIDATION.md) for actual validation evidence.
 
@@ -46,10 +46,10 @@ Physical profiles retain the 512 grid / 400 data / 8192 FFT configuration.
 not mean that a `smoke` command or a physical simulation has been implemented.
 
 The dense PG-VAMP and Cholesky VAMP references are correctness oracles for
-small algebra fixtures. They are independent of future production algorithms.
+small algebra fixtures. They remain independent of production algorithms.
 WP2 physical-channel validation is described below. WP3 data interfaces are described
-at the end of this document. WP4–WP8 production detectors, training and performance
-comparisons remain separate work packages.
+at the end of this document. WP4 adds the production baselines below; WP5–WP8
+production PG-VAMP, training and performance comparisons remain separate work packages.
 The algebra references make no physical BER or acceleration claim.
 
 ```python
@@ -156,4 +156,36 @@ inputs; `purpose="train"` and `purpose="evaluation"` reject missing labels. No H
 normalization is applied. `audit-data` is explicit, using
 `data.audit_waveform_frames` when its frame-count flag is omitted; simulation does
 not automatically perform expensive waveform auditing. Full-size main generation,
-production detector integration, training and performance sweeps remain unexecuted.
+three-detector integration, training and performance sweeps remain unexecuted.
+
+## WP4 production baselines
+
+`MMSEDetector` returns the raw full-H Cholesky linear estimate (`MMSE (linear)`),
+with nearest-QPSK hard decisions and `probabilities=None`. `VAMPDetector` performs
+eight exact SVD linear/QPSK updates and returns the final posterior. It uses one
+SVD per detection call and explicit numerical message protection. Neither has
+trainable parameters. `configs/vamp_reference_32.yaml` selects the supplementary
+32-iteration setting; instantiate `VAMPDetector(iterations=32)` when using it.
+
+```python
+from pgvamp_ofdm.algorithms import MMSEDetector, VAMPDetector
+from pgvamp_ofdm.data.dataset import detection_inputs
+
+# sample is an EffectiveDataset item; retain its IDs and labels in the caller.
+inputs = {key: value.unsqueeze(0) for key, value in detection_inputs(sample).items()}
+linear = MMSEDetector().detect(**inputs)
+vamp = VAMPDetector().detect(**inputs, return_diagnostics=True)
+```
+
+Inputs are finite complex `[B,N,N]` H and `[B,N]` y, with positive real
+`sigma2[B]` on the same device. complex128/float64 is the correctness default;
+complex64/float32 is explicit. Invalid inputs raise `ValueError`; numerical
+failures raise `FloatingPointError` with batch/dtype/device context. VAMP counts
+no-information, rejected messages, precision caps and variance underflow per
+sample. Detailed diagnostics add layer vectors/scalars; no large per-layer
+matrix copies are retained. Zero and numerically uninformative channels return
+zero posterior means and uniform probabilities.
+
+WP4 checks include independent Cholesky-oracle layer comparisons and actual
+400-dimensional WP3 input with nonzero path time scaling. This does not establish
+three-algorithm performance, full-system smoke, training results or a speed gain.

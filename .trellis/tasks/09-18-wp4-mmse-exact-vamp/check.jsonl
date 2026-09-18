@@ -1,0 +1,10 @@
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/source-excerpts.md", "reason": "Verbatim WP4 source contracts without truncation; full engineering source remains sole authority"}
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "Mandatory WP order and truthful evidence"}
+{"file": ".trellis/spec/backend/numerical-contracts.md", "reason": "Exact baselines, protections, oracle independence"}
+{"file": ".trellis/spec/backend/runtime-config.md", "reason": "Device, dtype and strict configuration"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Independent checks and numerical tolerances"}
+{"file": ".trellis/spec/backend/wp3-data-contract.md", "reason": "Physical sample consumption and label isolation"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/planning-evidence.md", "reason": "Inspected code boundaries and review risks"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/check-focus.md", "reason": "Independent whole-task review and numerical/integration risks"}
+{"file": ".trellis/spec/backend/wp4-detector-contract.md", "reason": "Review new executable baseline contract against implementation"}
+{"file": ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/svd-no-information.md", "reason": "Review scale-aware positive spectral sum threshold derivation"}

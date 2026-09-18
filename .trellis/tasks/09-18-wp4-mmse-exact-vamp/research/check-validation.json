@@ -1,0 +1,110 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+  "logical_cpus": 12,
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+  "torch": "2.12.0+cpu",
+  "cuda_available": false,
+  "cuda_device_count": 0,
+  "pytest_threads": 4,
+  "MKL_THREADING_LAYER": "TBB",
+  "commands": [
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-rs",
+        "--basetemp=runs/pytest-wp4-check-1789692205551100400"
+      ],
+      "started_unix": 1789692205.57102,
+      "elapsed_seconds": 34.59796929359436,
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 22%]\n.......................................ss.....................s......... [ 45%]\n........................................................................ [ 67%]\n...................................................................s.... [ 90%]\n.............................s                                           [100%]\n=========================== short test summary info ===========================\nSKIPPED [2] tests\\test_detector_inputs.py:85: CUDA unavailable\nSKIPPED [1] tests\\test_devices.py:61: CUDA hardware unavailable\nSKIPPED [1] tests\\test_waveform.py:167: CUDA hardware unavailable; no GPU computation performed\nSKIPPED [1] tests\\test_wp2.py:326: CUDA unavailable; CPU is default\n313 passed, 5 skipped in 31.64s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789692240.169987,
+      "elapsed_seconds": 0.0420992374420166,
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789692240.2127955,
+      "elapsed_seconds": 0.03776264190673828,
+      "exit_code": 0,
+      "stdout": "62 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "started_unix": 1789692240.2511325,
+      "elapsed_seconds": 1.1382229328155518,
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 43 source files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml"
+      ],
+      "started_unix": 1789692241.3899586,
+      "elapsed_seconds": 3.044254779815674,
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/vamp_reference_32.yaml"
+      ],
+      "started_unix": 1789692244.434902,
+      "elapsed_seconds": 3.0958549976348877,
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "D:\\SCI\\code\\PG-VAMP\\.trellis\\tasks\\09-18-wp4-mmse-exact-vamp\\research\\check-numerics.py"
+      ],
+      "started_unix": 1789692247.5315146,
+      "elapsed_seconds": 1.8604235649108887,
+      "exit_code": 0,
+      "stdout": "[\n  {\n    \"seed\": 903,\n    \"n\": 7,\n    \"iterations\": 8,\n    \"mmse_max_error\": 3.376611507232129e-16,\n    \"linear_condition\": 4.292731129523608,\n    \"layer_max_errors\": {\n      \"r2\": 1.8728330450731676e-15,\n      \"gamma2\": 1.1102230246251565e-15,\n      \"xhat2\": 1.8452761694870047e-15,\n      \"alpha2\": 2.220446049250313e-16,\n      \"c\": 2.220446049250313e-16,\n      \"r1\": 2.5989654674417885e-15,\n      \"gamma1\": 4.440892098500626e-16,\n      \"xhat1\": 1.7763568394002505e-15,\n      \"probabilities\": 1.3322676295501878e-15,\n      \"vbar\": 3.3306690738754696e-16,\n      \"alpha1\": 2.220446049250313e-16\n    }\n  },\n  {\n    \"seed\": 904,\n    \"n\": 7,\n    \"iterations\": 8,\n    \"mmse_max_error\": 1.6883057536160646e-16,\n    \"linear_condition\": 4.6627251809189625,\n    \"layer_max_errors\": {\n      \"r2\": 2.4558587528282374e-15,\n      \"gamma2\": 2.220446049250313e-15,\n      \"xhat2\": 1.8452761694870047e-15,\n      \"alpha2\": 2.220446049250313e-16,\n      \"c\": 2.220446049250313e-16,\n      \"r1\": 2.7755575615628914e-15,\n      \"gamma1\": 1.2212453270876722e-15,\n      \"xhat1\": 1.8619006149354546e-15,\n      \"probabilities\": 1.4432899320127035e-15,\n      \"vbar\": 8.881784197001252e-16,\n      \"alpha1\": 2.220446049250313e-16\n    }\n  },\n  {\n    \"seed\": 905,\n    \"n\": 7,\n    \"iterations\": 8,\n    \"mmse_max_error\": 3.510833468576701e-16,\n    \"linear_condition\": 4.1088999345153345,\n    \"layer_max_errors\": {\n      \"r2\": 1.6800722979961108e-15,\n      \"gamma2\": 1.3322676295501878e-15,\n      \"xhat2\": 1.8728330450731676e-15,\n      \"alpha2\": 2.220446049250313e-16,\n      \"c\": 1.1102230246251565e-16,\n      \"r1\": 2.5073902190240937e-15,\n      \"gamma1\": 4.440892098500626e-16,\n      \"xhat1\": 1.86293471699515e-15,\n      \"probabilities\": 1.3322676295501878e-15,\n      \"vbar\": 2.7755575615628914e-16,\n      \"alpha1\": 1.1102230246251565e-16\n    }\n  }\n]\n",
+      "stderr": ""
+    }
+  ]
+}

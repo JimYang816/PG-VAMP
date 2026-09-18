@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "source_files_verified": 64,
+  "source_mismatches": [],
+  "check_commands_passed": 7,
+  "oracle_and_authoritative_spec_unchanged": true,
+  "physical_manifest_sha256_verified": true,
+  "paired_physical_inputs_and_label_cases_verified": true,
+  "product_test_summary": "313 passed, 5 CUDA skipped",
+  "work_commit": "pending approval",
+  "archive": "not performed",
+  "wp5": "not started"
+}

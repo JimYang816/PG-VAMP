@@ -1,0 +1,98 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+  "environment": {
+    "MKL_THREADING_LAYER": "TBB"
+  },
+  "commands": [
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/pytest-wp4-receipt"
+      ],
+      "started_unix": 1789691899.464697,
+      "elapsed_seconds": 35.56283378601074,
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 22%]\n.......................................ss.....................s......... [ 45%]\n........................................................................ [ 67%]\n...................................................................s.... [ 90%]\n.............................s                                           [100%]\n313 passed, 5 skipped in 32.55s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691935.0282238,
+      "elapsed_seconds": 0.06796813011169434,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Software\\Anaconda3\\Lib\\site-packages\\ruff\\__main__.py\", line 81, in <module>\n    ruff = find_ruff_bin()\n  File \"C:\\Software\\Anaconda3\\Lib\\site-packages\\ruff\\__main__.py\", line 77, in find_ruff_bin\n    raise FileNotFoundError(scripts_path)\nFileNotFoundError: D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\ruff.exe\n"
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691935.0967853,
+      "elapsed_seconds": 0.0660245418548584,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Software\\Anaconda3\\Lib\\site-packages\\ruff\\__main__.py\", line 81, in <module>\n    ruff = find_ruff_bin()\n  File \"C:\\Software\\Anaconda3\\Lib\\site-packages\\ruff\\__main__.py\", line 77, in find_ruff_bin\n    raise FileNotFoundError(scripts_path)\nFileNotFoundError: D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\ruff.exe\n"
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "started_unix": 1789691935.1634839,
+      "elapsed_seconds": 4.2967917919158936,
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 43 source files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml"
+      ],
+      "started_unix": 1789691939.4608881,
+      "elapsed_seconds": 2.991267681121826,
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/vamp_reference_32.yaml"
+      ],
+      "started_unix": 1789691942.4528344,
+      "elapsed_seconds": 2.959566116333008,
+      "exit_code": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    }
+  ]
+}

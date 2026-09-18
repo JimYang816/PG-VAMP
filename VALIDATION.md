@@ -1,5 +1,61 @@
 # Validation record
 
+## WP4 independent final validation — 2026-09-18
+
+Final full regression: **313 passed, 5 CUDA skipped** in 31.64 seconds.
+Product Ruff/format, mypy (43 source files), and cpu_dev/vamp_reference_32
+configuration inspections pass. No remaining WP4 review blocker. The independent
+Cholesky reference and authoritative engineering specification are unchanged.
+
+The reviewer repaired a test-coverage gap: each detector now reloads its original
+physical sample before label mutation. Independent original/flipped/absent-label
+checks compare all result tensors, including VAMP probabilities, on the same
+400-dimensional physical input. Input hashes remain unchanged and equal.
+Independent NumPy solves and direct four-point enumeration audit every VAMP
+layer on three seeded 7x7 complex systems: maximum discrepancy **2.78e-15**;
+MMSE maximum error is **3.52e-16**. Source complex128 tolerances were not relaxed.
+
+Final receipts under `.trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/`:
+`check-report.md`, `check-validation.json`, `check-numerics.json`,
+`check-physical.json`, and `check-source-hashes.json`. The final source hashes
+include the reviewer's test fix; implementation-stage receipts below are historical.
+Environment: existing Python 3.13.9 virtualenv, PyTorch 2.12.0+cpu, four threads,
+MKL_THREADING_LAYER=TBB. CUDA is unavailable; no GPU acceptance is claimed.
+Production PG-VAMP, training, evaluation/performance sweeps and full-system smoke
+remain unexecuted later-WP work.
+
+## WP4 implementation validation — 2026-09-18
+
+Full regression: **313 passed, 5 skipped** in 32.55 seconds using the existing
+`.venv` (Python 3.13.9, PyTorch 2.12.0+cpu, four CPU threads,
+`MKL_THREADING_LAYER=TBB`). All skips require CUDA. Product Ruff/format and
+mypy (43 source files) pass. Both `cpu_dev` and `vamp_reference_32` configuration
+inspection commands pass. This is the implementation-stage record; the completed
+independent review is recorded above.
+
+New checks cover raw linear MMSE, SVD/Cholesky VAMP equivalence at every layer
+for N=8/16/32 and 8/32 iterations, QPSK enumeration, true divergence, mixed
+zero/rank-deficient/weak channels, scale invariance, label-free inputs, invalid
+inputs and hard failures, and rejected/capped-message backward. Finite candidate
+overflow required a guard before division: filtering the infinite quotient
+afterwards left NaN gradients. Four float32/64 regressions now cover numerator
+and quotient overflow without modifying the independent reference.
+
+A fixed-seed WP3 sample with six nonzero, unequal path time scalings supplies
+the same 400×400 H/y/sigma2 to both real baselines. Inputs remain unchanged and
+changing/removing labels leaves predictions unchanged. Both outputs are finite,
+both parameter counts are zero, and this VAMP sample has zero protection events.
+No BER, speedup, training, three-algorithm or full-system smoke claim is made.
+
+Task evidence: `.trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/research/` contains
+`implementation-validation.json`, `implementation-lint.json`,
+`implementation-physical.json`, `implementation-source-hashes.json`,
+`implementation-evidence.md`, and `svd-no-information.md`.
+The initial system-Python run had four package-import/CLI failures because that
+interpreter lacks the editable install; its failed receipt is retained.
+The virtualenv's inherited `python -m ruff` launcher could not find its executable;
+the successful lint receipt uses the installed Anaconda Ruff executable.
+
 ## WP2 independent final validation — 2026-09-18
 
 The checker reviewed the full physical scope and fixed malformed frame interval

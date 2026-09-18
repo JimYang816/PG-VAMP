@@ -1,0 +1,37 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+  "environment": {
+    "MKL_THREADING_LAYER": "TBB"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\Scripts\\ruff.EXE",
+        "check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691998.9392455,
+      "elapsed_seconds": 0.03940105438232422,
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\Scripts\\ruff.EXE",
+        "format",
+        "--check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691998.979649,
+      "elapsed_seconds": 0.03469967842102051,
+      "exit_code": 0,
+      "stdout": "62 files already formatted\n",
+      "stderr": ""
+    }
+  ]
+}

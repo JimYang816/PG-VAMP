@@ -1,0 +1,98 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Software\\Anaconda3\\python.exe",
+  "environment": {
+    "MKL_THREADING_LAYER": "TBB"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/pytest-wp4-receipt"
+      ],
+      "started_unix": 1789691761.89553,
+      "elapsed_seconds": 20.419135570526123,
+      "exit_code": 1,
+      "stdout": ".................FFF.................................................... [ 23%]\n.........F.............................ss.................s............. [ 46%]\n........................................................................ [ 69%]\n..............................................................s......... [ 92%]\n........................s                                                [100%]\n================================== FAILURES ===================================\n__________________________ test_both_entries[False] ___________________________\n\nconsole = False\n\n    @pytest.mark.parametrize(\"console\", [False, True])\n    def test_both_entries(console):\n        command = (\n            [\n                str(\n                    Path(sys.executable).with_name(\n                        \"pgvamp-ofdm.exe\" if os.name == \"nt\" else \"pgvamp-ofdm\"\n                    )\n                )\n            ]\n            if console\n            else [sys.executable, \"-m\", \"pgvamp_ofdm\"]\n        )\n        result = subprocess.run(\n            command + [\"inspect-config\", \"--config\", \"configs/cpu_dev.yaml\"],\n            capture_output=True,\n            text=True,\n            check=False,\n        )\n>       assert result.returncode == 0, result.stderr\nE       AssertionError: C:\\Software\\Anaconda3\\python.exe: No module named pgvamp_ofdm\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['C:\\\\Software\\\\Anaconda3\\\\python.exe', '-m', 'pgvamp_ofdm', 'inspect-config', '--config', 'configs/cpu_dev.yaml'], returncode=1, stdout='', stderr='C:\\\\Software\\\\Anaconda3\\\\python.exe: No module named pgvamp_ofdm\\n').returncode\n\ntests\\test_cli.py:31: AssertionError\n___________________________ test_both_entries[True] ___________________________\n\nconsole = True\n\n    @pytest.mark.parametrize(\"console\", [False, True])\n    def test_both_entries(console):\n        command = (\n            [\n                str(\n                    Path(sys.executable).with_name(\n                        \"pgvamp-ofdm.exe\" if os.name == \"nt\" else \"pgvamp-ofdm\"\n                    )\n                )\n            ]\n            if console\n            else [sys.executable, \"-m\", \"pgvamp_ofdm\"]\n        )\n>       result = subprocess.run(\n            command + [\"inspect-config\", \"--config\", \"configs/cpu_dev.yaml\"],\n            capture_output=True,\n            text=True,\n            check=False,\n        )\n\ntests\\test_cli.py:25: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nC:\\Software\\Anaconda3\\Lib\\subprocess.py:554: in run\n    with Popen(*popenargs, **kwargs) as process:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Software\\Anaconda3\\Lib\\subprocess.py:1039: in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <Popen: returncode: None args: ['C:\\\\Software\\\\Anaconda3\\\\pgvamp-ofdm.exe', ...>\nargs = 'C:\\\\Software\\\\Anaconda3\\\\pgvamp-ofdm.exe inspect-config --config configs/cpu_dev.yaml'\nexecutable = None, preexec_fn = None, close_fds = False, pass_fds = ()\ncwd = None, env = None\nstartupinfo = <subprocess.STARTUPINFO object at 0x0000014B91E60410>\ncreationflags = 0, shell = False, p2cread = Handle(880), p2cwrite = -1\nc2pread = 11, c2pwrite = Handle(748), errread = 12, errwrite = Handle(828)\nunused_restore_signals = True, unused_gid = None, unused_gids = None\nunused_uid = None, unused_umask = -1, unused_start_new_session = False\nunused_process_group = -1\n\n    def _execute_child(self, args, executable, preexec_fn, close_fds,\n                       pass_fds, cwd, env,\n                       startupinfo, creationflags, shell,\n                       p2cread, p2cwrite,\n                       c2pread, c2pwrite,\n                       errread, errwrite,\n                       unused_restore_signals,\n                       unused_gid, unused_gids, unused_uid,\n                       unused_umask,\n                       unused_start_new_session, unused_process_group):\n        \"\"\"Execute program (MS Windows version)\"\"\"\n    \n        assert not pass_fds, \"pass_fds not supported on Windows.\"\n    \n        if isinstance(args, str):\n            pass\n        elif isinstance(args, bytes):\n            if shell:\n                raise TypeError('bytes args is not allowed on Windows')\n            args = list2cmdline([args])\n        elif isinstance(args, os.PathLike):\n            if shell:\n                raise TypeError('path-like args is not allowed when '\n                                'shell is true')\n            args = list2cmdline([args])\n        else:\n            args = list2cmdline(args)\n    \n        if executable is not None:\n            executable = os.fsdecode(executable)\n    \n        # Process startup details\n        if startupinfo is None:\n            startupinfo = STARTUPINFO()\n        else:\n            # bpo-34044: Copy STARTUPINFO since it is modified above,\n            # so the caller can reuse it multiple times.\n            startupinfo = startupinfo.copy()\n    \n        use_std_handles = -1 not in (p2cread, c2pwrite, errwrite)\n        if use_std_handles:\n            startupinfo.dwFlags |= _winapi.STARTF_USESTDHANDLES\n            startupinfo.hStdInput = p2cread\n            startupinfo.hStdOutput = c2pwrite\n            startupinfo.hStdError = errwrite\n    \n        attribute_list = startupinfo.lpAttributeList\n        have_handle_list = bool(attribute_list and\n                                \"handle_list\" in attribute_list and\n                                attribute_list[\"handle_list\"])\n    \n        # If we were given an handle_list or need to create one\n        if have_handle_list or (use_std_handles and close_fds):\n            if attribute_list is None:\n                attribute_list = startupinfo.lpAttributeList = {}\n            handle_list = attribute_list[\"handle_list\"] = \\\n                list(attribute_list.get(\"handle_list\", []))\n    \n            if use_std_handles:\n                handle_list += [int(p2cread), int(c2pwrite), int(errwrite)]\n    \n            handle_list[:] = self._filter_handle_list(handle_list)\n    \n            if handle_list:\n                if not close_fds:\n                    warnings.warn(\"startupinfo.lpAttributeList['handle_list'] \"\n                                  \"overriding close_fds\", RuntimeWarning)\n    \n                # When using the handle_list we always request to inherit\n                # handles but the only handles that will be inherited are\n                # the ones in the handle_list\n                close_fds = False\n    \n        if shell:\n            startupinfo.dwFlags |= _winapi.STARTF_USESHOWWINDOW\n            startupinfo.wShowWindow = _winapi.SW_HIDE\n            if not executable:\n                # gh-101283: without a fully-qualified path, before Windows\n                # checks the system directories, it first looks in the\n                # application directory, and also the current directory if\n                # NeedCurrentDirectoryForExePathW(ExeName) is true, so try\n                # to avoid executing unqualified \"cmd.exe\".\n                comspec = os.environ.get('ComSpec')\n                if not comspec:\n                    system_root = os.environ.get('SystemRoot', '')\n                    comspec = os.path.join(system_root, 'System32', 'cmd.exe')\n                    if not os.path.isabs(comspec):\n                        raise FileNotFoundError('shell not found: neither %ComSpec% nor %SystemRoot% is set')\n                if os.path.isabs(comspec):\n                    executable = comspec\n            else:\n                comspec = executable\n    \n            args = '{} /c \"{}\"'.format (comspec, args)\n    \n        if cwd is not None:\n            cwd = os.fsdecode(cwd)\n    \n        sys.audit(\"subprocess.Popen\", executable, args, cwd, env)\n    \n        # Start the process\n        try:\n>           hp, ht, pid, tid = _winapi.CreateProcess(executable, args,\n                                     # no special security\n                                     None, None,\n                                     int(not close_fds),\n                                     creationflags,\n                                     env,\n                                     cwd,\n                                     startupinfo)\nE                                    FileNotFoundError: [WinError 2] \u03f5\u0373\ufffd\u04b2\ufffd\ufffd\ufffd\u05b8\ufffd\ufffd\ufffd\ufffd\ufffd\u013c\ufffd\ufffd\ufffd\n\nC:\\Software\\Anaconda3\\Lib\\subprocess.py:1554: FileNotFoundError\n____________________________ test_output_and_error ____________________________\n\ntmp_path = WindowsPath('D:/SCI/code/PG-VAMP/runs/pytest-wp4-receipt/test_output_and_error0')\n\n    def test_output_and_error(tmp_path):\n        out = tmp_path / \"run\"\n        command = [sys.executable, \"-m\", \"pgvamp_ofdm\", \"inspect-config\"]\n        result = subprocess.run(command + [\"--output\", str(out)], capture_output=True, text=True)\n>       assert result.returncode == 0, result.stderr\nE       AssertionError: C:\\Software\\Anaconda3\\python.exe: No module named pgvamp_ofdm\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['C:\\\\Software\\\\Anaconda3\\\\python.exe', '-m', 'pgvamp_ofdm', 'inspect-config', '--output', 'D:\\\\...nd_error0\\\\run'], returncode=1, stdout='', stderr='C:\\\\Software\\\\Anaconda3\\\\python.exe: No module named pgvamp_ofdm\\n').returncode\n\ntests\\test_cli.py:39: AssertionError\n__________________________ test_cross_process_replay __________________________\n\ndata_manifest = WindowsPath('D:/SCI/code/PG-VAMP/runs/pytest-wp4-receipt/data0/compact/manifest.json')\n\n    def test_cross_process_replay(data_manifest):\n        code = (\n            \"import json,sys; from pgvamp_ofdm.data.dataset import EffectiveDataset; \"\n            \"from pgvamp_ofdm.data.records import tensor_hash; \"\n            \"print(json.dumps(tensor_hash(EffectiveDataset(sys.argv[1], 'test')[16])))\"\n        )\n>       result = subprocess.run(\n            [sys.executable, \"-c\", code, str(data_manifest)], capture_output=True, text=True, check=True\n        )\n\ntests\\test_dataset.py:39: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\ninput = None, capture_output = True, timeout = None, check = True\npopenargs = (['C:\\\\Software\\\\Anaconda3\\\\python.exe', '-c', \"import json,sys; from pgvamp_ofdm.data.dataset import EffectiveDataset...aset(sys.argv[1], 'test')[16])))\", 'D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\pytest-wp4-receipt\\\\data0\\\\compact\\\\manifest.json'],)\nkwargs = {'stderr': -1, 'stdout': -1, 'text': True}\nprocess = <Popen: returncode: 1 args: ['C:\\\\Software\\\\Anaconda3\\\\python.exe', '-c', \"i...>\nstdout = ''\nstderr = 'Traceback (most recent call last):\\n  File \"<string>\", line 1, in <module>\\n    import json,sys; from pgvamp_ofdm.dat...         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nModuleNotFoundError: No module named \\'pgvamp_ofdm\\'\\n'\nretcode = 1\n\n    def run(*popenargs,\n            input=None, capture_output=False, timeout=None, check=False, **kwargs):\n        \"\"\"Run command with arguments and return a CompletedProcess instance.\n    \n        The returned instance will have attributes args, returncode, stdout and\n        stderr. By default, stdout and stderr are not captured, and those attributes\n        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,\n        or pass capture_output=True to capture both.\n    \n        If check is True and the exit code was non-zero, it raises a\n        CalledProcessError. The CalledProcessError object will have the return code\n        in the returncode attribute, and output & stderr attributes if those streams\n        were captured.\n    \n        If timeout (seconds) is given and the process takes too long,\n         a TimeoutExpired exception will be raised.\n    \n        There is an optional argument \"input\", allowing you to\n        pass bytes or a string to the subprocess's stdin.  If you use this argument\n        you may not also use the Popen constructor's \"stdin\" argument, as\n        it will be used internally.\n    \n        By default, all communication is in bytes, and therefore any \"input\" should\n        be bytes, and the stdout and stderr will be bytes. If in text mode, any\n        \"input\" should be a string, and stdout and stderr will be strings decoded\n        according to locale encoding, or by \"encoding\" if set. Text mode is\n        triggered by setting any of text, encoding, errors or universal_newlines.\n    \n        The other arguments are the same as for the Popen constructor.\n        \"\"\"\n        if input is not None:\n            if kwargs.get('stdin') is not None:\n                raise ValueError('stdin and input arguments may not both be used.')\n            kwargs['stdin'] = PIPE\n    \n        if capture_output:\n            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:\n                raise ValueError('stdout and stderr arguments may not be used '\n                                 'with capture_output.')\n            kwargs['stdout'] = PIPE\n            kwargs['stderr'] = PIPE\n    \n        with Popen(*popenargs, **kwargs) as process:\n            try:\n                stdout, stderr = process.communicate(input, timeout=timeout)\n            except TimeoutExpired as exc:\n                process.kill()\n                if _mswindows:\n                    # Windows accumulates the output in a single blocking\n                    # read() call run on child threads, with the timeout\n                    # being done in a join() on those threads.  communicate()\n                    # _after_ kill() is required to collect that and add it\n                    # to the exception.\n                    exc.stdout, exc.stderr = process.communicate()\n                else:\n                    # POSIX _communicate already populated the output so\n                    # far into the TimeoutExpired exception.\n                    process.wait()\n                raise\n            except:  # Including KeyboardInterrupt, communicate handled that.\n                process.kill()\n                # We don't call process.wait() as .__exit__ does that for us.\n                raise\n            retcode = process.poll()\n            if check and retcode:\n>               raise CalledProcessError(retcode, process.args,\n                                         output=stdout, stderr=stderr)\nE               subprocess.CalledProcessError: Command '['C:\\\\Software\\\\Anaconda3\\\\python.exe', '-c', \"import json,sys; from pgvamp_ofdm.data.dataset import EffectiveDataset; from pgvamp_ofdm.data.records import tensor_hash; print(json.dumps(tensor_hash(EffectiveDataset(sys.argv[1], 'test')[16])))\", 'D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\pytest-wp4-receipt\\\\data0\\\\compact\\\\manifest.json']' returned non-zero exit status 1.\n\nC:\\Software\\Anaconda3\\Lib\\subprocess.py:577: CalledProcessError\n=========================== short test summary info ===========================\nFAILED tests/test_cli.py::test_both_entries[False] - AssertionError: C:\\Softw...\nFAILED tests/test_cli.py::test_both_entries[True] - FileNotFoundError: [WinEr...\nFAILED tests/test_cli.py::test_output_and_error - AssertionError: C:\\Software...\nFAILED tests/test_dataset.py::test_cross_process_replay - subprocess.CalledPr...\n4 failed, 304 passed, 5 skipped in 17.43s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691782.3158817,
+      "elapsed_seconds": 0.09187769889831543,
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests"
+      ],
+      "started_unix": 1789691782.4087873,
+      "elapsed_seconds": 0.09230303764343262,
+      "exit_code": 0,
+      "stdout": "62 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "started_unix": 1789691782.5017588,
+      "elapsed_seconds": 1.2018628120422363,
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 43 source files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml"
+      ],
+      "started_unix": 1789691783.704445,
+      "elapsed_seconds": 0.037198543548583984,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "C:\\Software\\Anaconda3\\python.exe: No module named pgvamp_ofdm\n"
+    },
+    {
+      "argv": [
+        "C:\\Software\\Anaconda3\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/vamp_reference_32.yaml"
+      ],
+      "started_unix": 1789691783.74233,
+      "elapsed_seconds": 0.03351092338562012,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "C:\\Software\\Anaconda3\\python.exe: No module named pgvamp_ofdm\n"
+    }
+  ]
+}

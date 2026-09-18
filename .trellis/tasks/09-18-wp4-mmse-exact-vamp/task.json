@@ -1,0 +1,35 @@
+{
+  "id": "wp4-mmse-exact-vamp",
+  "name": "wp4-mmse-exact-vamp",
+  "title": "WP4 Full-H MMSE and Exact VAMP Baselines",
+  "description": "Full-H Cholesky MMSE, exact SVD VAMP, shared QPSK/message protection and independent oracle verification.",
+  "status": "in_progress",
+  "dev_type": "backend",
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "jimyang",
+  "assignee": "jimyang",
+  "createdAt": "2026-09-18",
+  "completedAt": null,
+  "branch": "codex/wp4-mmse-exact-vamp",
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": "09-17-pgvamp-complete-engineering",
+  "relatedFiles": [
+    "docs/CODEX_ENGINEERING_SPEC.md",
+    ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/prd.md",
+    ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/design.md",
+    ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp/implement.md"
+  ],
+  "notes": "WP4 independently verified: 313 passed, 5 CUDA skipped. User approved work commit followed by archive and journal. WP5 not started.",
+  "meta": {
+    "review_state": "work_commit_approved",
+    "implementation_authorized": "true",
+    "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
+  }
+}

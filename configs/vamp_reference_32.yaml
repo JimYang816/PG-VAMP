@@ -1,0 +1,3 @@
+# Supplementary VAMP-32 reference; main VAMP remains eight iterations.
+vamp:
+  iterations: 32
