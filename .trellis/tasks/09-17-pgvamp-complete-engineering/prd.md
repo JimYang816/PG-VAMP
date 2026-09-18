@@ -31,7 +31,7 @@ WP0 已完成归档；用户于 2026-09-18 批准 WP1 规划并授权实施。
 | WP4 | 完整 H 的 MMSE 与精确 VAMP；线性求解及 SVD/Cholesky 逐层等价 | WP3 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp4-mmse-exact-vamp/prd.md) |
 | WP5 | 正式 PG-VAMP 数学合同；矩阵/Jacobian/梯度/极限与 2T 参数 | WP4 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp5-pg-vamp-math-contract/prd.md) |
 | WP6 | CPU 默认训练、显式 CUDA、checkpoint/恢复/推理；两类 smoke | WP5 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp6-training-checkpoint-smoke/prd.md) |
-| WP7 | 配对评测/统计/计时/稳定性/报告；真实计数和失败可追溯 | WP6 验收 | [implemented / independently verified; completion approved](../09-18-wp7-paired-evaluation-reports/prd.md) |
+| WP7 | 配对评测/统计/计时/稳定性/报告；真实计数和失败可追溯 | WP6 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp7-paired-evaluation-reports/prd.md) |
 | WP8 | 文档、状态、真实 CPU 完整尺寸 smoke；未运行实验明确标注 | WP7 验收 | 未创建 |
 
 Trellis parent/child 链接不是依赖调度器。后续子任务必须显式写入上表前置，
@@ -96,3 +96,5 @@ WP6 独立验收：430 passed / 7 CUDA skipped，Ruff/format/mypy 与 11 条 CLI
 2026-09-18：用户明确批准 WP7 最新规划并授权 implementation；在 codex/wp7-paired-evaluation-reports 分支实现，完成后独立验收，不自动启动 WP8。
 
 WP7 独立验收通过：478 passed / 7 CUDA skipped，Ruff/format/mypy 与 17 条真实 CLI 命令通过；真实 512/400 配对计数、两种计时和单/多 seed 报告闭环、独立产物及图像检查完成。用户已批准提交与正常归档/journal；WP8 未创建。主训练、充分 sweep 和 CUDA 数值实验未执行。
+
+WP7 工作提交 f7f210f 已完成并归档至 archive/2026-09/09-18-wp7-paired-evaluation-reports；父任务保持协调容器，WP8 未创建。

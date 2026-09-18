@@ -21,7 +21,7 @@ per-frame-to-aggregate recount. Coordinator visually inspected all ten final
 single-run figures and five representative merged-report figures. The source
 specification and independent reference files retain their pre-WP7 hashes.
 
-Evidence in `.trellis/tasks/09-18-wp7-paired-evaluation-reports/research/`:
+Evidence in `.trellis/tasks/archive/2026-09/09-18-wp7-paired-evaluation-reports/research/`:
 `check-report.md`, `check-receipts.json`, `check-fingerprints.json`,
 `check-artifact-audit.json`, `coordinator-final-count-audit.json`, and
 `coordinator-visual-review.json`. Exact CLI receipts live with the run and are

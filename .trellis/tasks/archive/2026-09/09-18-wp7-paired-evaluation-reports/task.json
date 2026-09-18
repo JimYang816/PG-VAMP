@@ -3,7 +3,7 @@
   "name": "wp7-paired-evaluation-reports",
   "title": "WP7 Paired Evaluation Statistics Timing and Reports",
   "description": "Plan paired three-detector evaluation, frame statistics, fair timing, stability diagnostics and reproducible reports per engineering specification; planning only.",
-  "status": "in_progress",
+  "status": "completed",
   "dev_type": "backend",
   "scope": "evaluation-reporting",
   "package": null,
@@ -11,11 +11,11 @@
   "creator": "jimyang",
   "assignee": "jimyang",
   "createdAt": "2026-09-18",
-  "completedAt": null,
+  "completedAt": "2026-09-18",
   "branch": "codex/wp7-paired-evaluation-reports",
   "base_branch": "main",
   "worktree_path": null,
-  "commit": null,
+  "commit": "f7f210f303f8906859ff8611d3f6cd4214f7a1c5",
   "pr_url": null,
   "subtasks": [],
   "children": [],
@@ -23,7 +23,7 @@
   "relatedFiles": [
     "docs/CODEX_ENGINEERING_SPEC.md"
   ],
-  "notes": "WP7 independently verified: 478 passed / 7 CUDA skipped; lint/format/mypy and 17 CLI commands pass. User explicitly approved work commit followed by normal archive/journal on 2026-09-18. WP8 not started.",
+  "notes": "User-approved work commit f7f210f completed; independent verification 478 passed / 7 CUDA skipped and 17 CLI commands passed. Archive/journal approved; WP8 not started.",
   "meta": {
     "review_state": "completion_approved",
     "implementation_authorized": true

@@ -16,7 +16,7 @@
 7. [x] R9：真实 CPU 512/400 最小完整帧闭环，覆盖 generate/audit/train/evaluate/benchmark/report/infer；必要时两步 checkpoint，保留实际回执。只减帧数/更新，不减 512/400/T8/8 块。
 8. [x] 独立 check 对照完整 §§16–18、21.6、22 WP7、23.3，目标测试及全量回归；记录实际环境/argv/结果/skip/失败/产物 hashes。
 9. [x] 已更新 CLI 说明、IMPLEMENTATION_STATUS.md、VALIDATION.md 和 WP7 稳定接口 spec。
-10. [ ] 用户已批准具体 commit plan，正在执行提交、归档与 journal；不自动启动 WP8。
+10. [x] 用户已批准具体 commit plan；工作提交 f7f210f 已完成，WP7 已归档，journal 按已授权流程记录；不自动启动 WP8。
 
 ## Planned commands — 未执行
 目标测试文件为拟新增，实际命令在执行回执固化。
