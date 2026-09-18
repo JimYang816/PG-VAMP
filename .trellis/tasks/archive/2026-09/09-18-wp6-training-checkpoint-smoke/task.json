@@ -3,7 +3,7 @@
   "name": "wp6-training-checkpoint-smoke",
   "title": "WP6 Training Checkpoint Resume Inference and Smoke",
   "description": "Plan WP6 CPU-default PG-VAMP training, safe checkpoint/resume, unlabeled inference and math/full-size smoke; implementation awaits explicit approval.",
-  "status": "in_progress",
+  "status": "completed",
   "dev_type": "backend",
   "scope": null,
   "package": null,
@@ -11,11 +11,11 @@
   "creator": "jimyang",
   "assignee": "jimyang",
   "createdAt": "2026-09-18",
-  "completedAt": null,
+  "completedAt": "2026-09-18",
   "branch": "codex/wp6-training-checkpoint-smoke",
   "base_branch": "main",
   "worktree_path": null,
-  "commit": null,
+  "commit": "e73a983",
   "pr_url": null,
   "subtasks": [],
   "children": [],
@@ -23,9 +23,9 @@
   "relatedFiles": [
     "docs/CODEX_ENGINEERING_SPEC.md"
   ],
-  "notes": "User approved work commit and normal WP6 archive/journal completion on 2026-09-18. Independent verification 430 passed / 7 CUDA skipped; no unresolved findings. WP7 not started.",
+  "notes": "User-approved work commit e73a983 completed; independent verification 430 passed / 7 CUDA skipped. Archive/journal approved. WP7 not started.",
   "meta": {
-    "review_state": "work_commit_approved",
+    "review_state": "completed_verified",
     "implementation_authorized": true
   }
 }
