@@ -15,8 +15,13 @@ audit now pass independent review and final verification.
 | WP4 production MMSE and VAMP | Implemented; CPU validation and independent review passed |
 | WP5 production PG-VAMP and complete mathematical equivalence | Implemented; CPU mathematical/physical checks and independent review passed; work commit and archive/journal approved |
 | WP6 training, checkpoint, inference and system smoke | Implemented and independently verified; 430 passed / 7 CUDA skipped; work commit and archive/journal approved |
-| WP7 evaluation and reports | Not started |
+| WP7 evaluation and reports | Implemented and independently verified; 478 passed / 7 CUDA skipped; 17 CLI commands passed; work commit and archive/journal approved |
 | WP8 complete delivery | Not started |
+
+WP7 final evidence: **478 passed / 7 CUDA skipped**, product Ruff/format/mypy,
+17 fresh CLI commands and independent artifact/visual audit pass. Both timing
+protocols and single/multi-seed reports are implemented; full main training,
+powered sweeps and CUDA measurements remain unexecuted. See VALIDATION.md.
 
 WP6 final evidence: **430 passed, 7 CUDA skipped**, Ruff/format/mypy and all 11
 independent CLI checks pass. Full physical smoke retains 512/400/8192/CP2048/eight

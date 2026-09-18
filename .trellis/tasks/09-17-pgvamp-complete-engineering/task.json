@@ -25,7 +25,8 @@
     "09-18-wp3-compact-dataset-replay",
     "09-18-wp4-mmse-exact-vamp",
     "09-18-wp5-pg-vamp-math-contract",
-    "09-18-wp6-training-checkpoint-smoke"
+    "09-18-wp6-training-checkpoint-smoke",
+    "09-18-wp7-paired-evaluation-reports"
   ],
   "parent": null,
   "relatedFiles": [
@@ -36,10 +37,10 @@
     ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay",
     ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp"
   ],
-  "notes": "WP0-WP5 archived. WP6 independently verified: 430 passed / 7 CUDA skipped. User approved work commit followed by archive/journal. WP7-WP8 uncreated.",
+  "notes": "WP0-WP6 archived. WP7 independently verified: 478 passed / 7 CUDA skipped; 17 CLI commands. User approved work commit and normal archive/journal. WP8 uncreated.",
   "meta": {
     "role": "coordination_parent",
-    "review_state": "wp6_completion_approved",
+    "review_state": "wp7_completion_approved",
     "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
   }
 }

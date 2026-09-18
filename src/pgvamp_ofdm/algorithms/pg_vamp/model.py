@@ -86,7 +86,13 @@ class PGVAMPDetector(nn.Module):
         *,
         return_diagnostics: bool = False,
         return_layer_outputs: bool = False,
+        _prepared: list[tuple[torch.Tensor, dict[str, torch.Tensor]]] | None = None,
+        _summaries: bool = True,
     ) -> DetectionResult:
+        if _prepared is not None and (self.training or not torch.is_inference_mode_enabled()):
+            raise ValueError("prepared terms require eval and inference_mode")
+        if not _summaries and (return_diagnostics or return_layer_outputs):
+            raise ValueError("summary-free timing cannot request detailed/layer outputs")
         validate_system(H, y, sigma2)
         for parameter in (self.raw_gaps, self.raw_mu):
             if parameter.dtype != sigma2.dtype or parameter.device != H.device:
@@ -112,8 +118,19 @@ class PGVAMPDetector(nn.Module):
         candidates = (H.abs() > 0) & off_diagonal
         candidate_count = candidates.sum((-2, -1))
         for t in range(self.depth):
-            mask = self._mask(H, rho[t])
-            state = linear_layer(H, y, sigma2, r2, gamma2, mask, mu[t], jitter=self.jitter, layer=t)
+            mask = self._mask(H, rho[t]) if _prepared is None else _prepared[t][0]
+            state = linear_layer(
+                H,
+                y,
+                sigma2,
+                r2,
+                gamma2,
+                mask,
+                mu[t],
+                jitter=self.jitter,
+                layer=t,
+                prepared_terms=None if _prepared is None else _prepared[t][1],
+            )
             posterior = qpsk_posterior(state["r1"], state["gamma1"])
             counts["no_information"] += state["no_information"]
             state.update(
@@ -144,6 +161,8 @@ class PGVAMPDetector(nn.Module):
                 state.update(
                     rejected=message.rejected, capped=message.capped, underflow=message.underflow
                 )
+            if not _summaries:
+                continue
             active = (candidates & (mask >= 0.5)).sum((-2, -1))
             diagonal = state["G"].diagonal(dim1=-2, dim2=-1).real
             # A common scale cancels from the ratio and avoids squaring huge

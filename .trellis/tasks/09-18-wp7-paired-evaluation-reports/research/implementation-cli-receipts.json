@@ -1,0 +1,277 @@
+[
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "inspect-config",
+      "--config",
+      "configs/cpu_dev.yaml"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 3.175329400000919,
+    "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "inspect-config",
+      "--config",
+      "configs/main.yaml"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 3.2186314999999013,
+    "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 1152,\n    \"blocks\": 9216,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 23592960000,\n    \"dense_labeled_payload_bytes\": 23718371328,\n    \"compact_numeric_payload_bytes\": 17252352,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "evaluate",
+      "--help"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8513865000059013,
+    "stdout": "usage: pgvamp-ofdm evaluate [-h] [--config CONFIG] --manifest MANIFEST\n                            [--checkpoint CHECKPOINT]\n                            [--algorithms {mmse,vamp,pg_vamp} [{mmse,vamp,pg_vamp} ...]]\n                            [--device DEVICE] [--dtype DTYPE] [--seed SEED]\n                            [--allow-untrained] --output OUTPUT\n                            [--bootstrap-seed BOOTSTRAP_SEED]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --manifest MANIFEST\n  --checkpoint CHECKPOINT\n  --algorithms {mmse,vamp,pg_vamp} [{mmse,vamp,pg_vamp} ...]\n  --device DEVICE\n  --dtype DTYPE\n  --seed SEED           test seed; must match pre-generated manifest\n  --allow-untrained\n  --output OUTPUT\n  --bootstrap-seed BOOTSTRAP_SEED\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "benchmark",
+      "--help"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8539068999962183,
+    "stdout": "usage: pgvamp-ofdm benchmark [-h] [--config CONFIG] --manifest MANIFEST\n                             [--checkpoint CHECKPOINT]\n                             [--algorithms {mmse,vamp,pg_vamp} [{mmse,vamp,pg_vamp} ...]]\n                             [--device DEVICE] [--dtype DTYPE] [--seed SEED]\n                             [--allow-untrained] --output OUTPUT\n                             [--timing-mode {per_observation_cold_H,same_H_amortized,both}]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --manifest MANIFEST\n  --checkpoint CHECKPOINT\n  --algorithms {mmse,vamp,pg_vamp} [{mmse,vamp,pg_vamp} ...]\n  --device DEVICE\n  --dtype DTYPE\n  --seed SEED           test seed; must match pre-generated manifest\n  --allow-untrained\n  --output OUTPUT\n  --timing-mode {per_observation_cold_H,same_H_amortized,both}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "report",
+      "--help"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 1.8741407999987132,
+    "stdout": "usage: pgvamp-ofdm report [-h] --results RESULTS [RESULTS ...]\n                          [--output OUTPUT]\n\noptions:\n  -h, --help            show this help message and exit\n  --results RESULTS [RESULTS ...]\n  --output OUTPUT\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "generate",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\data"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 3.2342060999944806,
+    "stdout": "{\"manifest\": \"runs\\\\wp7-cli-acceptance-v1\\\\data\\\\manifest.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "audit-data",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--waveform-frames",
+      "1",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\audit"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 5.659859200000938,
+    "stdout": "{\"status\": \"passed\", \"frames\": 1, \"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\audit\", \"max_relative_error_complex128\": 8.605352203638682e-12}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "train",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\train1"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 7.017891800001962,
+    "stdout": "{\"run_id\": \"7ace07835098a5cd7fb14be10be4979ca04a211c8ab5398078d919ac436b77c2\", \"status\": \"complete\", \"step\": 2, \"best_step\": 2, \"best_validation_nmse\": 0.5793041682386447, \"last_checkpoint\": \"runs\\\\wp7-cli-acceptance-v1\\\\train1\\\\last.pt\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "train",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--seed",
+      "20260918",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\train2"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 6.9117868000030285,
+    "stdout": "{\"run_id\": \"cd838c8fb97b263a3d483c7478d0744bc339ea8115655237650844fe670e8191\", \"status\": \"complete\", \"step\": 2, \"best_step\": 2, \"best_validation_nmse\": 0.5793046363564267, \"last_checkpoint\": \"runs\\\\wp7-cli-acceptance-v1\\\\train2\\\\last.pt\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "evaluate",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--checkpoint",
+      "runs\\wp7-cli-acceptance-v1\\train1\\best.pt",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\evaluation1"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 33.479979800002184,
+    "stdout": "{\"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\evaluation1\", \"status\": \"complete\", \"samples\": 16, \"run_id\": \"de5bd5b0ab7746619ef6896f5973bff7\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "evaluate",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--checkpoint",
+      "runs\\wp7-cli-acceptance-v1\\train2\\best.pt",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\evaluation2"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 28.244017500001064,
+    "stdout": "{\"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\evaluation2\", \"status\": \"complete\", \"samples\": 16, \"run_id\": \"9c336692c4c545a2b39b45df895e726a\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "benchmark",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--checkpoint",
+      "runs\\wp7-cli-acceptance-v1\\train1\\best.pt",
+      "--timing-mode",
+      "per_observation_cold_H",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\cold"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 12.56512870000006,
+    "stdout": "{\"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\cold\", \"status\": \"complete\", \"rows\": 12}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "benchmark",
+      "--config",
+      "runs\\wp7-cli-acceptance-v1\\small.yaml",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--checkpoint",
+      "runs\\wp7-cli-acceptance-v1\\train1\\best.pt",
+      "--timing-mode",
+      "same_H_amortized",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\amortized"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 11.044047599993064,
+    "stdout": "{\"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\amortized\", \"status\": \"complete\", \"rows\": 12}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "materialize",
+      "--manifest",
+      "runs\\wp7-cli-acceptance-v1\\data\\manifest.json",
+      "--split",
+      "val",
+      "--without-labels",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\unlabeled.pt"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 3.689360200005467,
+    "stdout": "{\"matrix_payload_bytes\": 20480000, \"other_tensor_payload_bytes\": 51264, \"tensor_payload_bytes\": 20531264, \"serialization_metadata_reserve_bytes\": 1076088, \"estimated_output_bytes\": 21607352, \"actual_file_bytes\": 20548814}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "infer",
+      "--checkpoint",
+      "runs\\wp7-cli-acceptance-v1\\train1\\best.pt",
+      "--input",
+      "runs\\wp7-cli-acceptance-v1\\unlabeled.pt",
+      "--output",
+      "runs\\wp7-cli-acceptance-v1\\predictions.pt"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 6.055730400003085,
+    "stdout": "{\"output\": \"runs\\\\wp7-cli-acceptance-v1\\\\predictions.pt\", \"samples\": 8, \"dtype\": \"torch.complex128\", \"device\": \"cpu\"}\n",
+    "stderr": ""
+  }
+]

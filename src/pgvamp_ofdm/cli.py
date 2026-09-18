@@ -114,8 +114,42 @@ def main(argv: list[str] | None = None) -> int:
     smoke_parser.add_argument("--dtype")
     smoke_parser.add_argument("--seed", type=int)
     smoke_parser.add_argument("--output", type=Path)
+    for command in ("evaluate", "benchmark"):
+        evaluation = sub.add_parser(
+            command,
+            help="paired evaluation"
+            if command == "evaluate"
+            else "declared detector timing protocols",
+        )
+        evaluation.add_argument("--config", type=Path)
+        evaluation.add_argument("--manifest", type=Path, required=True)
+        evaluation.add_argument("--checkpoint", type=Path)
+        evaluation.add_argument("--algorithms", nargs="+", choices=("mmse", "vamp", "pg_vamp"))
+        evaluation.add_argument("--device", default="cpu")
+        evaluation.add_argument("--dtype")
+        evaluation.add_argument(
+            "--seed", type=int, help="test seed; must match pre-generated manifest"
+        )
+        evaluation.add_argument("--allow-untrained", action="store_true")
+        evaluation.add_argument("--output", type=Path, required=True)
+        if command == "evaluate":
+            evaluation.add_argument("--bootstrap-seed", type=int)
+        else:
+            evaluation.add_argument(
+                "--timing-mode",
+                choices=("per_observation_cold_H", "same_H_amortized", "both"),
+                default="both",
+            )
+    report_parser = sub.add_parser("report", help="read persisted results; never rerun detection")
+    report_parser.add_argument("--results", nargs="+", type=Path, required=True)
+    report_parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     try:
+        if args.command == "report":
+            from .reporting import report
+
+            print(json.dumps(report(args.results, args.output), allow_nan=False))
+            return 0
         if args.command == "infer":
             from .inference import infer
 
@@ -157,6 +191,33 @@ def main(argv: list[str] | None = None) -> int:
             )
             return 0
         config = load_config(args.config, device=args.device, dtype=args.dtype)
+        if args.command in ("evaluate", "benchmark"):
+            from .evaluation.runner import benchmark, evaluate
+            from .evaluation.timing import MODES
+
+            if args.seed is not None:
+                if args.seed < 0:
+                    raise ValueError("seed must be nonnegative")
+                config.values["seed"] = args.seed
+            options = dict(
+                checkpoint=args.checkpoint,
+                algorithms=args.algorithms,
+                allow_untrained=args.allow_untrained,
+                argv=argv if argv is not None else __import__("sys").argv,
+            )
+            if args.command == "evaluate":
+                result = evaluate(
+                    config,
+                    args.manifest,
+                    args.output,
+                    bootstrap_seed=args.bootstrap_seed,
+                    **options,
+                )
+            else:
+                modes = MODES if args.timing_mode == "both" else (args.timing_mode,)
+                result = benchmark(config, args.manifest, args.output, modes=modes, **options)
+            print(json.dumps(result, allow_nan=False))
+            return 0
         if args.command in ("train", "smoke"):
             if args.seed is not None:
                 if args.seed < 0:

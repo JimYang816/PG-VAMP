@@ -1,0 +1,15 @@
+data:
+  train_frames: 2
+  val_frames: 1
+training:
+  max_steps: 2
+  validation_every_steps: 1
+  validation_max_blocks: 2
+evaluation:
+  scenarios: [affine_doppler_moderate]
+  esn0_db: [0, 10]
+  frames_per_cell: 1
+  label: smoke_system
+  batch_size: 2
+  timing_warmup: 1
+  timing_repeats: 3

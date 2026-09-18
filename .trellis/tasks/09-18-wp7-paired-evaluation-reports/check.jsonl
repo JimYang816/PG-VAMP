@@ -1,0 +1,10 @@
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "Source authority, WP dependencies and truthful evidence"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Full acceptance, fair metrics and timing, independent validation"}
+{"file": ".trellis/spec/backend/wp3-data-contract.md", "reason": "Frame identities, replay, manifest hashes and split isolation"}
+{"file": ".trellis/spec/backend/wp4-detector-contract.md", "reason": "Exact full-H baseline and oracle compatibility"}
+{"file": ".trellis/spec/backend/wp5-detector-contract.md", "reason": "PG mathematics, diagnostics and prepared-state boundaries"}
+{"file": ".trellis/spec/backend/wp6-training-contract.md", "reason": "Safe checkpoint, model compatibility and diagnostics opportunities"}
+{"file": ".trellis/tasks/09-18-wp7-paired-evaluation-reports/research/planning-evidence.md", "reason": "Inspected integration points and planning boundary"}
+{"file": ".trellis/tasks/09-18-wp7-paired-evaluation-reports/research/source-excerpts.md", "reason": "Verbatim source sections 16-18, 21.6, WP7, 23.3 with source fingerprint; consult original for other sections"}
+{"file": ".trellis/tasks/09-18-wp7-paired-evaluation-reports/research/independent-review-focus.md", "reason": "Independent adversarial acceptance and hand-calculated metric fixture"}
+{"file": ".trellis/spec/backend/wp7-evaluation-contract.md", "reason": "New WP7 executable contract draft; verify against final implementation and report any drift to coordinator"}

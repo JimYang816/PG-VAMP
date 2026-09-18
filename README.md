@@ -257,4 +257,46 @@ The mathematical smoke uses N=32/T=2 and two updates. The physical smoke retains
 and T=8; it includes waveform auditing, three detectors on shared inputs, two PG
 updates, checkpoint loading, label-free inference and integer error counts.
 These small runs demonstrate integration, not convergence or performance gains.
-Full main training, SNR sweeps, unified evaluation and reports remain unexecuted.
+Full main training and statistically sufficient SNR sweeps remain unexecuted.
+
+## WP7 paired evaluation, timing and reports
+
+Evaluation replays the fixed test population from its manifest. Each algorithm
+receives identical full H/y/sigma2 inputs; checkpoint selection remains validation-only.
+The configuration's test seed, scenarios, SNR grid and frame count must match the
+manifest. PG evaluation requires a compatible checkpoint unless explicitly labeled
+`--allow-untrained` (`PG-VAMP-untrained`).
+
+```powershell
+python -m pgvamp_ofdm evaluate --config configs/cpu_dev.yaml --manifest data/cpu_dev/manifest.json --checkpoint runs/pg_cpu_dev/best.pt --algorithms mmse vamp pg_vamp --device cpu --output results/compare_cpu_dev
+python -m pgvamp_ofdm benchmark --config configs/cpu_dev.yaml --manifest data/cpu_dev/manifest.json --checkpoint runs/pg_cpu_dev/best.pt --timing-mode both --output results/timing_cpu_dev
+python -m pgvamp_ofdm report --results results/compare_cpu_dev
+```
+
+Results preserve integer errors, planned denominators and energies for complete
+eight-block frames, input lineage, numerical failures, stability opportunities,
+frame-cluster BER/SER intervals and paired differences. A failed cell has unavailable
+full-population rates, with successful-block conditional counts explicitly separate.
+Zero errors remain zero; a zero bootstrap interval does not establish zero true BER.
+`--bootstrap-seed` controls an independent resampling stream (default 2000 repeats).
+
+Both `per_observation_cold_H` and `same_H_amortized` record B1 online latency,
+fixed-batch throughput, preparation cost, repeated same-H independent waveform-noise
+observations, device/dtype/threads and memory scope. Prepared inference validates
+H/noise/model state; PG recomputes the message-dependent Cholesky factors each layer.
+Common replay/FFT/pilot cancellation is timed separately. CPU RSS is process-lifetime
+high-water memory, not an attributable per-algorithm allocation. Matrix work estimates
+are declared estimates. Compute throughput is distinct from physical-link goodput.
+
+`report` validates persisted bundle hashes and counts and only reads those artifacts.
+It creates the applicable plots and REPORT.md without rerunning detection or training.
+For distinct trained seeds on the same test population, pass several result paths
+and `--output results/combined`; incompatible runs are rejected and repeated baselines
+are not independent seed replicates. Use `train --seed` to produce distinct training
+runs; evaluate each checkpoint with the original test configuration.
+
+For a bounded real-dimensional acceptance loop, run
+`python scripts/wp7_acceptance.py --output runs/wp7-check`, then rerun it with
+`--output runs/wp7-check --reports-only`. This keeps 512/400/8192/CP2048/eight
+blocks/T8 and performs two training updates for each of two seeds. It demonstrates
+functionality, not convergence, statistically sufficient BER, or PG superiority.

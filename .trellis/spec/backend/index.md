@@ -16,8 +16,9 @@ MMSE/VAMP interfaces are implemented; see VALIDATION.md for current independent
 review evidence. WP5 production PG-VAMP and independent mathematical verification
 are implemented; see VALIDATION.md and its interface guide below. WP6 training,
 checkpoint/resume/inference and smoke interfaces are implemented and independently verified;
-see its interface guide and VALIDATION.md for acceptance status. WP7 and later
-remain future work. The backend
+see its interface guide and VALIDATION.md for acceptance status. WP7 evaluation
+and reporting are implemented and independently verified; WP8 remains
+future work. The backend
 directory is Trellis's discovery location for the Python library/CLI; it does
 not imply a web server, database or frontend.
 
@@ -35,6 +36,7 @@ not imply a web server, database or frontend.
 | [WP4 detector interface](wp4-detector-contract.md) | raw linear MMSE, exact SVD VAMP, shared production QPSK/messages, independent oracle and label isolation | 11–13, 14.6, 20, 22–23 |
 | [WP5 detector interface](wp5-detector-contract.md) | differentiable PG-VAMP, 2T parameters, actual operators, numerical protection and independent math checks | 11, 14, 17.4, 20, 22–23 |
 | [WP6 training interface](wp6-training-contract.md) | loss, deterministic training, safe checkpoint/resume, label-free inference and two smoke paths | 10–11, 14–15, 20–23 |
+| [WP7 evaluation interface](wp7-evaluation-contract.md) | paired counts, frame bootstrap, failures, prepared inference, timing, persisted results and read-only reports | 16–18, 21.6, 22–23 |
 
 Always also read [workflow and authority](../guides/workflow-and-authority.md).
 The complete test list and acceptance gates remain in source §§22–23;

@@ -17,10 +17,11 @@ def linear_layer(
     *,
     jitter: float = 0,
     layer: int = 0,
+    prepared_terms: dict[str, torch.Tensor] | None = None,
 ) -> dict[str, torch.Tensor]:
     batch, n, _ = H.shape
     identity = torch.eye(n, dtype=H.dtype, device=H.device).expand(batch, n, n)
-    terms = majorizer(H, mask)
+    terms = majorizer(H, mask) if prepared_terms is None else prepared_terms
     gamma_w = sigma2.reciprocal()
     P = gamma_w[:, None, None] * terms["Gbar"] + (gamma2 + jitter)[:, None, None] * identity
     P = (P + P.mH) / 2

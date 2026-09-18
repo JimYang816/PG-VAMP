@@ -1,0 +1,128 @@
+[
+  {
+    "root": "D:\\SCI\\code\\PG-VAMP\\runs\\wp7-cli-acceptance-v1\\evaluation1",
+    "status": "pass",
+    "files_rehashed": 13,
+    "observed_block_ids": 16,
+    "frame_rows": 6,
+    "cells": [
+      {
+        "algorithm": "MMSE (linear)",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1187",
+        "status": "complete"
+      },
+      {
+        "algorithm": "VAMP-8",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1188",
+        "status": "complete"
+      },
+      {
+        "algorithm": "PG-VAMP-VC",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1188",
+        "status": "complete"
+      },
+      {
+        "algorithm": "MMSE (linear)",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "146",
+        "status": "complete"
+      },
+      {
+        "algorithm": "VAMP-8",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "161",
+        "status": "complete"
+      },
+      {
+        "algorithm": "PG-VAMP-VC",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "176",
+        "status": "complete"
+      }
+    ]
+  },
+  {
+    "root": "D:\\SCI\\code\\PG-VAMP\\runs\\wp7-cli-acceptance-v1\\evaluation2",
+    "status": "pass",
+    "files_rehashed": 13,
+    "observed_block_ids": 16,
+    "frame_rows": 6,
+    "cells": [
+      {
+        "algorithm": "MMSE (linear)",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1187",
+        "status": "complete"
+      },
+      {
+        "algorithm": "VAMP-8",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1188",
+        "status": "complete"
+      },
+      {
+        "algorithm": "PG-VAMP-VC",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "0.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "1188",
+        "status": "complete"
+      },
+      {
+        "algorithm": "MMSE (linear)",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "146",
+        "status": "complete"
+      },
+      {
+        "algorithm": "VAMP-8",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "161",
+        "status": "complete"
+      },
+      {
+        "algorithm": "PG-VAMP-VC",
+        "scenario": "affine_doppler_moderate",
+        "esn0_db": "10.0",
+        "n_frames": "1",
+        "n_bits": "6400",
+        "bit_errors": "176",
+        "status": "complete"
+      }
+    ]
+  }
+]

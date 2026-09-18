@@ -1,0 +1,97 @@
+[
+  {
+    "argv": [
+      "C:/Software/Anaconda3/Scripts/ruff.exe",
+      "check",
+      "src",
+      "tests"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 0.041340799994941335,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:/Software/Anaconda3/Scripts/ruff.exe",
+      "format",
+      "--check",
+      "src",
+      "tests"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0415452999950503,
+    "stdout": "98 files already formatted\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "mypy",
+      "src"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 4.877353900003072,
+    "stdout": "Success: no issues found in 66 source files\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "--basetemp",
+      "runs/wp7-review-full-v2"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 98.89948159999767,
+    "stdout": "........................................................................ [ 14%]\n........................................................................ [ 29%]\n........ss.....................s...............s........................ [ 44%]\n........................................................................ [ 59%]\n.........s.............................................................. [ 74%]\n.................................................................s...... [ 89%]\n...........................s.........................                    [100%]\n478 passed, 7 skipped in 95.52s (0:01:35)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "D:\\SCI\\code\\PG-VAMP\\.trellis\\tasks\\09-18-wp7-paired-evaluation-reports\\research\\coordinator-audit.py",
+      "runs\\wp7-cli-review-v2\\evaluation1",
+      "runs\\wp7-cli-review-v2\\evaluation2",
+      "--output",
+      "D:\\SCI\\code\\PG-VAMP\\.trellis\\tasks\\09-18-wp7-paired-evaluation-reports\\research\\check-artifact-audit.json"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 0.11365819999628002,
+    "stdout": "[\n  {\n    \"root\": \"D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\wp7-cli-review-v2\\\\evaluation1\",\n    \"status\": \"pass\",\n    \"files_rehashed\": 13,\n    \"observed_block_ids\": 16,\n    \"frame_rows\": 6,\n    \"cells\": [\n      {\n        \"algorithm\": \"MMSE (linear)\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1187\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"VAMP-8\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1188\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"PG-VAMP-VC\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1188\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"MMSE (linear)\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"146\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"VAMP-8\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"161\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"PG-VAMP-VC\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"176\",\n        \"status\": \"complete\"\n      }\n    ]\n  },\n  {\n    \"root\": \"D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\wp7-cli-review-v2\\\\evaluation2\",\n    \"status\": \"pass\",\n    \"files_rehashed\": 13,\n    \"observed_block_ids\": 16,\n    \"frame_rows\": 6,\n    \"cells\": [\n      {\n        \"algorithm\": \"MMSE (linear)\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1187\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"VAMP-8\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1188\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"PG-VAMP-VC\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"0.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"1188\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"MMSE (linear)\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"146\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"VAMP-8\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"161\",\n        \"status\": \"complete\"\n      },\n      {\n        \"algorithm\": \"PG-VAMP-VC\",\n        \"scenario\": \"affine_doppler_moderate\",\n        \"esn0_db\": \"10.0\",\n        \"n_frames\": \"1\",\n        \"n_bits\": \"6400\",\n        \"bit_errors\": \"176\",\n        \"status\": \"complete\"\n      }\n    ]\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:/Software/Anaconda3/Scripts/ruff.exe",
+      "check",
+      "scripts"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03637490000255639,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:/Software/Anaconda3/Scripts/ruff.exe",
+      "format",
+      "--check",
+      "scripts"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03251309999905061,
+    "stdout": "5 files already formatted\n",
+    "stderr": ""
+  }
+]

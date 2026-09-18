@@ -28,10 +28,21 @@ class VAMPDetector(nn.Module):
         return_diagnostics: bool = False,
     ) -> DetectionResult:
         """One reduced SVD per call; finite square complex H and paired real noise."""
+        return self._detect(H, y, sigma2, return_diagnostics=return_diagnostics)
+
+    def _detect(
+        self,
+        H: torch.Tensor,
+        y: torch.Tensor,
+        sigma2: torch.Tensor,
+        *,
+        return_diagnostics: bool = False,
+        svd: tuple[torch.Tensor, torch.Tensor, torch.Tensor] | None = None,
+    ) -> DetectionResult:
         validate_system(H, y, sigma2)
         batch, n, _ = H.shape
         try:
-            U, singular, Vh = torch.linalg.svd(H, full_matrices=False)
+            U, singular, Vh = torch.linalg.svd(H, full_matrices=False) if svd is None else svd
         except torch.linalg.LinAlgError as exc:
             raise FloatingPointError(
                 f"{self.name} SVD failed; layer=None, batch index={list(range(batch))}, "

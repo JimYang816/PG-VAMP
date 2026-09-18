@@ -1,5 +1,58 @@
 # Validation record
 
+## WP7 independent final validation — 2026-09-18
+
+Final full regression: **478 passed, 7 CUDA skipped in 95.52 s**. Product Ruff
+lint/format and mypy pass (66 source files). Fresh full-dimensional acceptance
+completed **17/17 CLI commands**, including two training seeds, paired evaluation,
+both timing modes, unlabeled inference, single-run and multi-seed reports.
+
+Independent review fixed mismatched baseband/RF synchronization diagnostics,
+actual measured-noise draw counts, finite-output squared-energy overflow,
+main_simulation fixed-eight-round enforcement, and report handling of legitimate
+unresolved small negative c. Diagnostic reporting is streamed into bounded
+summaries. Failures at blocks 0/3/7 retain planned denominators and exact IDs.
+Prepared inference matches separate PG and Cholesky VAMP oracles; ordinary
+training gradients and previous WP regressions remain covered.
+
+Artifacts: `runs/wp7-cli-review-v2/`, with 512-grid/400-data/8192-FFT/2048-CP,
+eight-block frames and T8. Both result bundles passed independent hash and
+per-frame-to-aggregate recount. Coordinator visually inspected all ten final
+single-run figures and five representative merged-report figures. The source
+specification and independent reference files retain their pre-WP7 hashes.
+
+Evidence in `.trellis/tasks/09-18-wp7-paired-evaluation-reports/research/`:
+`check-report.md`, `check-receipts.json`, `check-fingerprints.json`,
+`check-artifact-audit.json`, `coordinator-final-count-audit.json`, and
+`coordinator-visual-review.json`. Exact CLI receipts live with the run and are
+included in the task evidence. Historical implementation-stage evidence follows.
+
+This is software acceptance with one physical frame per SNR cell and two-update
+training checkpoints. Full main training, statistically powered SNR sweeps,
+CUDA numerical execution, ablations and performance superiority are **未执行**.
+The three-repeat timings and one-frame intervals do not establish an advantage.
+
+## WP7 implementation validation — 2026-09-18
+
+Core targeted evaluation/statistics/timing tests: **18 passed**. Prepared-state
+equivalence plus existing baseline/PG oracle/gradient regression: **77 passed,
+1 CUDA skipped**. The preliminary full suite was **459 passed, 7 skipped,
+1 reporting semantic-validation failure** while reporting was still being developed;
+the independent review owns the final frozen-source quality gate.
+
+All 15 non-report subprocess commands in `scripts/wp7_acceptance.py` completed
+successfully under `runs/wp7-cli-acceptance-v1`. They include physical generation,
+independent waveform audit, two distinct training seeds with two updates each,
+paired three-detector evaluation at two SNRs, both benchmark protocols, unlabeled
+materialization and checkpoint inference. Dimensions remain 512/400/8192/CP2048,
+eight blocks/frame and depth/iterations8. Exact receipts and limitations are in
+the active WP7 task's `research/implementation-evidence.md` and
+`research/implementation-cli-receipts.json`.
+
+This is a one-frame-per-cell functionality exercise, not adequate BER/performance
+evidence. Main training, full sweep and CUDA numerical execution remain 未执行.
+Final report/check results are recorded by the independent review.
+
 ## WP6 independent final validation — 2026-09-18
 
 Final full regression after review fixes: **430 passed, 7 CUDA skipped** in
@@ -553,5 +606,6 @@ FFT, pilot cancellation, SNR and compact/dense parity. See the task's
 WP2 physical waveform/channel tests and WP4/WP5 production algorithm checks are
 recorded above at their actual review stages. WP6 bounded training, checkpoint
 recovery and complete system smoke are recorded separately above. Main/full
-training, BER sweeps, statistical reports and performance benchmarks remain
-unexecuted; the WP6 acceptance runs do not replace WP7 or WP8 validation.
+training and statistically powered BER/performance sweeps remain unexecuted.
+WP7 bounded statistical reports and both benchmark protocols are now validated
+separately above; WP8 delivery remains unstarted.

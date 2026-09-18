@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "method": "Coordinator directly viewed actual PNGs via view_image; no pixel-only inference",
+  "inspected_files": {
+    "runs/wp7-cli-review-v2/evaluation1/figures/ber_affine_doppler_moderate.png": "c4d55d7d52278865a46a34623cc3d53628fc56df1158206ec3512fb2a21eb02b",
+    "runs/wp7-cli-review-v2/evaluation1/figures/channel_ici_example.png": "6fa226ba92656fdd6a66b8ae7d2fe77fdde8875afd13b871958af3e7fb5fb3a3",
+    "runs/wp7-cli-review-v2/evaluation1/figures/effective_edges.png": "9b16ffa317b8d481c80af0e8c3d2e30566b1fe2fbf210f742be70a2fbb56ddf4",
+    "runs/wp7-cli-review-v2/evaluation1/figures/latency.png": "73996ff0f1fd58a0a871f0988618817d25fe28406265661ed1425ff8d06ca4a2",
+    "runs/wp7-cli-review-v2/evaluation1/figures/learned_mu.png": "b3b2657c5c36437bd2198d1f8aff3e2325acbecfbc1fe62a22e6cf3d1b72474a",
+    "runs/wp7-cli-review-v2/evaluation1/figures/learned_thresholds.png": "90fa559f3b5d7c18fa44a16cb5da083ad20ddb4d0e96b1cfb6421245cd350ccc",
+    "runs/wp7-cli-review-v2/evaluation1/figures/nmse_affine_doppler_moderate.png": "02df63fdebd318c44e0169621fa89ad0c225b869788d163d3f7ff22ad5c95d15",
+    "runs/wp7-cli-review-v2/evaluation1/figures/ser_affine_doppler_moderate.png": "922e58195c05772024fae05efa573a71441738e85d3a6dffa4c34d0c0d82aa97",
+    "runs/wp7-cli-review-v2/evaluation1/figures/stability.png": "9b64dab3ac678636db4ab1cdace789e7596f78dcfd79135737595c7aa7c4592f",
+    "runs/wp7-cli-review-v2/evaluation1/figures/waveform_and_sync_check.png": "6d442c9339e4ef9b50b14b59010bf0270cd87b2638ec38e94715d5333251de41",
+    "runs/wp7-cli-review-v2/combined-report/figures/ber_affine_doppler_moderate.png": "cf8f204f422753b4d9cf32d9094f9cc25dff298138502728d739a13d53514618",
+    "runs/wp7-cli-review-v2/combined-report/figures/latency.png": "692ef07654815789b79e307449be03c33b3683f9afafb89abe5c8a05469e23da",
+    "runs/wp7-cli-review-v2/combined-report/figures/learned_thresholds.png": "aec17fe384cea36a6f8def1d3d60cb93643ece4cd500044f2d08d8005fdffd22",
+    "runs/wp7-cli-review-v2/combined-report/figures/effective_edges.png": "362b9aa92aea60ee7c74fe27fd43fbccea8bed5e2cf0e62ffc3e0be0346ab903",
+    "runs/wp7-cli-review-v2/combined-report/figures/nmse_affine_doppler_moderate.png": "4d98aa9c8da5e034c8c37884466b10c81d311ba3adffaf76aa1a0b8e235ea8a6"
+  },
+  "findings_fixed": [
+    "Passband/baseband sync template mismatch; expected start includes leading silence",
+    "Timing plot device/dtype/thread/warmup/repeat metadata missing",
+    "Zero failure bars invisible with negative count axis",
+    "NMSE caption incorrectly implied frame-bootstrap CI",
+    "Few-frame smoke label and rho units omitted"
+  ],
+  "final_observations": [
+    "All ten required single-run figures readable without clipping",
+    "Smoke F=1 warning visible; no performance sufficiency claim",
+    "Zero failures annotated 0/8; nonnegative axes",
+    "Timing settings and separate protocols visible",
+    "Sync diagnostics now matched frequency domain and detects example",
+    "Combined run curves retain separate train seed labels",
+    "NMSE explicitly has no computed CI"
+  ],
+  "remaining_visual_findings": []
+}
