@@ -105,7 +105,7 @@ def validate_materialized(value: Any, *, purpose: str = "inference") -> None:
     if not isinstance(metadata, dict):
         raise ValueError("materialized metadata required")
     try:
-        config = config_from_values(metadata["resolved_config"])
+        config = config_from_values(metadata["resolved_config"], allow_legacy_data=True)
         if metadata["config_sha256"] != stable_hash(config.values) or metadata[
             "allocation"
         ] != allocation_metadata(config):

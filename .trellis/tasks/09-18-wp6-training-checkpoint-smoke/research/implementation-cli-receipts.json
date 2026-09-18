@@ -1,0 +1,190 @@
+[
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "inspect-config",
+      "--config",
+      "configs/cpu_dev.yaml"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "inspect-config",
+      "--config",
+      "configs/smoke_system.yaml"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 3,\n    \"blocks\": 24,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 61440000,\n    \"dense_labeled_payload_bytes\": 61766592,\n    \"compact_numeric_payload_bytes\": 44928,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "smoke",
+      "--config",
+      "configs/smoke_math.yaml",
+      "--device",
+      "cpu",
+      "--output",
+      "runs\\wp6-acceptance\\math"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"scope\": \"algebra_fixture only; no physical/performance claim\", \"dimension\": 32, \"depth\": 2, \"updates\": 2, \"trainable_scalars\": 4, \"checkpoint_roundtrip_max_abs\": 0.0, \"status\": \"passed\", \"device\": \"cpu\", \"dtype\": \"complex128\", \"checkpoint_sha256\": \"32f30d673847f75b1c9fe53b9085c3f58a797c3bfbc4557394b0d77da0d83e59\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "smoke",
+      "--config",
+      "configs/smoke_math.yaml",
+      "--device",
+      "cpu",
+      "--dtype",
+      "complex64",
+      "--output",
+      "runs\\wp6-acceptance\\math-single"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"scope\": \"algebra_fixture only; no physical/performance claim\", \"dimension\": 32, \"depth\": 2, \"updates\": 2, \"trainable_scalars\": 4, \"checkpoint_roundtrip_max_abs\": 0.0, \"status\": \"passed\", \"device\": \"cpu\", \"dtype\": \"complex64\", \"checkpoint_sha256\": \"72ef22b658dddb05395a9cc23b4348dc3b67fa6949190273cc0b9ef76849f0e9\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "smoke",
+      "--config",
+      "configs/smoke_system.yaml",
+      "--device",
+      "cpu",
+      "--output",
+      "runs\\wp6-acceptance\\system"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"scope\": \"smoke_system; no performance/convergence claim\", \"n_grid\": 512, \"n_data\": 400, \"n_fft_wave\": 8192, \"cp_samples\": 2048, \"blocks_per_frame\": 8, \"depth\": 8, \"updates\": 2, \"audit\": {\"status\": \"passed\", \"frames\": 1, \"output\": \"runs\\\\wp6-acceptance\\\\system\\\\audit\", \"max_relative_error_complex128\": 1.1310698530350202e-11}, \"audit_path_epsilon\": [5.379307174346027e-07, 2.1700102645102827e-06, 1.1412634172100354e-05, 3.7783179767367652e-06], \"counts\": {\"mmse\": {\"input_hash\": \"984908ffbc17d3407b7a3de15998e420e17543bb415dd7a1a77b4c4258bb0a09\", \"bit_errors\": 326, \"bits\": 6400, \"symbol_errors\": 278, \"symbols\": 3200, \"block_errors\": 7, \"blocks\": 8, \"frame_errors\": 1, \"frames\": 1, \"incomplete_frames\": 0, \"squared_error_energy\": 596.1499372669239, \"target_energy\": 3199.9999999999995}, \"vamp\": {\"input_hash\": \"984908ffbc17d3407b7a3de15998e420e17543bb415dd7a1a77b4c4258bb0a09\", \"bit_errors\": 329, \"bits\": 6400, \"symbol_errors\": 281, \"symbols\": 3200, \"block_errors\": 7, \"blocks\": 8, \"frame_errors\": 1, \"frames\": 1, \"incomplete_frames\": 0, \"squared_error_energy\": 498.50691622738896, \"target_energy\": 3199.9999999999995}, \"pg_vamp\": {\"input_hash\": \"984908ffbc17d3407b7a3de15998e420e17543bb415dd7a1a77b4c4258bb0a09\", \"bit_errors\": 335, \"bits\": 6400, \"symbol_errors\": 286, \"symbols\": 3200, \"block_errors\": 7, \"blocks\": 8, \"frame_errors\": 1, \"frames\": 1, \"incomplete_frames\": 0, \"squared_error_energy\": 508.6083128047005, \"target_energy\": 3199.9999999999995}}, \"checkpoint_roundtrip\": \"passed\", \"status\": \"passed\", \"device\": \"cpu\", \"dtype\": \"complex128\", \"checkpoint_sha256\": \"b8f7e0eb8fdb4f4583520a34af4b5546dd097384a6e977d6357ab4c5c60dfa50\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "simulate",
+      "--config",
+      "runs\\wp6-acceptance\\two.yaml",
+      "--output",
+      "runs\\wp6-acceptance\\data"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"manifest\": \"runs\\\\wp6-acceptance\\\\data\\\\manifest.json\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "audit-data",
+      "--manifest",
+      "runs\\wp6-acceptance\\data\\manifest.json",
+      "--waveform-frames",
+      "1",
+      "--output",
+      "runs\\wp6-acceptance\\audit"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"status\": \"passed\", \"frames\": 1, \"output\": \"runs\\\\wp6-acceptance\\\\audit\", \"max_relative_error_complex128\": 1.1310698530350202e-11}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "train",
+      "--config",
+      "runs\\wp6-acceptance\\two.yaml",
+      "--manifest",
+      "runs\\wp6-acceptance\\data\\manifest.json",
+      "--device",
+      "cpu",
+      "--output",
+      "runs\\wp6-acceptance\\training"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"run_id\": \"d025c33ef54cdb0d986c08da27de3cb99ae6d6048527e2ce440c4c3392f18a93\", \"status\": \"complete\", \"step\": 2, \"best_step\": 1, \"best_validation_nmse\": 0.2966926736366376, \"last_checkpoint\": \"runs\\\\wp6-acceptance\\\\training\\\\last.pt\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "train",
+      "--config",
+      "runs\\wp6-acceptance\\four.yaml",
+      "--manifest",
+      "runs\\wp6-acceptance\\data\\manifest.json",
+      "--device",
+      "cpu",
+      "--resume",
+      "runs\\wp6-acceptance\\training\\last.pt",
+      "--output",
+      "runs\\wp6-acceptance\\training"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"run_id\": \"d025c33ef54cdb0d986c08da27de3cb99ae6d6048527e2ce440c4c3392f18a93\", \"status\": \"complete\", \"step\": 4, \"best_step\": 1, \"best_validation_nmse\": 0.2966926736366376, \"last_checkpoint\": \"runs\\\\wp6-acceptance\\\\training\\\\last.pt\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "materialize",
+      "--manifest",
+      "runs\\wp6-acceptance\\data\\manifest.json",
+      "--split",
+      "val",
+      "--without-labels",
+      "--output",
+      "runs\\wp6-acceptance\\unlabeled.pt"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"matrix_payload_bytes\": 20480000, \"other_tensor_payload_bytes\": 51264, \"tensor_payload_bytes\": 20531264, \"serialization_metadata_reserve_bytes\": 1078220, \"estimated_output_bytes\": 21609484, \"actual_file_bytes\": 20549198}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "infer",
+      "--checkpoint",
+      "runs\\wp6-acceptance\\training\\best.pt",
+      "--input",
+      "runs\\wp6-acceptance\\unlabeled.pt",
+      "--device",
+      "cpu",
+      "--output",
+      "runs\\wp6-acceptance\\inference.pt"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"output\": \"runs\\\\wp6-acceptance\\\\inference.pt\", \"samples\": 8, \"dtype\": \"torch.complex128\", \"device\": \"cpu\"}\n",
+    "stderr": ""
+  }
+]

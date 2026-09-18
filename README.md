@@ -1,7 +1,7 @@
 # PG-VAMP CP-OFDM
 
 Implementation follows [CODEX_ENGINEERING_SPEC.md](docs/CODEX_ENGINEERING_SPEC.md).
-The current work package is **WP5: differentiable production PG-VAMP-VC**.
+The current work package is **WP6: training, checkpoint/resume and inference**.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for scope and
 [VALIDATION.md](VALIDATION.md) for actual validation evidence.
 
@@ -42,14 +42,15 @@ CUDA package or unrelated dependency upgrade is required for CPU operation.
 `inspect-config` checks configuration and displays derived quantities and
 storage estimates. It does not generate data, train, or evaluate detectors.
 Physical profiles retain the 512 grid / 400 data / 8192 FFT configuration.
-`smoke_math` describes an explicit algebra fixture. Profile availability does
-not mean that a `smoke` command or a physical simulation has been implemented.
+`smoke_math` describes an explicit algebra fixture. WP6 supplies the separate
+`smoke` command; configuration inspection alone does not execute a smoke run.
 
 The dense PG-VAMP and Cholesky VAMP references are correctness oracles for
 small algebra fixtures. They remain independent of production algorithms.
 WP2 physical-channel validation is described below. WP3 data interfaces are described
 at the end of this document. WP4 adds the production baselines below; WP5 adds
-production PG-VAMP. Training and performance comparisons remain WP6–WP8 work.
+production PG-VAMP. WP6 adds training and smoke; unified performance comparisons
+and complete delivery remain WP7–WP8 work.
 The algebra references make no physical BER or acceleration claim.
 
 ```python
@@ -88,7 +89,7 @@ Matched-correlation positions denote the **template start**. Recording arrival
 padding is separate from transmit-frame duration; a selected peak is not a claim
 about the earliest physical path. The audit checks no-channel recovery only.
 WP2 validates physical multipath, affine time scaling, effective H and pilot
-cancellation separately below. Full three-detector system smoke remains future work.
+cancellation separately below. WP6 adds the full three-detector system smoke.
 
 ## WP2 physical-channel audit
 
@@ -217,6 +218,43 @@ edge-ratio denominators, thresholds, mu, c and relative safety-term size.
 The model shares production QPSK/message protections with VAMP, while the dense
 reference remains independent. It reuses one actual Cholesky factor within each layer;
 all residuals still use full H. Dense cost may remain cubic and storage quadratic.
-Soft-edge counts do not establish sparse acceleration. Training, checkpoint/resume,
-complete system smoke and performance comparisons are future work; see VALIDATION.md
-for the actual extent of WP5 verification.
+Soft-edge counts do not establish sparse acceleration. See VALIDATION.md for the
+actual extent of WP5 verification and the WP6 section below for training support.
+
+## WP6 training, resume and inference
+
+Train only PG-VAMP using the prescribed layer-weighted complex MSE, Adam and
+gradient clipping. The default remains CPU/complex128; select CUDA or complex64
+explicitly. Missing data is an error: generate and audit the manifest first.
+These commands describe the development workflow, not completed main experiments:
+
+```powershell
+python -m pgvamp_ofdm simulate --config configs/cpu_dev.yaml --output data/cpu_dev
+python -m pgvamp_ofdm audit-data --manifest data/cpu_dev/manifest.json --waveform-frames 2 --output results/cpu_dev_audit
+python -m pgvamp_ofdm train --config configs/cpu_dev.yaml --manifest data/cpu_dev/manifest.json --device cpu --output runs/pg_cpu_dev
+python -m pgvamp_ofdm train --config configs/cpu_dev.yaml --manifest data/cpu_dev/manifest.json --device cpu --resume runs/pg_cpu_dev/last.pt --output runs/pg_cpu_dev
+python -m pgvamp_ofdm materialize --manifest data/cpu_dev/manifest.json --split val --without-labels --output data/cpu_dev_unlabeled.pt
+python -m pgvamp_ofdm infer --checkpoint runs/pg_cpu_dev/best.pt --input data/cpu_dev_unlabeled.pt --device cpu --output results/cpu_dev_inference.pt
+```
+
+`training.max_steps` is the cumulative update limit; increase it explicitly to
+continue beyond a completed run. `last.pt` preserves optimizer, sampler and RNG
+state; `best.pt` is selected by validation final-layer NMSE, never test BER.
+Resolved configuration, environment and JSONL diagnostics accompany checkpoints.
+Strict resume checks compatibility and rejects silent changes to physics,
+mapping, model depth/mask, optimizer settings, data identity or precision.
+Inference accepts no-label materialized data and inherits checkpoint precision;
+`--dtype complex64` explicitly converts and records the conversion. CPU loading
+uses restricted tensor loading before any explicit device transfer.
+
+```powershell
+python -m pgvamp_ofdm smoke --config configs/smoke_math.yaml --device cpu
+python -m pgvamp_ofdm smoke --config configs/smoke_system.yaml --device cpu
+```
+
+The mathematical smoke uses N=32/T=2 and two updates. The physical smoke retains
+512 grid carriers, 400 data carriers, 8192 FFT samples, CP=2048, eight OFDM blocks
+and T=8; it includes waveform auditing, three detectors on shared inputs, two PG
+updates, checkpoint loading, label-free inference and integer error counts.
+These small runs demonstrate integration, not convergence or performance gains.
+Full main training, SNR sweeps, unified evaluation and reports remain unexecuted.

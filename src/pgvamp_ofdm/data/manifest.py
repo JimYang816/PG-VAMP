@@ -147,7 +147,7 @@ def load_manifest(path: str | Path) -> tuple[dict[str, Any], Config, list[dict[s
         manifest = json.loads(path.read_text(encoding="utf-8"))
         if type(manifest["schema_version"]) is not int or manifest["schema_version"] != 1:
             raise ValueError("unsupported manifest schema_version")
-        config = config_from_values(manifest["resolved_config"])
+        config = config_from_values(manifest["resolved_config"], allow_legacy_data=True)
         if manifest["config_sha256"] != stable_hash(config.values):
             raise ValueError("manifest config hash mismatch")
         expected = {

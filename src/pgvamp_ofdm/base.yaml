@@ -133,6 +133,8 @@ training:
   checkpoint_metric: final_layer_nmse
   checkpoint_mode: min
   early_stopping: false
+  early_stopping_patience: 10
+  early_stopping_min_delta: 0.0
 
 evaluation:
   algorithms: [mmse, vamp, pg_vamp]

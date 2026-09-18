@@ -80,6 +80,7 @@ _ZERO_OK = {
     "data.matrix_cache_entries",
     "pg_vamp.jitter",
     "training.weight_decay",
+    "training.early_stopping_min_delta",
     "evaluation.timing_warmup",
     "channel.first_delay_s",
     "frame.lfm_tukey_alpha",
@@ -87,6 +88,9 @@ _ZERO_OK = {
 _SIGNED = {"pg_vamp.rho_hi_db", "pg_vamp.rho_lo_db"}
 _FIXED = {
     "schema_version": 1,
+    "runtime.num_workers": 0,
+    "training.weight_decay": 0.0,
+    "training.grad_clip_norm": 5.0,
     "runtime.amp": False,
     "waveform.dc_null": True,
     "waveform.symbol_energy": 1.0,
@@ -266,7 +270,7 @@ def _physical(c: dict[str, Any]) -> None:
         raise ConfigError("train_scenario_weights must sum to one")
 
 
-def config_from_values(values: dict[str, Any]) -> Config:
+def config_from_values(values: dict[str, Any], *, allow_legacy_data: bool = False) -> Config:
     """Validate a complete persisted physical configuration without temporary files."""
     if not isinstance(values, dict) or values.get("profile") != "physical":
         raise ConfigError("persisted dataset requires a physical resolved config")
@@ -281,7 +285,15 @@ def config_from_values(values: dict[str, Any]) -> Config:
             if isinstance(item, dict):
                 complete(value[key], item)
 
-    complete(given, _DEFAULT)
+    defaults = _DEFAULT
+    # WP3 schema-1 artifacts predate these two training-only settings. Validate
+    # their exact historical shape without inserting defaults into hashed data.
+    legacy_keys = {"early_stopping_patience", "early_stopping_min_delta"}
+    if allow_legacy_data and not legacy_keys.intersection(given.get("training", {})):
+        defaults = copy.deepcopy(_DEFAULT)
+        for key in legacy_keys:
+            defaults["training"].pop(key)
+    complete(given, defaults)
     _physical(given)
     given["profile"] = "physical"
     return Config(given)

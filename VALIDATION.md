@@ -1,5 +1,61 @@
 # Validation record
 
+## WP6 independent final validation — 2026-09-18
+
+Final full regression after review fixes: **430 passed, 7 CUDA skipped** in
+59.05s. Ruff check/format (86 files) and mypy (55 source files) pass. Independent
+CLI acceptance reran all 11 commands successfully, including both mathematical
+precisions, full physical smoke and train/resume/unlabeled-infer integration.
+
+Review reproduced and repaired historical WP3 schema-1 data loading: only the
+exact pair of missing new early-stop fields is accepted for data reads, without
+changing the persisted configuration or its hash. Checkpoints remain strict.
+Additional repairs validate all supported Adam behavior flags, add contextual
+inference failures, and enforce full 8192/2048/eight-block physical smoke dimensions.
+Regression coverage includes interrupted last/scheduled-best writes, legacy
+manifest/materialized inputs and malformed optimizer states.
+
+Independent artifact verification recomputes bit/symbol/block/frame counts from
+saved predictions, confirms identical three-detector H/y/sigma2 hashes, checks
+checkpoint hashes and performs NumPy FFT/cancellation reconstruction. Maximum
+relative waveform error is **1.1310709079623577e-11**. Count denominators are
+6400 bits / 3200 symbols / eight blocks / one complete frame per detector.
+Both mathematical smokes perform two updates at N32/T2; system smoke performs
+two at 512-grid/400-data/T8 and includes checkpoint loading and unlabeled inference.
+
+Evidence: WP6 task `research/check-report.md`, `check-pytest-final.txt`,
+`check-lint.txt`, `check-format.txt`, `check-mypy.txt`, `check-artifacts.json`
+and its independently written artifact verifier. The implementation-stage
+receipts below are retained as history. CUDA hardware is unavailable; no GPU
+numerical acceptance, full main training, BER sweep, convergence or speedup is claimed.
+
+## WP6 implementation validation — 2026-09-18
+
+Implementation-stage full regression: **414 passed, 7 CUDA skipped** in 52.71s.
+Ruff check/format (85 files) and mypy (55 source files) pass. This is the
+implementation receipt; independent review is in progress and may add fixes.
+
+The final implementation CLI exercise ran 11 commands successfully: two config
+inspections, complex128/complex64 mathematical smokes, complete physical smoke,
+simulate, audit-data, two-update training, resume to four updates, unlabeled
+materialize and infer. Artifacts are in `runs/wp6-acceptance/`; durable command
+receipts/hashes are under the WP6 task's `research/implementation-*.{md,json}`.
+CPU environment remains Python 3.13.9 / PyTorch 2.12.0+cpu / NumPy 2.3.5,
+four threads and MKL_THREADING_LAYER=TBB.
+
+System smoke retains grid512/data400/FFT8192/CP2048/eight blocks/T8/two updates.
+Nonzero distinct time-scaling paths have waveform/effective-model relative
+error **1.1310698530350202e-11**. All three algorithms consume identical input
+hashes and count one full frame: 6400 bits, 3200 symbols and eight blocks.
+Checkpoint roundtrip and label-free inference pass. These tiny acceptance runs
+do not establish convergence, BER advantage or computational speedup.
+
+Targeted checks cover complete model/Adam/sampler/RNG resume equivalence,
+off-cadence validation, early stop, best-write failure recovery, strict safe
+checkpoint schema, no-label/changed-label inference and CPU forbidden-CUDA paths.
+Historical WP3 configuration compatibility is explicitly under independent review.
+No main/full training, SNR sweep, CUDA numerical run or WP7 report was executed.
+
 ## WP5 independent final validation — 2026-09-18
 
 Final full regression after review repairs: **376 passed, 6 CUDA skipped** in
@@ -495,6 +551,7 @@ FFT, pilot cancellation, SNR and compact/dense parity. See the task's
 ## Later-package validation not executed
 
 WP2 physical waveform/channel tests and WP4/WP5 production algorithm checks are
-recorded above at their actual review stages. Complete system smoke, training,
-checkpoint recovery, BER sweeps and performance benchmarks have not been executed.
-They belong to WP6 and later work packages.
+recorded above at their actual review stages. WP6 bounded training, checkpoint
+recovery and complete system smoke are recorded separately above. Main/full
+training, BER sweeps, statistical reports and performance benchmarks remain
+unexecuted; the WP6 acceptance runs do not replace WP7 or WP8 validation.

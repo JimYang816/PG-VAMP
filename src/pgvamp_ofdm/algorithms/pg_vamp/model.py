@@ -85,6 +85,7 @@ class PGVAMPDetector(nn.Module):
         sigma2: torch.Tensor,
         *,
         return_diagnostics: bool = False,
+        return_layer_outputs: bool = False,
     ) -> DetectionResult:
         validate_system(H, y, sigma2)
         for parameter in (self.raw_gaps, self.raw_mu):
@@ -105,6 +106,7 @@ class PGVAMPDetector(nn.Module):
             )
         }
         layers: list[dict[str, torch.Tensor]] = []
+        outputs: list[torch.Tensor] = []
         summaries: list[dict[str, torch.Tensor]] = []
         off_diagonal = ~torch.eye(n, dtype=torch.bool, device=H.device)
         candidates = (H.abs() > 0) & off_diagonal
@@ -150,7 +152,28 @@ class PGVAMPDetector(nn.Module):
             scale = torch.where(scale == 0, torch.ones_like(scale), scale)
             baseline = torch.linalg.vector_norm(diagonal / scale[:, None], dim=-1)
             safe_baseline = torch.where(baseline == 0, torch.ones_like(baseline), baseline)
-            summary = {key: state[key] for key in ("rho", "mu", "c", "c_tolerance")}
+            summary = {
+                key: state[key]
+                for key in (
+                    "rho",
+                    "mu",
+                    "c",
+                    "c_tolerance",
+                    "alpha1",
+                    "alpha2",
+                    "gamma1",
+                    "gamma2",
+                    "no_information",
+                )
+            }
+            for key in ("d", "ell"):
+                summary[key + "_min"] = state[key].amin(-1)
+                summary[key + "_max"] = state[key].amax(-1)
+            for key in ("rejected", "capped", "underflow"):
+                summary[key] = state.get(key, torch.zeros(batch, dtype=torch.bool, device=H.device))
+            summary["message_opportunities"] = torch.full_like(
+                candidate_count, int(t + 1 < self.depth)
+            )
             summary.update(
                 jitter=torch.full_like(sigma2, self.jitter),
                 candidate_edges=candidate_count,
@@ -163,6 +186,8 @@ class PGVAMPDetector(nn.Module):
             )
             # Only small logging copies are detached; detailed states stay differentiable.
             summaries.append({key: value.detach() for key, value in summary.items()})
+            if return_layer_outputs:
+                outputs.append(posterior.mean)
             if return_diagnostics:
                 layers.append(state)
         diagnostics: dict[str, Any] = {
@@ -172,6 +197,8 @@ class PGVAMPDetector(nn.Module):
         }
         if return_diagnostics:
             diagnostics["layers"] = layers
+        if return_layer_outputs:
+            diagnostics["layer_outputs"] = outputs
         return result(posterior.mean, posterior.probabilities, diagnostics)
 
     def detect(

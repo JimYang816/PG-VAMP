@@ -94,8 +94,43 @@ def main(argv: list[str] | None = None) -> int:
     dense.add_argument("--max-output-bytes", type=int)
     dense.add_argument("--allow-large-output", action="store_true")
     dense.add_argument("--without-labels", action="store_true")
+    train_parser = sub.add_parser("train", help="train PG-VAMP or strictly resume")
+    train_parser.add_argument("--config", type=Path)
+    train_parser.add_argument("--manifest", type=Path, required=True)
+    train_parser.add_argument("--device", default="cpu")
+    train_parser.add_argument("--dtype")
+    train_parser.add_argument("--seed", type=int)
+    train_parser.add_argument("--resume", type=Path)
+    train_parser.add_argument("--output", type=Path, required=True)
+    inference = sub.add_parser("infer", help="label-free inference from safe checkpoint")
+    inference.add_argument("--checkpoint", type=Path, required=True)
+    inference.add_argument("--input", type=Path, required=True)
+    inference.add_argument("--device", default="cpu")
+    inference.add_argument("--dtype")
+    inference.add_argument("--output", type=Path, required=True)
+    smoke_parser = sub.add_parser("smoke", help="two-update acceptance exercise")
+    smoke_parser.add_argument("--config", type=Path, required=True)
+    smoke_parser.add_argument("--device", default="cpu")
+    smoke_parser.add_argument("--dtype")
+    smoke_parser.add_argument("--seed", type=int)
+    smoke_parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     try:
+        if args.command == "infer":
+            from .inference import infer
+
+            print(
+                json.dumps(
+                    infer(
+                        args.checkpoint,
+                        args.input,
+                        args.output,
+                        device=args.device,
+                        dtype=args.dtype,
+                    )
+                )
+            )
+            return 0
         if args.command == "audit-data":
             from .data.audit import audit_dataset
 
@@ -122,6 +157,23 @@ def main(argv: list[str] | None = None) -> int:
             )
             return 0
         config = load_config(args.config, device=args.device, dtype=args.dtype)
+        if args.command in ("train", "smoke"):
+            if args.seed is not None:
+                if args.seed < 0:
+                    raise ValueError("seed must be nonnegative")
+                config.values["seed"] = args.seed
+            if args.command == "train":
+                from .training.trainer import train
+
+                print(json.dumps(train(config, args.manifest, args.output, resume=args.resume)))
+            else:
+                import uuid
+
+                from .smoke import smoke
+
+                destination = args.output or Path("runs") / ("smoke-" + uuid.uuid4().hex[:12])
+                print(json.dumps(smoke(config, destination), allow_nan=False))
+            return 0
         if args.command in ("simulate", "generate"):
             from .data.generate import generate_dataset
 
@@ -149,6 +201,6 @@ def main(argv: list[str] | None = None) -> int:
                 json.dumps(_provenance(runtime), indent=2) + "\n", encoding="utf-8"
             )
         print(json.dumps(summary, indent=2, allow_nan=False))
-    except (ValueError, OSError, RuntimeError) as exc:
+    except (ValueError, OSError, RuntimeError, FloatingPointError) as exc:
         parser.exit(2, f"configuration error: {exc}\n")
     return 0

@@ -19,7 +19,7 @@ WP0 已完成归档；用户于 2026-09-18 批准 WP1 规划并授权实施。
 用户于 2026-09-18 授权创建 WP3 child task，先完成 planning，随后明确批准规划并授权 implementation。
 用户于 2026-09-18 授权创建 WP4 child task，仅做 planning，随后明确批准最新规划并授权 implementation。
 用户于 2026-09-18 先授权创建 WP5 child task，仅 planning，随后明确批准规划并授权 implementation。
-WP6–WP8 只记录地图，不创建任务或代码。
+用户于 2026-09-18 先授权创建 WP6 child task，仅 planning；随后明确批准最新规划并授权 implementation。WP7–WP8 只记录地图，不创建任务或代码。
 
 ## WP map — dependency order is mandatory
 | WP | 责任与验收摘要（不得替代执行书 §22） | 前置 | 任务状态 |
@@ -30,7 +30,7 @@ WP6–WP8 只记录地图，不创建任务或代码。
 | WP3 | 紧凑数据、manifest、split、随机流、重放；无泄漏、同样本、容量估计 | WP2 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp3-compact-dataset-replay/prd.md) |
 | WP4 | 完整 H 的 MMSE 与精确 VAMP；线性求解及 SVD/Cholesky 逐层等价 | WP3 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp4-mmse-exact-vamp/prd.md) |
 | WP5 | 正式 PG-VAMP 数学合同；矩阵/Jacobian/梯度/极限与 2T 参数 | WP4 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp5-pg-vamp-math-contract/prd.md) |
-| WP6 | CPU 默认训练、显式 CUDA、checkpoint/恢复/推理；两类 smoke | WP5 验收 | 未创建 |
+| WP6 | CPU 默认训练、显式 CUDA、checkpoint/恢复/推理；两类 smoke | WP5 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp6-training-checkpoint-smoke/prd.md) |
 | WP7 | 配对评测/统计/计时/稳定性/报告；真实计数和失败可追溯 | WP6 验收 | 未创建 |
 | WP8 | 文档、状态、真实 CPU 完整尺寸 smoke；未运行实验明确标注 | WP7 验收 | 未创建 |
 
@@ -76,7 +76,7 @@ WP2 已实现并经独立检查：目标 28 passed/1 skipped，全量 194 passed
 完整证据见 WP2 research/check-report.md、check-final-validation.json、
 check-artifact-verification.json 和 main-final-verification.json。
 用户已确认 WP2 工作提交及正常完成流程，证据归档至 archive/2026-09/ 下。
-父任务保持总规划容器；WP3/WP4 已完成归档；WP5 已实施并独立验收，用户已批准提交及归档/journal；WP6–WP8 未创建或启动。
+父任务保持总规划容器；WP3/WP4 已完成归档；WP5 已实施并独立验收，用户已批准提交及归档/journal；WP6 最新规划已获批准并进入 implementation；WP7–WP8 未创建。
 
 WP4 最终验收：313 passed / 5 CUDA skipped，Ruff/format/mypy 和两份配置检查通过。
 独立 NumPy 逐层对照最大差异 2.78e-15；400 维真实物理样本的共同输入及完整输出标签隔离通过。
@@ -87,6 +87,8 @@ WP5 最终独立验收：376 passed / 6 CUDA skipped，Ruff/format/mypy 与配�
 NumPy N=8/16/32 矩阵/协方差审计最大差异 1.03e-13，真实 400 维三算法同输入及全部预测标签隔离通过。
 审核修复极弱非对角信道的反向溢出和诊断范数尺度问题；独立 PG oracle 的同类缺陷经单独源依据
 审核后局部修复，无生产 helper 共享、无数学公式/阈值变更。证据见 WP5 research/check-report.md。
-用户已确认工作提交及正常归档/journal 流程，证据保留于 archive/2026-09/；WP6 未创建或授权。
+用户已确认工作提交及正常归档/journal 流程，证据保留于 archive/2026-09/；WP6 当前已获最新规划及 implementation 授权。
 
 WP3 最终验收：248 passed / 3 CUDA skipped，产品 Ruff/format/mypy 通过。新生成两帧 16 窗口的独立波形/FFT/噪声/导频消除复核通过，最大相对误差 1.4435457958165196e-11；32 个物化样本逐位等于紧凑重放。证据见 WP3 research/check-report.md、check-final-command-receipts.json 和 check-independent-manifest.json。CPU-only，未运行 main 训练或生产三算法比较。用户已确认 WP3 工作提交、归档与 journal；当时 WP4 未启动，当前进度见上方 WP4 验收记录。
+
+WP6 独立验收：430 passed / 7 CUDA skipped，Ruff/format/mypy 与 11 条 CLI 均通过；完整 512/400 系统 smoke、两次更新、严格恢复和无标签推理完成。独立 NumPy 波形误差 1.1311e-11，计数及输入/产物哈希复核通过。旧 WP3 配置兼容性已修复且保留原哈希。用户已确认工作提交及正常归档/journal；WP7/WP8 未创建。

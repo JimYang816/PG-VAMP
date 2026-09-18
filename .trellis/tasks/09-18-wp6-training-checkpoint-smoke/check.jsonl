@@ -1,0 +1,9 @@
+{"file": ".trellis/tasks/09-18-wp6-training-checkpoint-smoke/research/source-excerpts.md", "reason": "Verbatim source sections 15, 21.1-5, WP6 and engineering tests; read full authority on demand"}
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "WP ordering and authority"}
+{"file": ".trellis/spec/backend/runtime-config.md", "reason": "CPU default, dtype and config compatibility"}
+{"file": ".trellis/spec/backend/reproducibility.md", "reason": "Checkpoint, random streams and strict resume"}
+{"file": ".trellis/spec/backend/wp3-data-contract.md", "reason": "Manifest, replay, unlabeled materialized inputs"}
+{"file": ".trellis/spec/backend/wp5-detector-contract.md", "reason": "2T parameters, autograd and diagnostic interface"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Independent validation and truthful smoke evidence"}
+{"file": ".trellis/tasks/09-18-wp6-training-checkpoint-smoke/research/planning-evidence.md", "reason": "Inspected integration points and planning limits"}
+{"file": ".trellis/tasks/09-18-wp6-training-checkpoint-smoke/research/independent-review-focus.md", "reason": "Independent adversarial acceptance checks for checkpoint, logs and smoke evidence"}

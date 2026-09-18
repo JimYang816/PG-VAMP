@@ -5,15 +5,17 @@ This documents the implemented interface; VALIDATION.md records actual test evid
 
 ## 1. Scope / trigger
 Read when consuming or changing production PG-VAMP, its gradients, layer diagnostics,
-or its integration with WP3 data and future WP6 training. Independent DensePGVAMP
-is an oracle, not the production path. Training/checkpoint/evaluation are later packages.
+or its integration with WP3 data and WP6 training. Independent DensePGVAMP
+is an oracle, not the production path. See wp6-training-contract.md for training,
+checkpoint and inference; unified evaluation remains WP7 work.
 
 ## 2. Signatures
 ```text
 PGVAMPDetector(depth=8, *, dtype=torch.float64, device="cpu",
     rho_hi_db=0, rho_lo_db=-60, min_gap_db=0.5, temperature_db=3,
     init_mu=0.8, jitter=0, mask_mode="soft")
-model(H, y, sigma2, *, return_diagnostics=False) -> DetectionResult
+model(H, y, sigma2, *, return_diagnostics=False,
+      return_layer_outputs=False) -> DetectionResult
 model.detect(H, y, sigma2, *, return_diagnostics=False) -> DetectionResult
 model.thresholds() -> (rho[T], mu[T])
 ```
@@ -55,7 +57,9 @@ autograd. Inference callers can explicitly use `torch.no_grad()`.
   Calculate both norms after a common cancelling scale to avoid overflow/underflow
   in the logging-only ratio; this does not normalize physical H or change detection.
 - Detailed layers retain differentiable states and large matrices for math tests;
-  routine output omits these. Detaching a log copy must not detach forward quantities.
+  routine output omits these. return_layer_outputs=True adds only differentiable
+  posterior means for WP6 loss, without retaining the full detailed state list.
+  Detaching a log copy must not detach forward quantities.
 - Exact dense work can remain O(N³) per layer; 2T parameters and soft-edge ratios are
   not sparse-computation or low-memory claims. No cross-call old-parameter graph cache.
 

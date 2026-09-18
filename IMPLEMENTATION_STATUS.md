@@ -14,16 +14,24 @@ audit now pass independent review and final verification.
 | WP3 datasets and splits | Implemented; CPU validation and independent review passed |
 | WP4 production MMSE and VAMP | Implemented; CPU validation and independent review passed |
 | WP5 production PG-VAMP and complete mathematical equivalence | Implemented; CPU mathematical/physical checks and independent review passed; work commit and archive/journal approved |
-| WP6 training, checkpoint, inference and system smoke | Not started |
+| WP6 training, checkpoint, inference and system smoke | Implemented and independently verified; 430 passed / 7 CUDA skipped; work commit and archive/journal approved |
 | WP7 evaluation and reports | Not started |
 | WP8 complete delivery | Not started |
+
+WP6 final evidence: **430 passed, 7 CUDA skipped**, Ruff/format/mypy and all 11
+independent CLI checks pass. Full physical smoke retains 512/400/8192/CP2048/eight
+blocks/T8/two updates. Independent NumPy waveform error is **1.13e-11**; integer
+counts and shared input hashes were recomputed from saved artifacts. Review
+fixed historical WP3 configuration compatibility without changing old hashes.
+No CUDA numerical execution, full main training or WP7 performance evidence is claimed.
 
 WP5 final evidence: **376 passed, 6 CUDA skipped**, Ruff/format/mypy and configuration
 inspection pass. Independent NumPy matrix/covariance audit maximum discrepancy is
 **1.03e-13**. All three detectors share actual 400-dimensional physical inputs and
 pass complete-output label isolation. Review repaired weak-channel backward in both
 independent PG implementations and scale-sensitive diagnostic norms without changing
-formulas or thresholds. Training/checkpoint/system smoke remain WP6 work.
+formulas or thresholds. WP6 training/checkpoint/system smoke now have separate
+independent evidence in VALIDATION.md.
 
 WP4 final evidence: **313 passed, 5 CUDA skipped**, product Ruff/format/mypy
 and both baseline configuration inspections pass. Independent NumPy layer audit
@@ -39,8 +47,8 @@ windows have maximum waveform-versus-H relative error **8.15e-12** in complex128
 The noise audit checks 33,554,432 time samples, 4096 FFT windows and a 204800-bit
 identity-AWGN experiment. The three CUDA skips are explicit. Root-wide Ruff
 includes pre-existing errors in tooling/archive files; those remain outside this
-product change. Production PG-VAMP is now WP5 work; training and system smoke remain
-unimplemented. WP3 supplies dataset generation and replay; independent review passed
+product change. Production PG-VAMP is covered by WP5; training and system smoke
+are covered by the separate WP6 record. WP3 supplies dataset generation and replay; independent review passed
 with 248 passed / 3 CUDA skipped, product Ruff/format/mypy and fresh artifact verification. See docs/WP2_PHYSICAL_MODEL.md for the physical interfaces.
 The checker fixed malformed frame-span validation and added three regressions.
 The final audit saves hashed tensor artifacts and receive SNR; safe CPU loading

@@ -24,7 +24,8 @@
     "09-18-wp2-physical-channel-effective-model",
     "09-18-wp3-compact-dataset-replay",
     "09-18-wp4-mmse-exact-vamp",
-    "09-18-wp5-pg-vamp-math-contract"
+    "09-18-wp5-pg-vamp-math-contract",
+    "09-18-wp6-training-checkpoint-smoke"
   ],
   "parent": null,
   "relatedFiles": [
@@ -35,10 +36,10 @@
     ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay",
     ".trellis/tasks/archive/2026-09/09-18-wp4-mmse-exact-vamp"
   ],
-  "notes": "WP4 independently verified: 313 passed, 5 CUDA skipped. User approved work commit followed by archive and journal. WP5 not started.",
+  "notes": "WP0-WP5 archived. WP6 independently verified: 430 passed / 7 CUDA skipped. User approved work commit followed by archive/journal. WP7-WP8 uncreated.",
   "meta": {
     "role": "coordination_parent",
-    "review_state": "work_commit_approved",
+    "review_state": "wp6_completion_approved",
     "engineering_spec_sha256": "A159D20380D4F48785FAC15A02B20247D681B4E078A9DD7F8046FDD1F66AC47B"
   }
 }

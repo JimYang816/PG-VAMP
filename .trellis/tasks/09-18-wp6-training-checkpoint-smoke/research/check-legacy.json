@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "records": 6,
+  "dense_samples": 32,
+  "original_config_sha256": "ae70b60e151e4bf008f5f900b85cfb52f1f08210fa20de335902a011e8fd1af6",
+  "unchanged_artifact_sha256": {
+    "runs\\wp3-acceptance-data\\manifest.json": "4eb54088d7e2f556c2a1f55d934cd96d5f620c1aa77cf73de65e165536f488f3",
+    "runs\\wp3-acceptance-test.pt": "95650de0797f7f4bc125af2eff5094632e5aeab92b36e1c9fb044204f6416e98"
+  }
+}
