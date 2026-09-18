@@ -119,3 +119,25 @@ Implemented and independently verified WP3 compact data, manifests, physical-fra
 ### Status
 
 [OK] **Completed**
+
+
+## Session 5: WP4 MMSE and exact VAMP completed
+<!-- trellis-session: v=2 fp=7c54dea38c9a9913 -->
+
+**Date**: 2026-09-18
+**Task**: WP4 MMSE and exact VAMP completed
+**Branch**: `codex/wp4-mmse-exact-vamp`
+
+### Summary
+
+Implemented full-H Cholesky MMSE and exact SVD VAMP with shared QPSK/message protection. Independent review passed: 313 tests passed, 5 CUDA skipped; Ruff/format/mypy and config checks passed. NumPy layer audit max error 2.78e-15; real 400-dimensional shared inputs and complete-output label isolation passed. Fixed finite-candidate overflow rejection gradients and a label-mutation test gap. User confirmed work commit, archive and journal. WP4 archived; WP5 not started.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `70d94d8` | feat: 完成 WP4 线性 MMSE 与精确 VAMP 基线 |
+
+### Status
+
+[OK] **Completed**
