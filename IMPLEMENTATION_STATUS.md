@@ -11,7 +11,7 @@ audit now pass independent review and final verification.
 | WP0 foundation, strict configuration, runtime, references, inspect-config | Completed, committed ecbda13, archived |
 | WP1 modulation, frame and LFM | Complete; CPU verification and independent review passed |
 | WP2 physical channel and effective model | Implemented; CPU tests/audit and independent review passed |
-| WP3 datasets and splits | Not started |
+| WP3 datasets and splits | Implemented; CPU validation and independent review passed |
 | WP4 production MMSE and VAMP | Not started |
 | WP5 production PG-VAMP and complete mathematical equivalence | Not started |
 | WP6 training, checkpoint, inference and system smoke | Not started |
@@ -27,8 +27,9 @@ windows have maximum waveform-versus-H relative error **8.15e-12** in complex128
 The noise audit checks 33,554,432 time samples, 4096 FFT windows and a 204800-bit
 identity-AWGN experiment. The three CUDA skips are explicit. Root-wide Ruff
 includes pre-existing errors in tooling/archive files; those remain outside this
-product change. Dataset generation, detectors, training and system smoke remain
-unimplemented. See docs/WP2_PHYSICAL_MODEL.md for the physical interfaces.
+product change. Production detectors, training and system smoke remain
+unimplemented. WP3 now supplies dataset generation and replay; independent review passed
+with 248 passed / 3 CUDA skipped, product Ruff/format/mypy and fresh artifact verification. See docs/WP2_PHYSICAL_MODEL.md for the physical interfaces.
 The checker fixed malformed frame-span validation and added three regressions.
 The final audit saves hashed tensor artifacts and receive SNR; safe CPU loading
 and independent NumPy Fourier/FFT/cancellation reconstruction passed all 20 windows.

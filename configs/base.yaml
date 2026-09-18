@@ -84,6 +84,9 @@ data:
   split_unit: physical_frame
   audit_waveform_frames: 2
   matrix_cache_entries: 4
+  shard_frames: 64
+  max_channel_attempts: 100
+  max_output_bytes: 1073741824
 
 pg_vamp:
   depth: 8

@@ -311,7 +311,62 @@ product source, tests, profiles and build configuration at validation.
 Commit/archive remain pending the user's requested diff/results review. No
 next work package was created or activated.
 
-## Outside this validation
+## WP3 implementation validation (2026-09-18; historical implementation run)
+
+Environment: Windows, `.venv/Scripts/python.exe`, Python 3.13.9, PyTorch 2.12.0+cpu,
+`MKL_THREADING_LAYER=TBB` set before launch. CPU uses four threads; no CUDA
+acceptance is claimed. Commands and artifacts are recorded in the WP3 task's
+`research/implementation-evidence.md`.
+
+- Initial WP3 targeted tests: **44 passed** in 15.23 s.
+- Full WP0–WP3 regression: **238 passed, 3 skipped** in 29.40 s. Three skips require CUDA.
+- After restricted-load error handling and two added regressions: materialization
+  suite **18 passed** in 6.94 s (includes unsafe pickle rejection and failed export publication).
+- Ruff product checks and mypy passed. No numerical tolerances were relaxed.
+- Actual simulate/audit/materialize commands completed with `configs/wp3_smoke.yaml`.
+  This config reduces only frame counts: full 512/400/8192/8 dimensions remain.
+- `runs/wp3-acceptance-data/manifest.json`: 1 train frame, 1 validation frame,
+  2 independent test frames paired over 2 SNR values, 48 total expanded samples.
+- `runs/wp3-acceptance-audit/`: two complete physical frames, 16 windows;
+  maximum independent waveform/H relative error **1.4435423701359176e-11**.
+- `scripts/verify_wp3_artifacts.py` independently loaded the saved arrays and used
+  NumPy FFT/cancellation/SNR reconstruction, verifying all 16 windows and nonzero
+  unequal path epsilons. Maximum NumPy error **1.4435457958165196e-11**.
+- `runs/wp3-acceptance-test.pt`: all 32 samples exactly match compact replay.
+  Tensor payload 82,355,456 bytes, reserved estimate 83,469,568 bytes, actual file
+  82,376,190 bytes. The 8192-matrix complex128 example is unit-tested as
+  **20,971,520,000 bytes for H alone**; no such large file was generated.
+- `runs/wp3-artifact-verification.json` preserves manifest/file and sample hashes.
+  Tests also cover three independent consumers, cross-process replay, cache
+  mutation/eviction/order, split/channel leakage, SNR pairing, random stream/retry
+  isolation, training mixture, dtype, corrupt inputs and label-free inference.
+
+Actual three-detector integration belongs to WP4–WP7. This WP3 evidence does not
+claim production detector execution, main training, BER curves or full-system smoke.
+
+## WP3 independent review (2026-09-18)
+
+Final product Ruff lint/format and mypy pass (55 formatted files; 37 typed source
+files). Complete regression: **248 passed, 3 CUDA skipped in 33.01 s**. All Python
+commands use the environment above with `MKL_THREADING_LAYER=TBB` before startup.
+Exact argv, timestamps, stdout/stderr and final source fingerprints are preserved
+in the WP3 task's `research/check-final-command-receipts.json`.
+
+Review fixes enforce canonical frame/channel SHA-256 identities, source hash
+syntax, sample block/SNR identity and compact SNR-copy consistency. Capacity
+guards now account for three independent file reserves and the full split table
+and resolved configuration stored with each export. Regression tests verify
+rejection before generation and compare actual file size against its estimate.
+Single precision has a separate full-size effective/waveform comparison with
+`atol=2e-6, rtol=2e-5`; double precision retains the source's unchanged 1e-9 bound.
+
+Final artifacts use `runs/wp3-review-final2-{data,audit,inspect}`, plus
+`runs/wp3-review-final2-test.pt` and `runs/wp3-review-final2-verification.json`.
+The independent array verifier reconstructs quadrature seeds and noise samples,
+FFT, pilot cancellation, SNR and compact/dense parity. See the task's
+`research/check-report.md` for acceptance mapping, precise hashes and limitations.
+
+## Later-package validation not executed
 
 WP2 physical waveform/channel tests are recorded above. Production equivalence, complete system
 smoke, training, checkpoint recovery, BER sweeps and performance benchmarks

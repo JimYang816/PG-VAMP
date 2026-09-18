@@ -1,0 +1,10 @@
+# Full physical dimensions; small counts for the WP3 data acceptance only.
+data:
+  train_frames: 1
+  val_frames: 1
+  shard_frames: 2
+evaluation:
+  scenarios: [static_multipath, affine_doppler_moderate]
+  esn0_db: [0, 10]
+  frames_per_cell: 1
+  label: development_only

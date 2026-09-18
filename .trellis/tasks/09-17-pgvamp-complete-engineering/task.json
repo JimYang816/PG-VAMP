@@ -21,16 +21,18 @@
   "children": [
     "09-17-wp0-foundation-references",
     "09-18-wp1-modulation-frame-lfm",
-    "09-18-wp2-physical-channel-effective-model"
+    "09-18-wp2-physical-channel-effective-model",
+    "09-18-wp3-compact-dataset-replay"
   ],
   "parent": null,
   "relatedFiles": [
     "docs/CODEX_ENGINEERING_SPEC.md",
     ".trellis/tasks/archive/2026-09/09-17-wp0-foundation-references",
     ".trellis/tasks/archive/2026-09/09-18-wp1-modulation-frame-lfm",
-    ".trellis/tasks/archive/2026-09/09-18-wp2-physical-channel-effective-model"
+    ".trellis/tasks/archive/2026-09/09-18-wp2-physical-channel-effective-model",
+    ".trellis/tasks/archive/2026-09/09-18-wp3-compact-dataset-replay"
   ],
-  "notes": "User confirmed WP2 work commit and normal completion workflow. Independent verification passed: 194 passed, 3 CUDA skipped. WP3 not started.",
+  "notes": "WP3 independently verified (248 passed, 3 CUDA skipped); user approved work commit and normal archive/journal completion. WP4-WP8 not created.",
   "meta": {
     "role": "coordination_parent",
     "review_state": "work_commit_approved",

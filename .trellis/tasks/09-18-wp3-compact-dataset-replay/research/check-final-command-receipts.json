@@ -1,0 +1,219 @@
+{
+  "MKL_THREADING_LAYER": "TBB",
+  "source_hashes": {
+    "src/pgvamp_ofdm/__init__.py": "43e8a15947685966b4e83e5a08b993d6edbd3688038de216bfc89aaa942abf07",
+    "src/pgvamp_ofdm/__main__.py": "5fa2e6d44dd2e264a1049d222c3824fc021127bcaa0ceae5185c929319b3ab7d",
+    "src/pgvamp_ofdm/base.yaml": "fc81cb65706390553c34525dae858aa8b0f0c86930f67ceb335873ba70b3634d",
+    "src/pgvamp_ofdm/channel/__init__.py": "53798db41516454d81b069e3cbe9494f2f955d44cc9ef099a9f19100f91ad456",
+    "src/pgvamp_ofdm/channel/affine.py": "4f29b3e4ef63cbed4dd9379b0477eb1419e5af3a1d02bf5b989c9764df443049",
+    "src/pgvamp_ofdm/channel/effective_matrix.py": "735b93dce39397f8bb0326528cdb378fdbf2847bdfb51084f038b2192534c1f2",
+    "src/pgvamp_ofdm/channel/noise.py": "f626a018d141fc300d933501567658ebccc9c318e74cc41d79ebb3a935019dcc",
+    "src/pgvamp_ofdm/channel/parameters.py": "a10facd219dfe0e53ce19ce05b41e59a1fbb2a973c08dc117bc1dff1f794a92f",
+    "src/pgvamp_ofdm/channel/validity.py": "f593986ad70d0f1e86b3d83eb0113e9f12230025adb0986a33c2ce50cb68ae0a",
+    "src/pgvamp_ofdm/cli.py": "a05c8dfd0e457bea252ff204d97da5c06b27155ca77243765378bf4da9724b94",
+    "src/pgvamp_ofdm/config.py": "5e056959f43fddffa4413cee523033c1c84b5c1ba9afdc89b782e44e5d638b2e",
+    "src/pgvamp_ofdm/data/__init__.py": "3e875383ea45541fe2dd7c25ce3b9326c5c514d12ca8b694c9d0bd80ab05f4c8",
+    "src/pgvamp_ofdm/data/audit.py": "ae00179107b28580464ad3e2128fd482cc7f8cc19fa76f430050723000817109",
+    "src/pgvamp_ofdm/data/dataset.py": "5d5c6615a5c63212b694c46755911f77c47e69f66b073298da8ada4007e11346",
+    "src/pgvamp_ofdm/data/generate.py": "59e7836bf49f417cbeb8106ed92012271fc00cc86989d871042d7c1c8dbf9b31",
+    "src/pgvamp_ofdm/data/manifest.py": "e0d8b2099d20bb77f5f7f808805bffc768f1115aedbe859346845a4a2cb62570",
+    "src/pgvamp_ofdm/data/materialize.py": "69d0cf984de0cf7225f7e65b7940cc3aa93bd6f2345bb61b3b7c5f9724068c7d",
+    "src/pgvamp_ofdm/data/records.py": "069719b087f1e7542ae62e7fb686d3219195e16ba4d6d03030c59203bceaabce",
+    "src/pgvamp_ofdm/modulation/__init__.py": "d37b3cc7570b946d0e36feb7595a6f10f08f54eb861e9995542b9d2f016b310e",
+    "src/pgvamp_ofdm/modulation/allocation.py": "fbffcc17085b0bdb08dbd8f8970da92ee531c8cd30d291efc60a643e07bb20ea",
+    "src/pgvamp_ofdm/modulation/qpsk.py": "13b1d45685212845f15fa431203b1f462d58bff629eb105ab1b7657c217c000f",
+    "src/pgvamp_ofdm/receiver/__init__.py": "997d26aa869960fbe29030049206d567e8cafe0d98d5950ca86a99cb0a1266cd",
+    "src/pgvamp_ofdm/receiver/fft_receiver.py": "feaff282df4532360a885b6ed3719e124f746b57f1b434846f8f5154292cbd0d",
+    "src/pgvamp_ofdm/receiver/preprocessing.py": "595fbee924c6cc928850593195d5e56df680ffb838e898f053da8192332a8e92",
+    "src/pgvamp_ofdm/receiver/synchronization.py": "9798d76ec466edab8960d304d25139632deb9cb06425311fd870bec40096567f",
+    "src/pgvamp_ofdm/reference/__init__.py": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+    "src/pgvamp_ofdm/reference/dense_pg_vamp.py": "d4123b3b9830ed8b2ddfe2adb1512f8456406652b30e1c2f598d96afd199e1be",
+    "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+    "src/pgvamp_ofdm/reference/result.py": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+    "src/pgvamp_ofdm/utils/__init__.py": "48defe375bbb439c867b30cf83cd2686b846cbead15dbbc1f66dfd10402ba9a4",
+    "src/pgvamp_ofdm/utils/device.py": "45a2293f6684f735af83ba07065f18228a5f970f2f73dc636bedb952b0fc7549",
+    "src/pgvamp_ofdm/utils/random.py": "c3732ca2454b779f720c544e766917b8bcc65104511467d788cadd7a48def25e",
+    "src/pgvamp_ofdm/utils/validation.py": "666f7dfbe0231e06d20971bca4a801f871b299029267e505761bb08fb0fbb15f",
+    "src/pgvamp_ofdm/waveform/__init__.py": "b05110bb0903d0159054b3326a8be5198a3d6067a2003e7fc0d068487d5ab697",
+    "src/pgvamp_ofdm/waveform/continuous.py": "7d56f3d579a1244ba151dc790f070430538fdcdfb0a54bba5c423a8baf872d15",
+    "src/pgvamp_ofdm/waveform/frame.py": "2fbf9b223f579ad77454be48faf58baf68f5cb4106dd0f7dfa7d75b11207d3fb",
+    "src/pgvamp_ofdm/waveform/lfm.py": "544fa5452b7407a256641b963a3fe518f9d823f8ae1fc69682f4f63e34eeef65",
+    "src/pgvamp_ofdm/waveform/ofdm.py": "d69449f7a11edecafde8d2fca74da16b025bf1317a0b0fa19a6e1010377478d1",
+    "tests/conftest.py": "1adf96b0d690c9b6de1781f756bc33c7978ef44017ebeca916b30a6039e87dda",
+    "tests/test_allocation.py": "833552ce4c63da7082c4c20d2ab16e521b3c46ff969206bd3709cba83243d76c",
+    "tests/test_cli.py": "fa15a32aa5604f6e06f0ccb95a4c5b8eb0ea912ffa1c95bbec6cb983485263b5",
+    "tests/test_config.py": "68905f0de11d12ab04df454f051f0e5897961df98049bd9b065b3a04e3f604d5",
+    "tests/test_data_cli.py": "e85b7566fe8f0f20cc4a0dd38f544ccd2066bd82c1a7396a5e9507e9e3dfe327",
+    "tests/test_data_random.py": "9077a906933d8590c49fc67b045a46317b9046d8e95939cc01461c8a8f5ac2b0",
+    "tests/test_data_records.py": "b371db00a7afedfe83f8ba3c00a4c6fd7af0e80bc05d6eeef5140bb86ba9646e",
+    "tests/test_dataset.py": "45bc318e891821513beca47da2663698c9d4bb7f90b9e1e6f818c039f522af0d",
+    "tests/test_devices.py": "0071077d3fb6e03dafa4d04e6812abbde0cb318acd18f231a48735061761a47a",
+    "tests/test_lfm.py": "0146c85a142a00d0431ad422b86779f1f97f81ea712addbb86238ca7b63e8478",
+    "tests/test_materialize.py": "ace731be4f92cb1c9459a5421d4ef93ab029fe66892604858240fffe14d795db",
+    "tests/test_qpsk.py": "853b6f016a9768293275a516ff265fbdaa5d84e9065926459debc9aa345720ce",
+    "tests/test_reference.py": "a662f3434930674c5a05309570416d266debb9d6cf6fc761c2864a75cad7dc70",
+    "tests/test_waveform.py": "7ca14526d8e6f023e819f151173997b9c31ced70003f093c4280a93c535d322e",
+    "tests/test_wp2.py": "477f16b804207c879ebec84e468448add16388cb63499d7fde1415adf0998867",
+    "scripts/run_wp1_audit.py": "99c0e90cc810d1b9b13d37e6641fa14168c6edcbda6ccfd28216c11da6f24377",
+    "scripts/run_wp2_audit.py": "3e6231de6450336a704a994fe1b095a19c59c19d4571a78a595a0eb9a9bc245d",
+    "scripts/verify_wp3_artifacts.py": "09b6639725eaeb285be560b746d87be6142152179f2eac94a7f0a451700d8aab",
+    "configs/base.yaml": "fc81cb65706390553c34525dae858aa8b0f0c86930f67ceb335873ba70b3634d",
+    "configs/cpu_dev.yaml": "9b77dc25484ad1dc2ab6cc5a97b6bf09493391f17e851736418366764cdf81f9",
+    "configs/cuda_example.yaml": "4b38c5816c7d9901e85688ba68ac8e905746719fcbe6d2245e1c03142df9ddaf",
+    "configs/main.yaml": "b1c86d918b08653c7aa2445245a1048a3759cec844b4f3b1ccf8fb4e4c5abb9f",
+    "configs/smoke_math.yaml": "171d3fa61aa6dee6fbfa9585f99d31e539442831d1ba733e80e8694418af332e",
+    "configs/smoke_system.yaml": "c409e9f811b0fbf9679cdc2f9e269ae656c8f47f229c92f042d172264e7dc1ae",
+    "configs/wp3_smoke.yaml": "508d21ae1632857dc53fa71fe0ba1df99ffdefde083baf5577f2b7e956b22c3b"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "started_utc": "2026-09-17T19:10:59.539855+00:00",
+      "finished_utc": "2026-09-17T19:10:59.579696+00:00",
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:/Software/Anaconda3/Scripts/ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "started_utc": "2026-09-17T19:10:59.580755+00:00",
+      "finished_utc": "2026-09-17T19:10:59.619657+00:00",
+      "returncode": 0,
+      "stdout": "55 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src"
+      ],
+      "started_utc": "2026-09-17T19:10:59.620311+00:00",
+      "finished_utc": "2026-09-17T19:11:04.132584+00:00",
+      "returncode": 0,
+      "stdout": "Success: no issues found in 37 source files\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=runs/pytest-wp3-review-final2-final"
+      ],
+      "started_utc": "2026-09-17T19:11:04.133325+00:00",
+      "finished_utc": "2026-09-17T19:11:40.223259+00:00",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 28%]\n................s....................................................... [ 57%]\n........................................................................ [ 86%]\ns.................................s                                      [100%]\n248 passed, 3 skipped in 33.01s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "simulate",
+        "--config",
+        "configs/wp3_smoke.yaml",
+        "--output",
+        "runs/wp3-review-final2-data"
+      ],
+      "started_utc": "2026-09-17T19:11:40.223929+00:00",
+      "finished_utc": "2026-09-17T19:11:43.551593+00:00",
+      "returncode": 0,
+      "stdout": "{\"manifest\": \"runs\\\\wp3-review-final2-data\\\\manifest.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "audit-data",
+        "--manifest",
+        "runs/wp3-review-final2-data/manifest.json",
+        "--waveform-frames",
+        "2",
+        "--output",
+        "runs/wp3-review-final2-audit"
+      ],
+      "started_utc": "2026-09-17T19:11:43.552305+00:00",
+      "finished_utc": "2026-09-17T19:11:51.739913+00:00",
+      "returncode": 0,
+      "stdout": "{\"status\": \"passed\", \"frames\": 2, \"output\": \"runs\\\\wp3-review-final2-audit\", \"max_relative_error_complex128\": 1.4435423701359176e-11}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "materialize",
+        "--manifest",
+        "runs/wp3-review-final2-data/manifest.json",
+        "--split",
+        "test",
+        "--output",
+        "runs/wp3-review-final2-test.pt",
+        "--max-output-bytes",
+        "1073741824"
+      ],
+      "started_utc": "2026-09-17T19:11:51.740707+00:00",
+      "finished_utc": "2026-09-17T19:11:56.462343+00:00",
+      "returncode": 0,
+      "stdout": "{\"matrix_payload_bytes\": 81920000, \"other_tensor_payload_bytes\": 435456, \"tensor_payload_bytes\": 82355456, \"serialization_metadata_reserve_bytes\": 1125168, \"estimated_output_bytes\": 83480624, \"actual_file_bytes\": 82376223}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "scripts/verify_wp3_artifacts.py",
+        "--manifest",
+        "runs/wp3-review-final2-data/manifest.json",
+        "--audit",
+        "runs/wp3-review-final2-audit",
+        "--materialized",
+        "runs/wp3-review-final2-test.pt",
+        "--output",
+        "runs/wp3-review-final2-verification.json"
+      ],
+      "started_utc": "2026-09-17T19:11:56.463196+00:00",
+      "finished_utc": "2026-09-17T19:12:02.624267+00:00",
+      "returncode": 0,
+      "stdout": "{\"status\": \"passed\", \"audit_windows\": 16, \"affine_verified\": true, \"max_relative_error_numpy\": 1.4435457958165196e-11, \"materialized_samples\": 32, \"manifest_sha256\": \"f0eabb8465f07c5c2eef4d2f2fb60a01d5ed1fbb1b86e9b5d25cf9c78bad42eb\", \"dense_sha256\": \"a2b4c170596b220876c72c28ce4d15db0c22723434ffe485db616cf78c012446\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pgvamp_ofdm",
+        "inspect-config",
+        "--config",
+        "configs/cpu_dev.yaml",
+        "--output",
+        "runs/wp3-review-final2-inspect"
+      ],
+      "started_utc": "2026-09-17T19:12:02.625140+00:00",
+      "finished_utc": "2026-09-17T19:12:05.846109+00:00",
+      "returncode": 0,
+      "stdout": "{\n  \"mode\": \"physical\",\n  \"device\": \"cpu\",\n  \"dtype\": \"complex128\",\n  \"num_workers\": 0,\n  \"cpu_threads\": 4,\n  \"deterministic\": true,\n  \"amp\": false,\n  \"sample_rate_hz\": 96000,\n  \"n_fft_wave\": 8192,\n  \"n_grid\": 512,\n  \"n_data\": 400,\n  \"n_pilots\": 64,\n  \"n_guard\": 47,\n  \"n_dc\": 1,\n  \"design_band_hz\": [\n    21000,\n    27000\n  ],\n  \"carrier_hz\": 24000,\n  \"subcarrier_spacing_hz\": 11.71875,\n  \"grid_endpoints_hz\": [\n    21000.0,\n    26988.28125\n  ],\n  \"active_endpoints_hz\": [\n    21281.25,\n    26718.75\n  ],\n  \"cp_samples\": 2048,\n  \"cp_duration_ms\": 21.333333333333332,\n  \"useful_duration_ms\": 85.33333333333333,\n  \"frame_samples\": 91776,\n  \"frame_duration_s\": 0.956,\n  \"data_bits_per_frame\": 6400,\n  \"cp_path_support\": \"not evaluated: requires WP2 physical paths\",\n  \"capacity_estimate\": {\n    \"scope\": \"train + validation; excludes evaluation and audits\",\n    \"frames\": 160,\n    \"blocks\": 1280,\n    \"single_H_bytes\": 2560000,\n    \"dense_H_only_bytes\": 3276800000,\n    \"dense_labeled_payload_bytes\": 3294218240,\n    \"compact_numeric_payload_bytes\": 2396160,\n    \"compact_assumptions\": \"max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds\",\n    \"exclusions\": \"variable metadata, IDs, hashes, serialization and filesystem overhead\"\n  },\n  \"scenario_degeneracies\": {\n    \"identity_awgn\": \"identity H; no delayed/scaled paths\",\n    \"static_multipath\": \"epsilon=0 for every path\"\n  }\n}\n",
+      "stderr": ""
+    }
+  ]
+}

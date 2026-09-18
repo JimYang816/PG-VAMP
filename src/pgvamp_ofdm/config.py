@@ -266,6 +266,27 @@ def _physical(c: dict[str, Any]) -> None:
         raise ConfigError("train_scenario_weights must sum to one")
 
 
+def config_from_values(values: dict[str, Any]) -> Config:
+    """Validate a complete persisted physical configuration without temporary files."""
+    if not isinstance(values, dict) or values.get("profile") != "physical":
+        raise ConfigError("persisted dataset requires a physical resolved config")
+    given = copy.deepcopy(values)
+    given.pop("profile")
+    _check(given, _DEFAULT, "")
+
+    def complete(value: dict[str, Any], default: dict[str, Any]) -> None:
+        if value.keys() != default.keys():
+            raise ConfigError("persisted resolved config has missing keys")
+        for key, item in default.items():
+            if isinstance(item, dict):
+                complete(value[key], item)
+
+    complete(given, _DEFAULT)
+    _physical(given)
+    given["profile"] = "physical"
+    return Config(given)
+
+
 def summarize(config: Config) -> dict[str, Any]:
     """Return static dimensions and byte estimates; no CP paths are generated or certified."""
     c = config.values
@@ -292,9 +313,9 @@ def summarize(config: Config) -> dict[str, Any]:
     frames = d["train_frames"] + d["val_frames"]
     blocks = frames * m
     dense = blocks * (n * n * cb + 2 * n * cb + rb + 2 * n)
-    # Compact numeric payload uses generator precision (complex128/float64),
-    # uint8 bits, pilot seed, per-block EsN0 and two 64-bit noise seeds.
-    compact = frames * (c["channel"]["max_paths"] * 32 + m * n * 2 + m * 24 + 16)
+    # Compact tensor payload uses generator precision (complex128/float64),
+    # uint8 bits, explicit pilot symbols, per-block EsN0 and two 64-bit noise seeds.
+    compact = frames * (c["channel"]["max_paths"] * 32 + m * n * 2 + m * (w["n_pilots"] * 16 + 24))
     summary.update(
         {
             "sample_rate_hz": fs,
@@ -325,7 +346,7 @@ def summarize(config: Config) -> dict[str, Any]:
                 "dense_labeled_payload_bytes": dense,
                 "compact_numeric_payload_bytes": compact,
                 "compact_assumptions": (
-                    "max_paths, float64 paths, uint8 bits, pilot seed, per-block seeds"
+                    "max_paths, float64 paths, uint8 bits, complex128 pilots, per-block seeds"
                 ),
                 "exclusions": (
                     "variable metadata, IDs, hashes, serialization and filesystem overhead"

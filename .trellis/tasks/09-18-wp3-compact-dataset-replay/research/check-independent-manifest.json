@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "counts": {
+    "train": {
+      "independent_frames": 1,
+      "independent_channels": 1,
+      "frame_copies": 1,
+      "samples": 8
+    },
+    "val": {
+      "independent_frames": 1,
+      "independent_channels": 1,
+      "frame_copies": 1,
+      "samples": 8
+    },
+    "test": {
+      "independent_frames": 2,
+      "independent_channels": 2,
+      "frame_copies": 4,
+      "samples": 32
+    }
+  },
+  "manifest_sha256": "f0eabb8465f07c5c2eef4d2f2fb60a01d5ed1fbb1b86e9b5d25cf9c78bad42eb",
+  "package_source_sha256": "5450d72a21f5b1c582e5a4a3bcb5fcc2bab5e2bc42ac33186a276e22d4db0a89",
+  "engineering_spec_sha256": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+  "audit_json_sha256": "9197447fa756a8b179ae88f95ad2dfdd11d91a4ec9a816cf46bd05a73a1f9712",
+  "dense_sha256": "a2b4c170596b220876c72c28ce4d15db0c22723434ffe485db616cf78c012446"
+}

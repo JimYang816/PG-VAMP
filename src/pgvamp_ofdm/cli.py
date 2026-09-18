@@ -1,4 +1,4 @@
-"""WP0 inspect-config entry point; deliberately no simulation or training commands."""
+"""Configuration inspection and explicit WP3 data commands."""
 
 import argparse
 import hashlib
@@ -75,9 +75,68 @@ def main(argv: list[str] | None = None) -> int:
     inspect.add_argument("--device")
     inspect.add_argument("--dtype")
     inspect.add_argument("--output", type=Path)
+    simulate = sub.add_parser(
+        "simulate", aliases=["generate"], help="generate compact physical data"
+    )
+    simulate.add_argument("--config", type=Path)
+    simulate.add_argument("--device")
+    simulate.add_argument("--dtype")
+    simulate.add_argument("--output", type=Path, required=True)
+    simulate.add_argument("--allow-large-output", action="store_true")
+    audit = sub.add_parser("audit-data", help="audit saved records through independent waveforms")
+    audit.add_argument("--manifest", type=Path, required=True)
+    audit.add_argument("--waveform-frames", type=int)
+    audit.add_argument("--output", type=Path, required=True)
+    dense = sub.add_parser("materialize", help="explicit budgeted dense export")
+    dense.add_argument("--manifest", type=Path, required=True)
+    dense.add_argument("--split", choices=("train", "val", "test"), required=True)
+    dense.add_argument("--output", type=Path, required=True)
+    dense.add_argument("--max-output-bytes", type=int)
+    dense.add_argument("--allow-large-output", action="store_true")
+    dense.add_argument("--without-labels", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command == "audit-data":
+            from .data.audit import audit_dataset
+
+            print(
+                json.dumps(
+                    audit_dataset(args.manifest, args.output, waveform_frames=args.waveform_frames)
+                )
+            )
+            return 0
+        if args.command == "materialize":
+            from .data.materialize import materialize
+
+            print(
+                json.dumps(
+                    materialize(
+                        args.manifest,
+                        args.split,
+                        args.output,
+                        max_output_bytes=args.max_output_bytes,
+                        allow_large_output=args.allow_large_output,
+                        labeled=not args.without_labels,
+                    )
+                )
+            )
+            return 0
         config = load_config(args.config, device=args.device, dtype=args.dtype)
+        if args.command in ("simulate", "generate"):
+            from .data.generate import generate_dataset
+
+            print(
+                json.dumps(
+                    {
+                        "manifest": str(
+                            generate_dataset(
+                                config, args.output, allow_large_output=args.allow_large_output
+                            )
+                        )
+                    }
+                )
+            )
+            return 0
         rt = config.values["runtime"]
         runtime = resolve_runtime(rt["device"], rt["dtype"], rt["cpu_threads"], rt["deterministic"])
         rt["cpu_threads"] = runtime.cpu_threads
