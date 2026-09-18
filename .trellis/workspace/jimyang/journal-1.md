@@ -213,3 +213,39 @@ Completed WP6 implementation and independent acceptance; user-approved work comm
 ### Next Steps
 
 - Await explicit WP7 planning request; main training, SNR sweeps and CUDA numerical execution remain unexecuted.
+
+
+## Session 8: WP7 paired evaluation and reporting completed
+<!-- trellis-session: v=2 fp=31e4d6498974fdb2 -->
+
+**Date**: 2026-09-18
+**Task**: WP7 paired evaluation and reporting completed
+**Branch**: `codex/wp7-paired-evaluation-reports`
+
+### Summary
+
+Completed WP7 implementation, independent verification and user-approved work commit/archive. WP8 remains unstarted.
+
+### Main Changes
+
+- Implemented paired evaluation, frame-cluster bootstrap, explicit failures, prepared inference and both timing protocols, diagnostics, read-only single/multi-seed reports and CLI.
+- Independent review repaired synchronization template domain, timing draw counts, energy overflow, fixed-round main protocol and valid negative-c report handling; streamed diagnostic summaries.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `f7f210f` | feat: 完成 WP7 配对评测统计计时与报告 |
+
+### Testing
+
+- [OK] 478 passed / 7 CUDA skipped; product and scripts Ruff/format and mypy pass; 17 full-dimensional CPU CLI commands and independent artifact/visual audits passed.
+- [OK] Source specification and independent oracle fingerprints unchanged. Main training, powered full SNR sweep and CUDA execution remain unexecuted.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- Await explicit WP8 planning request; do not start WP8 automatically.

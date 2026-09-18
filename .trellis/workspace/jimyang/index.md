@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 7
+- **Total Sessions**: 8
 - **Last Active**: 2026-09-18
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~215 | Active |
+| `journal-1.md` | ~251 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 8 | 2026-09-18 | WP7 paired evaluation and reporting completed | `f7f210f` | `codex/wp7-paired-evaluation-reports` |
 | 7 | 2026-09-18 | WP6 training resume inference completion | `e73a983` | `codex/wp6-training-checkpoint-smoke` |
 | 6 | 2026-09-18 | WP5 PG-VAMP implementation and independent acceptance | `877fccaa5b9d4f2ff7f3763a69b4ace55ecef196` | `codex/wp5-pg-vamp-math-contract` |
 | 5 | 2026-09-18 | WP4 MMSE and exact VAMP completed | `70d94d8` | `codex/wp4-mmse-exact-vamp` |
