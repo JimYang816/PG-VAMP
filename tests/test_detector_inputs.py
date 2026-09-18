@@ -1,12 +1,12 @@
 import pytest
 import torch
 
-from pgvamp_ofdm.algorithms import MMSEDetector, VAMPDetector
+from pgvamp_ofdm.algorithms import MMSEDetector, PGVAMPDetector, VAMPDetector
 from pgvamp_ofdm.data.dataset import EffectiveDataset, detection_inputs
 from pgvamp_ofdm.data.records import tensor_hash
 
 
-@pytest.mark.parametrize("detector", [MMSEDetector, VAMPDetector])
+@pytest.mark.parametrize("detector", [MMSEDetector, VAMPDetector, PGVAMPDetector])
 @pytest.mark.parametrize(
     "problem",
     [
@@ -56,7 +56,7 @@ def test_invalid_system(detector, problem):
         detector().detect(H, y, sigma)
 
 
-@pytest.mark.parametrize("detector", [MMSEDetector, VAMPDetector])
+@pytest.mark.parametrize("detector", [MMSEDetector, VAMPDetector, PGVAMPDetector])
 def test_nonfinite_operator_is_hard_failure(detector):
     H = torch.eye(2, dtype=torch.complex128)[None] * 1e200
     y = torch.ones(1, 2, dtype=H.dtype)
@@ -102,7 +102,7 @@ def test_real_400_dimensional_shared_inputs_and_label_isolation(data_manifest):
     original = detection_inputs(sample)
     fingerprint = tensor_hash(original)
     identities = []
-    for detector in (MMSEDetector(), VAMPDetector()):
+    for detector in (MMSEDetector(), VAMPDetector(), PGVAMPDetector()):
         sample = dataset[16]  # Each detector starts with the original physical labels.
         payload = detection_inputs(sample)
         identities.append((sample["sample_id"], tensor_hash(payload)))
@@ -122,5 +122,15 @@ def test_real_400_dimensional_shared_inputs_and_label_isolation(data_manifest):
         )
         assert torch.equal(baseline.x_soft, modified.x_soft)
         assert torch.equal(baseline.x_soft, absent.x_soft)
-    assert identities[0] == identities[1]
+
+        def predictions(output):
+            tensors = {key: getattr(output, key) for key in ("x_soft", "class_hat", "bits_hat")}
+            if output.probabilities is not None:
+                tensors["probabilities"] = output.probabilities
+            return tensor_hash(tensors)
+
+        assert predictions(baseline) == predictions(modified) == predictions(absent)
+        assert tensor_hash(detection_inputs(sample)) == fingerprint
+        assert tensor_hash(detection_inputs(unlabelled)) == fingerprint
+    assert len(set(identities)) == 1
     assert tensor_hash(detection_inputs(sample)) == fingerprint

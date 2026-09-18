@@ -1,0 +1,9 @@
+{"file": ".trellis/tasks/09-18-wp5-pg-vamp-math-contract/research/source-math-extract.md", "reason": "Verbatim source sections 11, 14 and 17.4 without injection truncation; original specification remains authoritative."}
+{"file": ".trellis/tasks/09-18-wp5-pg-vamp-math-contract/research/source-acceptance-extract.md", "reason": "Verbatim configuration and WP5/math/engineering acceptance, including numerical tolerances."}
+{"file": ".trellis/spec/backend/index.md", "reason": "Engineering guideline index."}
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "Source authority and mandatory WP ordering."}
+{"file": ".trellis/spec/backend/numerical-contracts.md", "reason": "PG invariants and finite-backward protection."}
+{"file": ".trellis/spec/backend/wp4-detector-contract.md", "reason": "Production interface and reusable posterior/messages."}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "Independent oracles, tolerances and truthful evidence."}
+{"file": ".trellis/spec/backend/runtime-config.md", "reason": "CPU defaults and explicit dtype/device policy."}
+{"file": ".trellis/tasks/09-18-wp5-pg-vamp-math-contract/research/planning-evidence.md", "reason": "Inspected evidence and scope boundaries."}

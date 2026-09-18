@@ -23,7 +23,8 @@
     "09-18-wp1-modulation-frame-lfm",
     "09-18-wp2-physical-channel-effective-model",
     "09-18-wp3-compact-dataset-replay",
-    "09-18-wp4-mmse-exact-vamp"
+    "09-18-wp4-mmse-exact-vamp",
+    "09-18-wp5-pg-vamp-math-contract"
   ],
   "parent": null,
   "relatedFiles": [

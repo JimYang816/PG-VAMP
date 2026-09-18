@@ -1,5 +1,75 @@
 # Validation record
 
+## WP5 independent final validation — 2026-09-18
+
+Final full regression after review repairs: **376 passed, 6 CUDA skipped** in
+36.10s. Ruff lint/format (70 files), mypy (48 source files), cpu_dev inspection,
+task context validation and Git whitespace checks pass. No known unresolved
+WP5 code finding remains. Source §23 tolerances and specification SHA are unchanged.
+
+Independent review found and fixed finite-forward/NaN-backward behavior for an
+extremely weak non-diagonal channel. Production W/c and innovation/c now use
+two real-component sqrt(c) divisions, preserving the source equations and trace
+threshold. float64 1e-140 and float32 1e-17 weak/zero/normal mixed batches retain
+informative outputs and finite gradients without contaminating normal samples.
+Safety diagnostic norms now share a cancelling scale, preventing overflow or
+underflow under joint H/y scaling by 1e±100 (noise by 1e±200).
+
+The checker separately reproduced the same pre-existing defect in DensePGVAMP.
+After a source-backed coordinating review, only its two quotient evaluation
+sites were repaired independently, without production numerical imports.
+Separate weak-channel asymptotic/mixed-batch tests and ordinary layer/gradient
+parity pass; this was not an unexplained change to make two implementations agree.
+See `research/oracle-fix-review.md` and `check-oracle-correction.md` for the audit.
+MMSE/VAMP and shared production QPSK/message implementations are unchanged.
+
+Independent NumPy audit reconstructs ell via scalar sums, G/P, solve-based B/W,
+innovation and full covariance at N=8/16/32, jitter=0/0.125. Maximum absolute
+discrepancy is **1.0303e-13**, with positive matrix-order checks and fixed-layer
+objective checks. A freshly loaded physical 400-dimensional sample supplies the
+same input hash and identity to all three detectors; original/modified/absent
+labels produce identical complete prediction hashes within each detector.
+
+Final evidence under `.trellis/tasks/archive/2026-09/09-18-wp5-pg-vamp-math-contract/research/`:
+`check-report.md`, `check-oracle-final-pytest.txt`, `check-quality-receipts.json`,
+`check-numpy-receipt.json`, `check-physical-receipt.json`, `check-source-manifest.json`.
+The coordinating session independently verified all 72 final source/test hashes.
+Earlier 370/374-test receipts are historical, before all review fixes.
+Environment remains Python 3.13.9, PyTorch 2.12.0+cpu, NumPy 2.3.5, four threads,
+MKL_THREADING_LAYER=TBB. CUDA numerical acceptance is unavailable, not passed.
+No training, optimizer update, checkpoint/resume, full-system smoke, BER sweep
+or performance benchmark was run. The physical check is a forward audit only.
+
+## WP5 implementation validation — 2026-09-18
+
+Implementation-stage full regression: **370 passed, 6 CUDA skipped** in 36.96s.
+Ruff check/format (70 files), mypy (48 source files), cpu_dev configuration
+inspection and Git whitespace checks pass. Independent final review is pending;
+these results are not its acceptance record.
+
+The production PG-VAMP module has exactly 16 learned real scalars at T=8.
+New tests cover directed nested gates, energy/safety/Loewner properties,
+operator order and fixed-layer objective, conditional real Jacobian, complete
+covariance trace, N=8/16/32 layerwise independent-oracle parity and both raw
+parameter gradients, gradcheck, full-graph/diagonal/weak/rank-deficient limits,
+explicit jitter consistency, protected backward and same-layer factor reuse.
+Existing baseline and QPSK/message tests remain in the full regression.
+
+A real 400-dimensional WP3 sample with six unequal nonzero path time scalings
+was passed to MMSE/VAMP/PG-VAMP using identical input hashes and sample identity.
+All three produce finite outputs and unchanged complete prediction hashes when
+labels are changed or removed. The sample's PG protection counters are zero.
+This is a physical forward audit, not training, checkpoint or full-system smoke.
+
+Evidence: `.trellis/tasks/archive/2026-09/09-18-wp5-pg-vamp-math-contract/research/`
+`implementation-evidence.md`, `audit_physical.py`, `physical-forward-receipt.json`.
+The report preserves initial Windows encoding/temp-directory and formatting
+failures and their fixes. Source specification, independent reference numerical
+code and production QPSK/messages are unchanged. No numerical tolerance was relaxed.
+Environment: Python 3.13.9, PyTorch 2.12.0+cpu, four CPU threads,
+MKL_THREADING_LAYER=TBB. No GPU numerical acceptance is claimed.
+Training, checkpoint/resume, full-system smoke, BER sweeps and timing remain unexecuted.
+
 ## WP4 independent final validation — 2026-09-18
 
 Final full regression: **313 passed, 5 CUDA skipped** in 31.64 seconds.
@@ -424,6 +494,7 @@ FFT, pilot cancellation, SNR and compact/dense parity. See the task's
 
 ## Later-package validation not executed
 
-WP2 physical waveform/channel tests are recorded above. Production equivalence, complete system
-smoke, training, checkpoint recovery, BER sweeps and performance benchmarks
-have not been executed. They belong to later work packages.
+WP2 physical waveform/channel tests and WP4/WP5 production algorithm checks are
+recorded above at their actual review stages. Complete system smoke, training,
+checkpoint recovery, BER sweeps and performance benchmarks have not been executed.
+They belong to WP6 and later work packages.

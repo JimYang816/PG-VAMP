@@ -1,0 +1,126 @@
+{
+  "python": "3.13.9",
+  "torch": "2.12.0+cpu",
+  "threads": 4,
+  "cuda_available": false,
+  "scope": "WP5 shared physical forward and label isolation; no training/system smoke",
+  "manifest": "runs/wp5-implementation-tmp/wp5-full/data0/compact/manifest.json",
+  "runs": [
+    {
+      "detector": "MMSEDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "dtype": "torch.complex128",
+      "path_epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hash": "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+      "variant_input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "variant_prediction_hashes": [
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750",
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750",
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750"
+      ],
+      "learned_scalars": 0,
+      "diagnostics": {}
+    },
+    {
+      "detector": "VAMPDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "dtype": "torch.complex128",
+      "path_epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hash": "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+      "variant_input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "variant_prediction_hashes": [
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b",
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b",
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b"
+      ],
+      "learned_scalars": 0,
+      "diagnostics": {
+        "no_information": [
+          0
+        ],
+        "message_rejected": [
+          0
+        ],
+        "precision_capped": [
+          0
+        ],
+        "posterior_variance_underflow": [
+          0
+        ]
+      }
+    },
+    {
+      "detector": "PGVAMPDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "dtype": "torch.complex128",
+      "path_epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hash": "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+      "variant_input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "variant_prediction_hashes": [
+        "07b8ace6ffb46ff148c024cce5e2ffc641df9a63b0dade96057b4ffc34f9192f",
+        "07b8ace6ffb46ff148c024cce5e2ffc641df9a63b0dade96057b4ffc34f9192f",
+        "07b8ace6ffb46ff148c024cce5e2ffc641df9a63b0dade96057b4ffc34f9192f"
+      ],
+      "learned_scalars": 16,
+      "diagnostics": {
+        "no_information": [
+          0
+        ],
+        "message_rejected": [
+          0
+        ],
+        "precision_capped": [
+          0
+        ],
+        "posterior_variance_underflow": [
+          0
+        ]
+      }
+    }
+  ]
+}

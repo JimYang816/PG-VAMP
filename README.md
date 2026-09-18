@@ -1,7 +1,7 @@
 # PG-VAMP CP-OFDM
 
 Implementation follows [CODEX_ENGINEERING_SPEC.md](docs/CODEX_ENGINEERING_SPEC.md).
-The current work package is **WP4: full-H linear MMSE and exact SVD VAMP**.
+The current work package is **WP5: differentiable production PG-VAMP-VC**.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for scope and
 [VALIDATION.md](VALIDATION.md) for actual validation evidence.
 
@@ -48,8 +48,8 @@ not mean that a `smoke` command or a physical simulation has been implemented.
 The dense PG-VAMP and Cholesky VAMP references are correctness oracles for
 small algebra fixtures. They remain independent of production algorithms.
 WP2 physical-channel validation is described below. WP3 data interfaces are described
-at the end of this document. WP4 adds the production baselines below; WP5–WP8
-production PG-VAMP, training and performance comparisons remain separate work packages.
+at the end of this document. WP4 adds the production baselines below; WP5 adds
+production PG-VAMP. Training and performance comparisons remain WP6–WP8 work.
 The algebra references make no physical BER or acceleration claim.
 
 ```python
@@ -156,7 +156,8 @@ inputs; `purpose="train"` and `purpose="evaluation"` reject missing labels. No H
 normalization is applied. `audit-data` is explicit, using
 `data.audit_waveform_frames` when its frame-count flag is omitted; simulation does
 not automatically perform expensive waveform auditing. Full-size main generation,
-three-detector integration, training and performance sweeps remain unexecuted.
+training and performance sweeps remain unexecuted. Three-detector forward validation
+is recorded separately in VALIDATION.md.
 
 ## WP4 production baselines
 
@@ -189,3 +190,33 @@ zero posterior means and uniform probabilities.
 WP4 checks include independent Cholesky-oracle layer comparisons and actual
 400-dimensional WP3 input with nonzero path time scaling. This does not establish
 three-algorithm performance, full-system smoke, training results or a speed gain.
+
+## WP5 production PG-VAMP
+
+`PGVAMPDetector` implements the source §14 PG-VAMP-VC contract with exactly
+`raw_gaps[T]` and `raw_mu[T]` real learned scalars: 16 at default depth 8.
+It uses directed soft gates, energy compensation and analytical safety terms,
+a centered full-H residual, exact conditional divergence and variance calibration.
+The final result is the QPSK posterior, not an extrinsic message.
+
+```python
+from pgvamp_ofdm.algorithms import PGVAMPDetector
+
+# inputs is the same batched, label-free H/y/sigma2 payload used above.
+model = PGVAMPDetector()  # CPU, float64 parameters for complex128 inputs
+pg = model.detect(**inputs)
+# model(**inputs) is also supported; both entry points retain autograd.
+```
+
+Explicit complex64 inputs require `dtype=torch.float32`; device choices must match.
+Use `torch.no_grad()` explicitly for inference. `return_diagnostics=True` retains
+large, differentiable layer states for mathematical debugging; routine output keeps
+protection counters and small detached layer summaries. Those summaries include both
+edge-ratio denominators, thresholds, mu, c and relative safety-term size.
+
+The model shares production QPSK/message protections with VAMP, while the dense
+reference remains independent. It reuses one actual Cholesky factor within each layer;
+all residuals still use full H. Dense cost may remain cubic and storage quadratic.
+Soft-edge counts do not establish sparse acceleration. Training, checkpoint/resume,
+complete system smoke and performance comparisons are future work; see VALIDATION.md
+for the actual extent of WP5 verification.

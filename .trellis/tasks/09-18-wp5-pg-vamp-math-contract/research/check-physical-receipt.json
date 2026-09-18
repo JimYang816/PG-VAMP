@@ -1,0 +1,88 @@
+{
+  "manifest": "runs\\wp5-check-final\\data0\\compact\\manifest.json",
+  "threads": 4,
+  "cases": [
+    {
+      "algorithm": "MMSEDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "prediction_hashes": [
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750",
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750",
+        "400684a3085464c5db6d4a4c1065d513c80b09a1d67856d2fb6ce72b26d4c750"
+      ],
+      "parameters": 0
+    },
+    {
+      "algorithm": "VAMPDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "prediction_hashes": [
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b",
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b",
+        "f0f725a375a0c98525f4213fa16c891d4a87adaa121a9aaf343fa34351ce0f3b"
+      ],
+      "parameters": 0
+    },
+    {
+      "algorithm": "PGVAMPDetector",
+      "sample_id": "b27666865a33658d825c349e31c201e9cfaeb3e771dae963bc952233308556a9:0x0.0p+0:0",
+      "shape": [
+        400,
+        400
+      ],
+      "epsilon": [
+        -2.8405221815231085e-06,
+        -8.841828680934226e-05,
+        -7.507963320276128e-05,
+        2.2597272398946756e-05,
+        3.882407059066788e-05,
+        8.019224705497647e-05
+      ],
+      "input_hashes": [
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b",
+        "4ba3850d51c02f2e41615137424fc0bd687e04f5460f8173b03ed9f3a879c03b"
+      ],
+      "prediction_hashes": [
+        "d3e8fb34fefc5f5311c28a77fa9c2c5d8b88a62b654917720c9313a6d7f6d68e",
+        "d3e8fb34fefc5f5311c28a77fa9c2c5d8b88a62b654917720c9313a6d7f6d68e",
+        "d3e8fb34fefc5f5311c28a77fa9c2c5d8b88a62b654917720c9313a6d7f6d68e"
+      ],
+      "parameters": 16
+    }
+  ],
+  "scope": "untrained forward only; no checkpoint/training/system smoke"
+}

@@ -73,3 +73,19 @@ index, not a replacement derivation.
 - Independent implementations deliberately duplicate numerical protection logic;
   apply the same source contract to each and test each, rather than sharing an
   operator that makes one oracle certify the other.
+
+## Executable weak-channel lesson from WP5
+
+- The trace's no-information bound and safe differentiation solve different
+  problems. A finite, resolvable c must not be rejected solely to avoid backward
+  overflow. Preserve the source bound and stabilize the equivalent arithmetic.
+- Direct complex/real division by very small c can overflow local backward terms
+  although the final derivative is representable. Real-component division alone
+  still forms a dangerous x/c² term; production PG uses two sqrt(c) divisions
+  for W/c and innovation/c. No detach, new cutoff or noise/channel normalization.
+- Non-diagonal weak channels in a mixed weak/zero/normal batch must produce finite
+  gradients without contaminating the normal sample. Test both float64 and float32;
+  a diagonal weak fixture may hide the defect through zero parameter dependence.
+- Diagnostic norm ratios also need stable arithmetic. Cancel a common scale in
+  numerator and denominator instead of squaring extreme finite energies directly.
+  This logging calculation must not feed back into the detector equations.

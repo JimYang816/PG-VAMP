@@ -228,8 +228,19 @@ class DensePGVAMP(nn.Module):
             K = torch.zeros_like(W)
             idx = informed.nonzero(as_tuple=True)[0]
             if idx.numel():
-                K[idx] = W[idx] / c[idx, None, None]
-                r1[idx] = r2[idx] + innovation[idx] / c[idx, None]
+                # §14.5 quotient, evaluated in two stages so its local
+                # derivative does not overflow for resolved weak information.
+                root = torch.sqrt(c[idx])
+                matrix_root = root[:, None, None]
+                K[idx] = torch.complex(
+                    (W[idx].real / matrix_root) / matrix_root,
+                    (W[idx].imag / matrix_root) / matrix_root,
+                )
+                vector_root = root[:, None]
+                r1[idx] = r2[idx] + torch.complex(
+                    (innovation[idx].real / vector_root) / vector_root,
+                    (innovation[idx].imag / vector_root) / vector_root,
+                )
                 variance = (identity[idx] - K[idx] @ H[idx]).abs().square().sum((-2, -1))
                 variance = variance / (n * gamma2[idx])
                 variance = variance + sigma2[idx] * K[idx].abs().square().sum((-2, -1)) / n

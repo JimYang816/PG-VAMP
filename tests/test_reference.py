@@ -292,3 +292,26 @@ def test_no_forbidden_reference_calls():
                 assert name not in forbidden, (path, name)
             if isinstance(node, ast.ImportFrom):
                 assert "algorithms" not in (node.module or "")
+
+
+@pytest.mark.parametrize("dtype,amplitude", [(torch.complex128, 1e-140), (torch.complex64, 1e-17)])
+def test_pg_reference_resolved_tiny_trace_backward(dtype, amplitude):
+    channel = torch.tensor([[1, 0.2j], [0.3, 1]], dtype=dtype)
+    H = torch.stack((amplitude * channel, torch.zeros_like(channel), channel))
+    y = torch.ones(3, 2, dtype=dtype)
+    sigma = torch.ones(3, dtype=H.real.dtype)
+    model = DensePGVAMP(2, dtype=sigma.dtype)
+    output = model(H, y, sigma)
+    assert output.diagnostics["no_information"].tolist() == [0, 2, 0]
+    # Independently evaluated vanishing-channel posterior expansion.
+    torch.testing.assert_close(
+        output.x_soft[0] / amplitude, channel.mH @ y[0], atol=2e-6, rtol=2e-5
+    )
+    assert (output.x_soft[0].abs() > 0).all()
+    assert (output.probabilities[1] == 0.25).all()
+    output.x_soft.real.sum().backward()
+    ordinary = DensePGVAMP(2, dtype=sigma.dtype)
+    ordinary(H[2:], y[2:], sigma[2:]).x_soft.real.sum().backward()
+    for actual, expected in zip(model.parameters(), ordinary.parameters(), strict=True):
+        assert torch.isfinite(actual.grad).all()
+        torch.testing.assert_close(actual.grad, expected.grad, atol=2e-6, rtol=2e-5)
