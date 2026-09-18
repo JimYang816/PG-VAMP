@@ -97,3 +97,25 @@ Implemented and independently verified WP2 physical paths, full effective matrix
 ### Status
 
 [OK] **Completed**
+
+
+## Session 4: Complete WP3 compact dataset and replay
+<!-- trellis-session: v=2 fp=f7574dcad08ef309 -->
+
+**Date**: 2026-09-18
+**Task**: Complete WP3 compact dataset and replay
+**Branch**: `codex/wp3-compact-dataset-replay`
+
+### Summary
+
+Implemented and independently verified WP3 compact data, manifests, physical-frame splits, independent streams, deterministic replay, dense export and CLI audits. Final regression 248 passed, 3 CUDA skipped; Ruff/format/mypy passed. Two complete frames, 16 windows: maximum relative error 1.4435457958165196e-11; 32 dense samples exactly match compact replay. User confirmed work commit and archive/journal completion. WP3 archived; WP4 not started.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `1aebee2` | feat: 完成 WP3 数据集与确定性重放 |
+
+### Status
+
+[OK] **Completed**

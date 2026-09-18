@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 3
+- **Total Sessions**: 4
 - **Last Active**: 2026-09-18
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~99 | Active |
+| `journal-1.md` | ~121 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 4 | 2026-09-18 | Complete WP3 compact dataset and replay | `1aebee2` | `codex/wp3-compact-dataset-replay` |
 | 3 | 2026-09-18 | WP2 physical channel completed | `65c0aa5` | `codex/wp2-physical-channel-effective-model` |
 | 2 | 2026-09-18 | WP1 - Modulation Frame and LFM | `414de3f` | `codex/wp1-modulation-frame-lfm` |
 | 1 | 2026-09-18 | WP0 foundation and references completed | `ecbda13` | `main` |
