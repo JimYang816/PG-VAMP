@@ -32,7 +32,7 @@ WP0 已完成归档；用户于 2026-09-18 批准 WP1 规划并授权实施。
 | WP5 | 正式 PG-VAMP 数学合同；矩阵/Jacobian/梯度/极限与 2T 参数 | WP4 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp5-pg-vamp-math-contract/prd.md) |
 | WP6 | CPU 默认训练、显式 CUDA、checkpoint/恢复/推理；两类 smoke | WP5 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp6-training-checkpoint-smoke/prd.md) |
 | WP7 | 配对评测/统计/计时/稳定性/报告；真实计数和失败可追溯 | WP6 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp7-paired-evaluation-reports/prd.md) |
-| WP8 | 文档、状态、真实 CPU 完整尺寸 smoke；未运行实验明确标注 | WP7 验收 | 未创建 |
+| WP8 | 文档、状态、真实 CPU 完整尺寸 smoke；未运行实验明确标注 | WP7 验收 | [implemented / independently verified; completion approved](../archive/2026-09/09-18-wp8-complete-delivery/prd.md) |
 
 Trellis parent/child 链接不是依赖调度器。后续子任务必须显式写入上表前置，
 通过前一阶段验收并获得相应授权后推进，不能并行跳过 WP 顺序。
@@ -98,3 +98,18 @@ WP6 独立验收：430 passed / 7 CUDA skipped，Ruff/format/mypy 与 11 条 CLI
 WP7 独立验收通过：478 passed / 7 CUDA skipped，Ruff/format/mypy 与 17 条真实 CLI 命令通过；真实 512/400 配对计数、两种计时和单/多 seed 报告闭环、独立产物及图像检查完成。用户已批准提交与正常归档/journal；WP8 未创建。主训练、充分 sweep 和 CUDA 数值实验未执行。
 
 WP7 工作提交 f7f210f 已完成并归档至 archive/2026-09/09-18-wp7-paired-evaluation-reports；父任务保持协调容器，WP8 未创建。
+
+
+## Current planning state — 2026-09-18
+用户已授权创建 WP8 child task，仅 planning，不开始 implementation。WP0–WP7 均已归档；WP8 的 PRD/design/implement/context 已准备，含完整交付文档、规格要求的 demo-frame 缺口和未来真实 CPU 验收。未激活，无新增产品执行；以上旧 Review state 为历史记录。
+
+
+## WP8 implementation authorization — 2026-09-18
+用户后续明确批准 WP8 最新规划并授权 implementation。WP8 已在 codex/wp8-complete-delivery 激活，新增 demo-frame 与完整交付文档；新 CPU bounded 训练/完整 smoke 11 条命令、评测/计时/报告 17 条命令通过，保存数组的独立复核通过。最终全量回归与独立 checker 尚在进行，父任务不提前宣告验收完成。
+
+
+## WP8 final integration review — 2026-09-18
+WP8 已实现并独立验收：486 passed / 7 CUDA skipped、Ruff/format/mypy，通过新 CPU 完整尺寸 smoke、11 条训练 CLI、17 条评测/计时/报告 CLI 和两种精度 demo CLI。独立 NumPy 波形误差 system 1.13e-11、demo 4.59e-12，保存数据/共享哈希/计数/checkpoint 和图像均复核。WP0–WP8 及 §23 映射见 docs/DELIVERY_MATRIX.md，完整证据见 WP8 research/check-report.md；父任务跨阶段软件合同已汇总验收，充分性能验证另列为未执行。WP8 提交归档尚待具体方案确认；父任务未自动归档。
+
+
+2026-09-18：用户确认 WP8 具体工作提交方案及正常归档/journal；父任务保留协调记录，不自动归档。最终 WP8 证据位置为 archive/2026-09/09-18-wp8-complete-delivery。

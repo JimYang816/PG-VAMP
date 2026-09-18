@@ -1,0 +1,50 @@
+[
+  {
+    "dtype": "complex128",
+    "status": "passed",
+    "directory": "runs\\wp8-check-demo-complex128",
+    "numpy_fft_max_relative_error": 4.5908142877237e-12,
+    "numpy_pilot_max_relative_error": 2.762421639749034e-16,
+    "numpy_noise_max_relative_error": 4.513773598708569e-12,
+    "cp_max_absolute_error": 2.4447084509668437e-11,
+    "sync_peak": 2592,
+    "sync_score": 0.326559430098466,
+    "earliest_lfm_start": 2379.4039961580875,
+    "recording_samples": 93248,
+    "rehashed_artifacts": {
+      "environment.json": "10d628f0330c077add968942a912b9c2fe01e6d4f7ad6bca6513671ce3cb847d",
+      "figures/channel_and_constellation.png": "46c60564db78e0e5d1c8bed5233f8798c60f50a14ece08fc8eb6dbc10e3233b7",
+      "figures/waveform_and_sync.png": "84ee8f3bb5bdef772eacfb4e50c57847a47db4b396ace371492640604e60995b",
+      "frame.pt": "d220413959802a49f22ae9f858aabf61a9937b4583e50f27d2c13475ef56a9c7",
+      "resolved_config.yaml": "7fb7a3673c5a5ec605cfe9000845ddb7b497106ba2ac0cd2bba4d8e17794eba2"
+    },
+    "receipt_sha256": "e3a85c958960d3f3881c664ba8782ae9d7cb451fce1f2d14d588c7d012b7fb9c",
+    "iq_noise_variance_real_observed": 0.049978676568416654,
+    "iq_noise_variance_imag_observed": 0.04994904244647427,
+    "noise_statistics_scope": "descriptive single frame; statistical acceptance resides in test_wp2"
+  },
+  {
+    "dtype": "complex64",
+    "status": "passed",
+    "directory": "runs\\wp8-check-demo-complex64",
+    "numpy_fft_max_relative_error": 4.590764939894371e-12,
+    "numpy_pilot_max_relative_error": 1.0479287482212385e-07,
+    "numpy_noise_max_relative_error": 2.8100467398947747e-07,
+    "cp_max_absolute_error": 1.6578961639445356e-11,
+    "sync_peak": 2592,
+    "sync_score": 0.3265594306163279,
+    "earliest_lfm_start": 2379.4039961580875,
+    "recording_samples": 93248,
+    "rehashed_artifacts": {
+      "environment.json": "3f98e03ef9bf4df6c4df8c23de79c7f5b05d075322dfb6970497eedac8b74d39",
+      "figures/channel_and_constellation.png": "22caf5eb162cdb3c8940e38f61dbaac0f4e2da6a2898559d1bf3654e58981e59",
+      "figures/waveform_and_sync.png": "cb64db6fde00b551db7afa19eeebfe3f0a7b2acc110851dac8d2107578b60a52",
+      "frame.pt": "098ad50d1b89e09b4ab71d0b06e83daa3f7397ee87adb81e66f2e1be34699138",
+      "resolved_config.yaml": "ebcdb2b9b8c9aed9c0e9c9b243a7462ea1318377e63699a10ca0578463f5b0bb"
+    },
+    "receipt_sha256": "36c20c350906234943af8f4cbb26275ee16321cff1079102d7c56bf8516602e9",
+    "iq_noise_variance_real_observed": 0.049978676568416654,
+    "iq_noise_variance_imag_observed": 0.04994904244647427,
+    "noise_statistics_scope": "descriptive single frame; statistical acceptance resides in test_wp2"
+  }
+]

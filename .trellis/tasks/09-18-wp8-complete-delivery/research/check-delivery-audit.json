@@ -1,0 +1,324 @@
+{
+  "status": "passed",
+  "authority_reference_hashes": [
+    {
+      "path": "docs/CODEX_ENGINEERING_SPEC.md",
+      "sha256": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+      "matches_HEAD_normalized": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/dense_pg_vamp.py",
+      "sha256": "a37c559f6e0757ae420ef7a0e052f8a8078ddcd1390ee7941e73cc95c59a954e",
+      "matches_HEAD_normalized": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py",
+      "sha256": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+      "matches_HEAD_normalized": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/result.py",
+      "sha256": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+      "matches_HEAD_normalized": true
+    },
+    {
+      "path": "src/pgvamp_ofdm/reference/__init__.py",
+      "sha256": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+      "matches_HEAD_normalized": true
+    }
+  ],
+  "document_hashes": {
+    "README.md": "4c64e685b693fa3369846b5a6402ef3da61cb33c496bf4fa49ddffc1ee05ce16",
+    "VALIDATION.md": "43989d14035521675910d8675c8e8debe86986bb19f36d1081a6f970213ca79c",
+    "IMPLEMENTATION_STATUS.md": "9a6da8eebf99327877d937e34205418f6433cc140b917619a70131ba12aa3fe7",
+    "docs/CONFIGURATION.md": "049c83e15d19a5b931639e2512f29ec0ac4cf35cf61e85e7cec153f7b2369516",
+    "docs/ALGORITHMS.md": "49f30372436149bc8e0e17fcbbb3355f094b34ea098ea795120a5da7d63eb433",
+    "docs/REPRODUCING.md": "a86fb25e80ad73e5a584f2dba1f0da79f5f88b4550657d69749299770283bc18",
+    "docs/DELIVERY_MATRIX.md": "5dd136bc714994c77072db9f41eb9013000e5a338a29a01ec6bb3fae153d69a4",
+    ".trellis/spec/backend/wp8-delivery-contract.md": "7a63db6fd70d74f01041ec5ce8b9394109c6eb945b5ac8179b5853af13ff0b6e",
+    ".trellis/spec/backend/index.md": "70cc17f8478af80dafcdbf4b69813ea90514c9f55b607131cb66aa06a8bbf298"
+  },
+  "resolved_local_links": [
+    {
+      "source": "README.md",
+      "target": "docs/CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": "README.md",
+      "target": "VALIDATION.md"
+    },
+    {
+      "source": "README.md",
+      "target": "IMPLEMENTATION_STATUS.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REPRODUCING.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CONFIGURATION.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ALGORITHMS.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REPRODUCING.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/WP2_PHYSICAL_MODEL.md"
+    },
+    {
+      "source": "README.md",
+      "target": "IMPLEMENTATION_STATUS.md"
+    },
+    {
+      "source": "README.md",
+      "target": "VALIDATION.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/DELIVERY_MATRIX.md"
+    },
+    {
+      "source": "README.md",
+      "target": ".trellis/tasks/archive/2026-09/09-18-wp6-training-checkpoint-smoke/research/check-report.md"
+    },
+    {
+      "source": "README.md",
+      "target": ".trellis/tasks/archive/2026-09/09-18-wp7-paired-evaluation-reports/research/check-report.md"
+    },
+    {
+      "source": "VALIDATION.md",
+      "target": "docs/REPRODUCING.md"
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": "docs/CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": "VALIDATION.md"
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": "docs/DELIVERY_MATRIX.md"
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../src/pgvamp_ofdm/config.py"
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../configs/base.yaml"
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../src/pgvamp_ofdm/base.yaml"
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "ALGORITHMS.md"
+    },
+    {
+      "source": "docs/ALGORITHMS.md",
+      "target": "CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": "docs/ALGORITHMS.md",
+      "target": "../VALIDATION.md"
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../VALIDATION.md"
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "CONFIGURATION.md"
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "ALGORITHMS.md"
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../README.md"
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../README.md"
+    },
+    {
+      "source": "docs/DELIVERY_MATRIX.md",
+      "target": "CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": "docs/DELIVERY_MATRIX.md",
+      "target": "../VALIDATION.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "../../../docs/CODEX_ENGINEERING_SPEC.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "directory-structure.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "runtime-config.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "reproducibility.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "numerical-contracts.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "quality-guidelines.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp0-inspect-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp1-waveform-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp2-channel-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp3-data-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp4-detector-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp5-detector-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp6-training-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp7-evaluation-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "wp8-delivery-contract.md"
+    },
+    {
+      "source": ".trellis/spec/backend/index.md",
+      "target": "../guides/workflow-and-authority.md"
+    }
+  ],
+  "exact_test_anchors": [
+    "test_allocation.py::test_exact_indices_and_resource_partition",
+    "test_waveform.py::test_multibatch_fft_parseval_and_cp",
+    "test_waveform.py::test_complete_frame_rf_recovery_absolute_phase",
+    "test_wp2.py::test_static_limits",
+    "test_wp2.py::test_nonzero_physical_equivalence",
+    "test_wp2.py::test_nonzero_physical_equivalence",
+    "test_wp2.py::test_cp_boundaries_and_last_block",
+    "test_wp2.py::test_pilot_cancellation_and_noise",
+    "test_wp2.py::test_noise_statistics_and_identity_ber",
+    "test_wp2.py::test_noise_statistics_and_identity_ber",
+    "test_dataset.py::test_cross_process_replay",
+    "test_vamp.py::test_layerwise_cholesky_equivalence",
+    "test_pg_vamp.py::test_parameters_thresholds_graph",
+    "test_vamp.py::test_single_svd_per_call_no_cache_parameters_or_last_extrinsic",
+    "test_pg_vamp_properties.py::test_independent_safety_definition_energy_and_loewner",
+    "test_pg_vamp_properties.py::test_operator_objective_covariance_and_jacobian",
+    "test_pg_vamp.py::test_full_graph_exact_vamp",
+    "test_pg_vamp.py::test_limits_and_scale",
+    "test_vamp.py::test_identity_matches_scalar_qpsk_enumeration",
+    "test_reference.py::test_qpsk_against_four_point_enumeration",
+    "test_reference.py::test_message_protection_underflow_reject_and_cap",
+    "test_pg_vamp.py::test_weak_channel_and_zero_backward",
+    "test_pg_vamp_gradients.py::test_raw_parameters_gradcheck",
+    "test_pg_vamp.py::test_limits_and_scale",
+    "test_vamp.py::test_scale_invariance",
+    "test_devices.py::test_cpu_never_accesses_cuda",
+    "test_devices.py::test_requested_cuda_unavailable",
+    "test_checkpoint.py::test_prediction_roundtrip_from_live_model",
+    "test_training.py::test_strict_resume_epoch_tail_optimizer_rng",
+    "test_evaluation.py::test_preflight_checkpoint_population_and_target_isolation",
+    "test_statistics.py::test_hand_counts_energy_before_db_and_failures",
+    "test_smoke.py::test_hand_counts_and_incomplete_frame",
+    "test_statistics.py::test_bootstrap_exact_shared_frame_indices_and_fixed_seed",
+    "test_evaluation.py::test_failure_preserves_denominators",
+    "test_reporting.py::test_incomplete_failure_report_retains_denominator",
+    "test_pg_vamp.py::test_no_forbidden_apis",
+    "test_vamp.py::test_forbidden_calls_and_oracle_independence"
+  ],
+  "resume_overlay": "600 cumulative updates, otherwise identical cpu_dev defaults",
+  "reused_cli_evidence": [
+    {
+      "file": "training-cli-receipts.json",
+      "sha256": "da63dec2b3c9c0344cc2d50790f5f1f2c68b21ada96ae1d7a6cf8c8a34554e52",
+      "successful_commands": 11
+    },
+    {
+      "file": "evaluation-receipts.json",
+      "sha256": "0f7c2ff6dc5ae4e4e0a224776939f19e11c25df7d3b6f3638d1243ce6fab827b",
+      "successful_commands": 15
+    },
+    {
+      "file": "evaluation-report-receipts.json",
+      "sha256": "a4290591b27211f634dfdf9a0150e2347c4c0561fd08cc5225676a97c1bde1ab",
+      "successful_commands": 2
+    }
+  ],
+  "system_artifacts_rehashed": 54,
+  "reused_audit_hashes": {
+    "system-artifact-audit.json": "157501bdac4c7f002a40af17e231f2e493faf62efeab7ed4b1f29688f24a1252",
+    "evaluation-artifact-audit.json": "27f6336d4fdd5ef5bdd5327c211e69430a6f9c6c20bfd762760554ded9bf5e32",
+    "report-visual-review.json": "b2e29051744bc3c69be9c25b912fbcbc5f651c6c993836b530e86cecd7ca1036",
+    "evaluation-report-receipts.json": "a4290591b27211f634dfdf9a0150e2347c4c0561fd08cc5225676a97c1bde1ab"
+  },
+  "demo_visual_review": {
+    "status": "passed",
+    "method": "Reviewer directly viewed all four native PNGs",
+    "checks": [
+      "No blank or clipped panels",
+      "Complete TX/RX and selected LFM peak displayed",
+      "Noiseless real RF and oracle noisy IQ kept distinct",
+      "400x400 channel and unequallized receive constellation correctly labeled",
+      "Reference QPSK labeled audit only; no performance claims"
+    ],
+    "figures": [
+      {
+        "path": "runs\\wp8-check-demo-complex128\\figures\\channel_and_constellation.png",
+        "sha256": "46c60564db78e0e5d1c8bed5233f8798c60f50a14ece08fc8eb6dbc10e3233b7"
+      },
+      {
+        "path": "runs\\wp8-check-demo-complex128\\figures\\waveform_and_sync.png",
+        "sha256": "84ee8f3bb5bdef772eacfb4e50c57847a47db4b396ace371492640604e60995b"
+      },
+      {
+        "path": "runs\\wp8-check-demo-complex64\\figures\\channel_and_constellation.png",
+        "sha256": "22caf5eb162cdb3c8940e38f61dbaac0f4e2da6a2898559d1bf3654e58981e59"
+      },
+      {
+        "path": "runs\\wp8-check-demo-complex64\\figures\\waveform_and_sync.png",
+        "sha256": "cb64db6fde00b551db7afa19eeebfe3f0a7b2acc110851dac8d2107578b60a52"
+      }
+    ]
+  }
+}

@@ -1,0 +1,192 @@
+[
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "check",
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "started_utc": "2026-09-18T04:12:40.651998+00:00",
+    "completed_utc": "2026-09-18T04:12:40.746123+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "All checks passed!\n",
+    "stderr_text": "",
+    "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "format",
+      "--check",
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "started_utc": "2026-09-18T04:12:40.746204+00:00",
+    "completed_utc": "2026-09-18T04:12:40.840027+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "105 files already formatted\n",
+    "stderr_text": "",
+    "stdout_sha256": "1b2a949c4425b6097242b1e28a12a597d352c04edc11185a9a3012a5f542e9d6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "mypy",
+      "src"
+    ],
+    "started_utc": "2026-09-18T04:12:40.840081+00:00",
+    "completed_utc": "2026-09-18T04:12:42.158767+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "Success: no issues found in 67 source files\r\n",
+    "stderr_text": "",
+    "stdout_sha256": "bbb056d74047c9da539a491357402c09020761ff6911e560d1fc89951f972115",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "started_utc": "2026-09-18T04:12:42.158822+00:00",
+    "completed_utc": "2026-09-18T04:12:42.225660+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "",
+    "stderr_text": "warning: in the working copy of '.trellis/spec/backend/index.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'IMPLEMENTATION_STATUS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'VALIDATION.md', LF will be replaced by CRLF the next time Git touches it\n",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8fe1c0b9588082b55a894c65f670521e3bcedd73513fdb3f87a74b1909225baa"
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:12:42.225717+00:00",
+    "completed_utc": "2026-09-18T04:12:44.746438+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "[\r\n  {\r\n    \"dtype\": \"complex128\",\r\n    \"status\": \"passed\",\r\n    \"directory\": \"runs\\\\wp8-check-demo-complex128\",\r\n    \"numpy_fft_max_relative_error\": 4.5908142877237e-12,\r\n    \"numpy_pilot_max_relative_error\": 2.762421639749034e-16,\r\n    \"numpy_noise_max_relative_error\": 4.513773598708569e-12,\r\n    \"cp_max_absolute_error\": 2.4447084509668437e-11,\r\n    \"sync_peak\": 2592,\r\n    \"sync_score\": 0.326559430098466,\r\n    \"earliest_lfm_start\": 2379.4039961580875,\r\n    \"recording_samples\": 93248,\r\n    \"receipt_sha256\": \"e3a85c958960d3f3881c664ba8782ae9d7cb451fce1f2d14d588c7d012b7fb9c\",\r\n    \"iq_noise_variance_real_observed\": 0.049978676568416654,\r\n    \"iq_noise_variance_imag_observed\": 0.04994904244647427,\r\n    \"noise_statistics_scope\": \"descriptive single frame; statistical acceptance resides in test_wp2\"\r\n  },\r\n  {\r\n    \"dtype\": \"complex64\",\r\n    \"status\": \"passed\",\r\n    \"directory\": \"runs\\\\wp8-check-demo-complex64\",\r\n    \"numpy_fft_max_relative_error\": 4.590764939894371e-12,\r\n    \"numpy_pilot_max_relative_error\": 1.0479287482212385e-07,\r\n    \"numpy_noise_max_relative_error\": 2.8100467398947747e-07,\r\n    \"cp_max_absolute_error\": 1.6578961639445356e-11,\r\n    \"sync_peak\": 2592,\r\n    \"sync_score\": 0.3265594306163279,\r\n    \"earliest_lfm_start\": 2379.4039961580875,\r\n    \"recording_samples\": 93248,\r\n    \"receipt_sha256\": \"36c20c350906234943af8f4cbb26275ee16321cff1079102d7c56bf8516602e9\",\r\n    \"iq_noise_variance_real_observed\": 0.049978676568416654,\r\n    \"iq_noise_variance_imag_observed\": 0.04994904244647427,\r\n    \"noise_statistics_scope\": \"descriptive single frame; statistical acceptance resides in test_wp2\"\r\n  }\r\n]\r\n",
+    "stderr_text": "",
+    "stdout_sha256": "ea6585187446558e4d18ad7ee1285ccbe8ae1501cf4d406f10b8cdf130c15986",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:12:44.746505+00:00",
+    "completed_utc": "2026-09-18T04:12:45.058401+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "{\"status\": \"passed\", \"links\": 47, \"test_anchors\": 37, \"authority_reference_files\": 5, \"system_artifacts_rehashed\": 54}\r\n",
+    "stderr_text": "",
+    "stdout_sha256": "d48c1e83f7b16dde55e74631b0d6313b1f9dbbfd11a9df69b3c971c65c97d4ff",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "check",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_run.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:12:45.058478+00:00",
+    "completed_utc": "2026-09-18T04:12:45.153393+00:00",
+    "exit_code": 1,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py:147:101: E501 Line too long (109 > 100)\n    |\n145 |             \"iq_noise_variance_real_observed\": float(noise.real.var()),\n146 |             \"iq_noise_variance_imag_observed\": float(noise.imag.var()),\n147 |             \"noise_statistics_scope\": \"descriptive single frame; statistical acceptance resides in test_wp2\",\n    |                                                                                                     ^^^^^^^^^ E501\n148 |         }\n149 |     )\n    |\n\nFound 1 error.\n",
+    "stderr_text": "",
+    "stdout_sha256": "85f715837c1a82c53cc1b389b17e89d207f8f8fa2fcc84bf493e13bba5569471",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "format",
+      "--check",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_run.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:12:45.153468+00:00",
+    "completed_utc": "2026-09-18T04:12:45.243193+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "3 files already formatted\n",
+    "stderr_text": "",
+    "stdout_sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:13:19.909105+00:00",
+    "completed_utc": "2026-09-18T04:13:20.226711+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "{\"status\": \"passed\", \"links\": 47, \"test_anchors\": 37, \"authority_reference_files\": 5, \"system_artifacts_rehashed\": 54}\r\n",
+    "stderr_text": "",
+    "stdout_sha256": "d48c1e83f7b16dde55e74631b0d6313b1f9dbbfd11a9df69b3c971c65c97d4ff",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "check",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_run.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:13:20.226793+00:00",
+    "completed_utc": "2026-09-18T04:13:20.324663+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "All checks passed!\n",
+    "stderr_text": "",
+    "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "ruff",
+      "format",
+      "--check",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_run.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_demo_audit.py",
+      ".trellis\\tasks\\09-18-wp8-complete-delivery\\research\\check_delivery_audit.py"
+    ],
+    "started_utc": "2026-09-18T04:13:20.324722+00:00",
+    "completed_utc": "2026-09-18T04:13:20.421939+00:00",
+    "exit_code": 0,
+    "MKL_THREADING_LAYER": "TBB",
+    "stdout_text": "3 files already formatted\n",
+    "stderr_text": "",
+    "stdout_sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

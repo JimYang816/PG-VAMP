@@ -1,0 +1,27 @@
+[
+  {
+    "path": "docs/CODEX_ENGINEERING_SPEC.md",
+    "sha256": "a159d20380d4f48785fac15a02b20247d681b4e078a9dd7f8046fdd1f66ac47b",
+    "matches_HEAD_normalized": true
+  },
+  {
+    "path": "src/pgvamp_ofdm/reference/dense_pg_vamp.py",
+    "sha256": "a37c559f6e0757ae420ef7a0e052f8a8078ddcd1390ee7941e73cc95c59a954e",
+    "matches_HEAD_normalized": true
+  },
+  {
+    "path": "src/pgvamp_ofdm/reference/dense_vamp_cholesky.py",
+    "sha256": "31f3fa63d5550eb7debffd108e7493cf4e314fce6a44731db2148c9fef2a4932",
+    "matches_HEAD_normalized": true
+  },
+  {
+    "path": "src/pgvamp_ofdm/reference/result.py",
+    "sha256": "8d195d789f9209bb826736278c1e1b19d1765f5dca2b66c02e8ab325eb206e78",
+    "matches_HEAD_normalized": true
+  },
+  {
+    "path": "src/pgvamp_ofdm/reference/__init__.py",
+    "sha256": "2632a5d1823d7c9b1d5fe29792b89318ea00a75282f7d8f3914aa5c94937ddf9",
+    "matches_HEAD_normalized": true
+  }
+]

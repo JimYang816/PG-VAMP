@@ -114,6 +114,14 @@ def main(argv: list[str] | None = None) -> int:
     smoke_parser.add_argument("--dtype")
     smoke_parser.add_argument("--seed", type=int)
     smoke_parser.add_argument("--output", type=Path)
+    demo_parser = sub.add_parser(
+        "demo-frame", help="one complete physical waveform and receive audit"
+    )
+    demo_parser.add_argument("--config", type=Path, required=True)
+    demo_parser.add_argument("--device", default="cpu")
+    demo_parser.add_argument("--dtype")
+    demo_parser.add_argument("--seed", type=int)
+    demo_parser.add_argument("--output", type=Path, required=True)
     for command in ("evaluate", "benchmark"):
         evaluation = sub.add_parser(
             command,
@@ -191,6 +199,24 @@ def main(argv: list[str] | None = None) -> int:
             )
             return 0
         config = load_config(args.config, device=args.device, dtype=args.dtype)
+        if args.command == "demo-frame":
+            from .demo import demo_frame
+
+            if args.seed is not None:
+                if args.seed < 0:
+                    raise ValueError("seed must be nonnegative")
+                config.values["seed"] = args.seed
+            print(
+                json.dumps(
+                    demo_frame(
+                        config,
+                        args.output,
+                        argv=argv if argv is not None else __import__("sys").argv,
+                    ),
+                    allow_nan=False,
+                )
+            )
+            return 0
         if args.command in ("evaluate", "benchmark"):
             from .evaluation.runner import benchmark, evaluate
             from .evaluation.timing import MODES

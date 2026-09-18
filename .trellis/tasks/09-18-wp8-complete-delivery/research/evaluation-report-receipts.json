@@ -1,0 +1,35 @@
+[
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "report",
+      "--results",
+      "runs\\wp8-evaluation-acceptance\\evaluation1"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 4.973564699997951,
+    "stdout": "{\"output\": \"D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\wp8-evaluation-acceptance\\\\evaluation1\", \"source_runs\": [\"7ca5981e65124fee91ae67c7f8f43f69\"], \"figures\": [\"ber_affine_doppler_moderate.png\", \"ser_affine_doppler_moderate.png\", \"nmse_affine_doppler_moderate.png\", \"latency.png\", \"stability.png\", \"learned_thresholds.png\", \"learned_mu.png\", \"effective_edges.png\", \"channel_ici_example.png\", \"waveform_and_sync_check.png\"], \"seed_summary\": [], \"status\": \"complete\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "D:\\SCI\\code\\PG-VAMP\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pgvamp_ofdm",
+      "report",
+      "--results",
+      "runs\\wp8-evaluation-acceptance\\evaluation1",
+      "runs\\wp8-evaluation-acceptance\\evaluation2",
+      "--output",
+      "runs\\wp8-evaluation-acceptance\\combined-report"
+    ],
+    "cwd": "D:\\SCI\\code\\PG-VAMP",
+    "exit_code": 0,
+    "elapsed_seconds": 5.583591599999636,
+    "stdout": "{\"output\": \"D:\\\\SCI\\\\code\\\\PG-VAMP\\\\runs\\\\wp8-evaluation-acceptance\\\\combined-report\", \"source_runs\": [\"7ca5981e65124fee91ae67c7f8f43f69\", \"3fc4e414410b47c980b3662ed660d025\"], \"figures\": [\"ber_affine_doppler_moderate.png\", \"ser_affine_doppler_moderate.png\", \"nmse_affine_doppler_moderate.png\", \"latency.png\", \"stability.png\", \"learned_thresholds.png\", \"learned_mu.png\", \"effective_edges.png\", \"channel_ici_example.png\", \"waveform_and_sync_check.png\"], \"seed_summary\": [{\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"0.0\", \"metric\": \"ber\", \"train_seeds\": 2, \"mean\": 0.185625, \"sample_std\": 0.0, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"0.0\", \"metric\": \"ser\", \"train_seeds\": 2, \"mean\": 0.326875, \"sample_std\": 0.0, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"0.0\", \"metric\": \"nmse_linear\", \"train_seeds\": 2, \"mean\": 0.5244944688717083, \"sample_std\": 6.137423318234481e-07, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"0.0\", \"metric\": \"fer\", \"train_seeds\": 2, \"mean\": 1.0, \"sample_std\": 0.0, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"10.0\", \"metric\": \"ber\", \"train_seeds\": 2, \"mean\": 0.0275, \"sample_std\": 0.0, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"10.0\", \"metric\": \"ser\", \"train_seeds\": 2, \"mean\": 0.0496875, \"sample_std\": 0.0, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"10.0\", \"metric\": \"nmse_linear\", \"train_seeds\": 2, \"mean\": 0.10801704061509042, \"sample_std\": 5.833797645500206e-07, \"status\": \"complete\"}, {\"algorithm\": \"PG-VAMP-VC\", \"scenario\": \"affine_doppler_moderate\", \"esn0_db\": \"10.0\", \"metric\": \"fer\", \"train_seeds\": 2, \"mean\": 1.0, \"sample_std\": 0.0, \"status\": \"complete\"}], \"status\": \"complete\"}\n",
+    "stderr": ""
+  }
+]

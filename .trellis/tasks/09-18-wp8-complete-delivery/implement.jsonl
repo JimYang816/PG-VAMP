@@ -1,0 +1,7 @@
+{"file": ".trellis/tasks/09-18-wp8-complete-delivery/research/source-excerpts.md", "reason": "源规格 WP8/CLI/测试/报告原文摘录及完整规格读取要求；避免注入截断。"}
+{"file": ".trellis/spec/guides/workflow-and-authority.md", "reason": "WP 顺序和证据边界。"}
+{"file": ".trellis/spec/backend/quality-guidelines.md", "reason": "独立验证、完整尺寸和真实报告。"}
+{"file": ".trellis/spec/backend/wp6-training-contract.md", "reason": "复用 smoke/checkpoint/resume 合同。"}
+{"file": ".trellis/spec/backend/wp7-evaluation-contract.md", "reason": "评测计时报告接口和结论边界。"}
+{"file": ".trellis/tasks/09-18-wp8-complete-delivery/research/planning-evidence.md", "reason": "已核对缺口与本轮边界。"}
+{"file": ".trellis/spec/backend/wp8-delivery-contract.md", "reason": "新增 demo-frame、持久化证据和交付验收的可执行合同。"}

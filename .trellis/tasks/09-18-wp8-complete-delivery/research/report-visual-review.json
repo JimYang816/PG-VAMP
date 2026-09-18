@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "Coordinator visual inspection of all ten fresh single-run figures using two contact sheets; review of single/combined report assumptions and scale.",
+  "checks": [
+    "No blank/placeholder panels or clipped titles",
+    "Few-frame/unstable-inference scale visible",
+    "BER/SER/linear NMSE titles and axes correct",
+    "Cold-H and amortized timing separated with CPU/dtype/thread/warmup/repeat metadata",
+    "Persisted initial/evaluated thresholds and mu plotted",
+    "Measured LFM peak distinct from expected arrival+leading silence; oracle timing stated",
+    "Saved-array curves, not main performance claims"
+  ],
+  "figures": [
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/ber_affine_doppler_moderate.png",
+      "sha256": "c4d55d7d52278865a46a34623cc3d53628fc56df1158206ec3512fb2a21eb02b"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/channel_ici_example.png",
+      "sha256": "6fa226ba92656fdd6a66b8ae7d2fe77fdde8875afd13b871958af3e7fb5fb3a3"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/effective_edges.png",
+      "sha256": "9b16ffa317b8d481c80af0e8c3d2e30566b1fe2fbf210f742be70a2fbb56ddf4"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/latency.png",
+      "sha256": "e98edeb4a5c9321b55f9ecd6d2fceffd77193bc89177e5bd1ac83d2a49259930"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/learned_mu.png",
+      "sha256": "b3b2657c5c36437bd2198d1f8aff3e2325acbecfbc1fe62a22e6cf3d1b72474a"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/learned_thresholds.png",
+      "sha256": "90fa559f3b5d7c18fa44a16cb5da083ad20ddb4d0e96b1cfb6421245cd350ccc"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/nmse_affine_doppler_moderate.png",
+      "sha256": "02df63fdebd318c44e0169621fa89ad0c225b869788d163d3f7ff22ad5c95d15"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/ser_affine_doppler_moderate.png",
+      "sha256": "922e58195c05772024fae05efa573a71441738e85d3a6dffa4c34d0c0d82aa97"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/stability.png",
+      "sha256": "9b64dab3ac678636db4ab1cdace789e7596f78dcfd79135737595c7aa7c4592f"
+    },
+    {
+      "path": "runs/wp8-evaluation-acceptance/evaluation1/figures/waveform_and_sync_check.png",
+      "sha256": "6d442c9339e4ef9b50b14b59010bf0270cd87b2638ec38e94715d5333251de41"
+    }
+  ]
+}

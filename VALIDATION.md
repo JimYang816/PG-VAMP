@@ -1,5 +1,69 @@
 # Validation record
 
+## WP8 fresh bounded CPU delivery validation — 2026-09-18
+
+WP8 implementation and independent final verification passed.
+Fresh execution on Windows/Python 3.13.9/PyTorch 2.12.0+cpu used
+`MKL_THREADING_LAYER=TBB` before Python startup and four CPU threads.
+
+Final full suite: **486 passed, 7 CUDA skipped in 111.41 s**. Ruff lint and format
+checks over `src tests scripts` pass (105 formatted files); mypy reports no issues
+in 67 source files. `git diff --check` passes. The independent review corrected
+the reproduction recipe to increase cumulative `max_steps` before resuming a
+completed run; strict resume rejects a no-op at its already reached step limit.
+
+Both fresh CPU `demo-frame` CLI commands (complex128 and complex64) passed at
+`runs/wp8-check-demo-complex128` and `runs/wp8-check-demo-complex64`. Independent
+NumPy reconstruction checked all eight received FFT windows, pilot cancellation,
+noise residuals, CP endpoints, all-lag normalized LFM correlation and all artifact
+hashes. Separate tests reconstructed recorded random streams with Torch generators.
+Maximum waveform/H relative error is about
+**4.59e-12**; explicit complex64 pilot/noise normwise discrepancies are about
+1.05e-7 / 2.81e-7. Both precisions retain the unchanged double reference gate.
+Four demo figures were independently inspected; the coordinator also inspected
+the double figures. LFM uses noiseless real RF, separately from noisy ideal-IQ
+oracle reception. The selected peak (2592) is not the earliest physical LFM
+support (~2379.404) or frame origin (267); it never controls the FFT windows.
+
+| Actual command (using `.venv/Scripts/python.exe`) | Result |
+| --- | --- |
+| `scripts/wp6_acceptance.py --output runs/wp8-training-acceptance` | 11/11 subprocess commands exit 0 |
+| `scripts/wp7_acceptance.py --output runs/wp8-evaluation-acceptance` | 15/15 subprocess commands exit 0 |
+| `scripts/wp7_acceptance.py --output runs/wp8-evaluation-acceptance --reports-only` | 2/2 report commands exit 0 |
+
+The training harness includes complex128/complex64 mathematical smoke, full
+512/400/8192/CP2048/eight-block/T8 system smoke with two PG updates, generation,
+waveform audit, training/resume to four updates, no-label export and inference.
+The evaluation harness includes two two-update training seeds, shared physical
+test samples, both timing protocols and single/combined persisted reports.
+Each evaluation has one independent frame per 0/10 dB cell, moderate Doppler,
+and only three timing repeats. These sizes exercise functionality, not adequate
+comparative statistics or performance conclusions.
+
+Independent saved-system audit rehashed inputs/checkpoints, verified exactly
+16 trainable scalars/two smoke updates, recomputed all error counts/energies,
+checked all eight block IDs and checkpoint/inference predictions, and performed
+NumPy FFT/pilot cancellation on saved received waveforms. Maximum waveform/H
+relative error: **1.1310709079623577e-11** (<1e-9). All three algorithms used the
+same input hash. A separate stdlib evaluation audit rehashed 13 files in each
+bundle and independently recounted all six aggregate cells from frame rows.
+All ten single-run report figures were visually inspected for data, labeling,
+scale, timing and synchronization boundaries.
+
+Versioned receipts, executable independent audits and hashes are under
+`.trellis/tasks/archive/2026-09/09-18-wp8-complete-delivery/research/`: training-cli-receipts.json,
+evaluation-receipts.json, evaluation-report-receipts.json, system-artifact-audit.json,
+evaluation-artifact-audit.json and report-visual-review.json.
+The engineering specification and independent references retain their baseline
+content; see authority-reference-baseline.json. New demo/full-suite/checker
+results are recorded in check-command-receipts.json (embedded stdout/stderr),
+check-demo-artifact-audit.json and check-report.md, not inferred from WP7.
+
+Main training, powered complete SNR sweeps, sufficient multi-seed statistics,
+CUDA numerical/timing experiments, ablations and real-world superiority remain
+**未执行**. The documented [reproduction commands](docs/REPRODUCING.md) distinguish
+future workloads from these actual bounded checks.
+
 ## WP7 independent final validation — 2026-09-18
 
 Final full regression: **478 passed, 7 CUDA skipped in 95.52 s**. Product Ruff

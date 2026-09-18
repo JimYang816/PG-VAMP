@@ -1,0 +1,145 @@
+{
+  "status": "passed",
+  "links": [
+    {
+      "source": "README.md",
+      "target": "docs/CODEX_ENGINEERING_SPEC.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "IMPLEMENTATION_STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REPRODUCING.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CONFIGURATION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ALGORITHMS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REPRODUCING.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/WP2_PHYSICAL_MODEL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "IMPLEMENTATION_STATUS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": ".trellis/tasks/archive/2026-09/09-18-wp6-training-checkpoint-smoke/research/check-report.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": ".trellis/tasks/archive/2026-09/09-18-wp7-paired-evaluation-reports/research/check-report.md",
+      "exists": true
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": "docs/CODEX_ENGINEERING_SPEC.md",
+      "exists": true
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": "VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "IMPLEMENTATION_STATUS.md",
+      "target": ".trellis/tasks/09-18-wp8-complete-delivery/research/delivery-matrix.md",
+      "exists": true
+    },
+    {
+      "source": "VALIDATION.md",
+      "target": "docs/REPRODUCING.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "CODEX_ENGINEERING_SPEC.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../src/pgvamp_ofdm/config.py",
+      "exists": true
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../configs/base.yaml",
+      "exists": true
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "../src/pgvamp_ofdm/base.yaml",
+      "exists": true
+    },
+    {
+      "source": "docs/CONFIGURATION.md",
+      "target": "ALGORITHMS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/ALGORITHMS.md",
+      "target": "CODEX_ENGINEERING_SPEC.md",
+      "exists": true
+    },
+    {
+      "source": "docs/ALGORITHMS.md",
+      "target": "../VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "CONFIGURATION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "ALGORITHMS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/REPRODUCING.md",
+      "target": "../README.md",
+      "exists": true
+    }
+  ]
+}
