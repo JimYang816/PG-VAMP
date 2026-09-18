@@ -141,3 +141,39 @@ Implemented full-H Cholesky MMSE and exact SVD VAMP with shared QPSK/message pro
 ### Status
 
 [OK] **Completed**
+
+
+## Session 6: WP5 PG-VAMP implementation and independent acceptance
+<!-- trellis-session: v=2 fp=c6cb29c12ac112fe -->
+
+**Date**: 2026-09-18
+**Task**: WP5 PG-VAMP implementation and independent acceptance
+**Branch**: `codex/wp5-pg-vamp-math-contract`
+
+### Summary
+
+Completed production PG-VAMP with exactly 2T real parameters, independent mathematical and physical verification, reviewed weak-channel backward repairs, and user-approved commit/archive. WP6 remains unstarted.
+
+### Main Changes
+
+- Added topology, majorizer, linear and model modules with shared production posterior/message protections.
+- Independent review repaired weak-channel quotient backward and scaled safety diagnostics; separately reviewed oracle arithmetic repair preserves independence.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `877fccaa5b9d4f2ff7f3763a69b4ace55ecef196` | feat: 完成 WP5 PG-VAMP 数学合同与独立验收 |
+
+### Testing
+
+- [OK] 376 passed, 6 CUDA skipped; Ruff lint/format and mypy passed.
+- [OK] Independent NumPy maximum error 1.0303e-13; shared physical 400-dimensional inputs and complete prediction label isolation passed; 72 final source hashes verified.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- Await explicit user request for WP6 planning; training, checkpoint and full system smoke remain unexecuted.
